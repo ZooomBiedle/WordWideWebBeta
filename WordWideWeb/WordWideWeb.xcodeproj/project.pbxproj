@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A8447132BF3590300AE319A /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8447102BF3590300AE319A /* Formatter.swift */; };
+		2A8447142BF3590300AE319A /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8447112BF3590300AE319A /* Numeric.swift */; };
 		F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB8F2BF329980075BA50 /* AppDelegate.swift */; };
 		F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB912BF329980075BA50 /* SceneDelegate.swift */; };
 		F410EB942BF329980075BA50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB932BF329980075BA50 /* ViewController.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A8447102BF3590300AE319A /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		2A8447112BF3590300AE319A /* Numeric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Numeric.swift; sourceTree = "<group>"; };
 		F410EB8C2BF329980075BA50 /* WordWideWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordWideWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F410EB8F2BF329980075BA50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F410EB912BF329980075BA50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,10 +35,10 @@
 		F410EB9B2BF3299A0075BA50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F410EB9D2BF3299A0075BA50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F410EBA82BF32BC20075BA50 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		F410EBB02BF340250075BA50 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraLight.otf"; path = "../../../../../../Downloads/Pretendard-1.3.9 (2)/public/static/Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
-		F410EBB12BF3402B0075BA50 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Regular.otf"; path = "../../../../../../Downloads/Pretendard-1.3.9 (2)/public/static/Pretendard-Regular.otf"; sourceTree = "<group>"; };
-		F410EBB22BF340320075BA50 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-SemiBold.otf"; path = "../../../../../../Downloads/Pretendard-1.3.9 (2)/public/static/Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
-		F410EBB32BF3403A0075BA50 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraBold.otf"; path = "../../../../../../Downloads/Pretendard-1.3.9 (2)/public/static/Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		F410EBB02BF340250075BA50 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraLight.otf"; path = "../../../../Desktop/Pretendard-1.3.9 (2)/public/static/Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		F410EBB12BF3402B0075BA50 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Regular.otf"; path = "../../../../Desktop/Pretendard-1.3.9 (2)/public/static/Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		F410EBB22BF340320075BA50 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-SemiBold.otf"; path = "../../../../Desktop/Pretendard-1.3.9 (2)/public/static/Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		F410EBB32BF3403A0075BA50 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraBold.otf"; path = "../../../../Desktop/Pretendard-1.3.9 (2)/public/static/Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		F410EBB42BF343560075BA50 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +76,6 @@
 		F410EB8E2BF329980075BA50 /* WorldWordWeb */ = {
 			isa = PBXGroup;
 			children = (
-				F410EBAC2BF33F3A0075BA50 /* Font */,
 				F410EBA72BF32B800075BA50 /* Component */,
 				F410EBA62BF329DD0075BA50 /* Extension */,
 				F410EBA52BF329D60075BA50 /* Model */,
@@ -82,9 +85,10 @@
 				F410EB912BF329980075BA50 /* SceneDelegate.swift */,
 				F410EB932BF329980075BA50 /* ViewController.swift */,
 				F410EB952BF329980075BA50 /* Main.storyboard */,
-				F410EB982BF3299A0075BA50 /* Assets.xcassets */,
 				F410EB9A2BF3299A0075BA50 /* LaunchScreen.storyboard */,
+				F410EB982BF3299A0075BA50 /* Assets.xcassets */,
 				F410EB9D2BF3299A0075BA50 /* Info.plist */,
+				F410EBAC2BF33F3A0075BA50 /* Font */,
 			);
 			name = WorldWordWeb;
 			path = WordWideWeb;
@@ -116,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				F410EBB42BF343560075BA50 /* UIFont+Ext.swift */,
+				2A8447102BF3590300AE319A /* Formatter.swift */,
+				2A8447112BF3590300AE319A /* Numeric.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -135,7 +141,8 @@
 				F410EBB22BF340320075BA50 /* Pretendard-SemiBold.otf */,
 				F410EBB32BF3403A0075BA50 /* Pretendard-ExtraBold.otf */,
 			);
-			path = Font;
+			name = Font;
+			path = "../../../../../Desktop/Pretendard-1.3.9 (2)/public/static";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +226,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A8447132BF3590300AE319A /* Formatter.swift in Sources */,
 				F410EBA92BF32BC20075BA50 /* NetworkManager.swift in Sources */,
 				F410EB942BF329980075BA50 /* ViewController.swift in Sources */,
 				F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */,
+				2A8447142BF3590300AE319A /* Numeric.swift in Sources */,
 				F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */,
 				F410EBB52BF343560075BA50 /* UIFont+Ext.swift in Sources */,
 			);
@@ -391,6 +400,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.WordWideWeb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -420,6 +432,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.WordWideWeb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
