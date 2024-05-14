@@ -18,7 +18,6 @@ struct AuthDataResultModel {
         self.uid = user.uid
         self.email = user.email
         self.photoUrl = user.photoURL?.absoluteString
-        
     }
 }
 
@@ -33,12 +32,25 @@ final class AuthenticationManager {
         }
         return AuthDataResultModel(user: user)
     }
-}
 
-// MARK: SIGN IN EMAIL
+    // 변경된 이메일 중복 확인 메서드
+    func checkEmailExists(email: String) async -> Bool {
+        do {
+            _ = try await Auth.auth().createUser(withEmail: email, password: "temporaryPassword")
+            // 임시 사용자가 생성되면 삭제
+            let user = Auth.auth().currentUser
+            try await user?.delete()
+            return false
+        } catch let error as NSError {
+            if let errorCode = AuthErrorCode.Code(rawValue: error.code), errorCode == .emailAlreadyInUse {
+                return true
+            } else {
+                // 다른 에러 발생 시 false 반환
+                return false
+            }
+        }
+    }
 
-extension AuthenticationManager {
-    
     @discardableResult
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
