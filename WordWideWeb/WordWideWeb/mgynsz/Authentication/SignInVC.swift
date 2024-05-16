@@ -31,6 +31,18 @@ class SignInVC: UIViewController {
         return button
     }()
     
+    private let autoLoginToggle: UISwitch = {
+        let toggle = UISwitch()
+        toggle.isOn = UserDefaults.standard.isAutoLoginEnabled
+        return toggle
+    }()
+    
+    private let autoLoginLabel: UILabel = {
+        let label = UILabel()
+        label.text = "자동 로그인"
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -41,6 +53,8 @@ class SignInVC: UIViewController {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(signInButton)
+        view.addSubview(autoLoginLabel)
+        view.addSubview(autoLoginToggle)
         
         emailTextField.snp.makeConstraints { make in
             make.centerX.equalTo(view)
@@ -59,9 +73,20 @@ class SignInVC: UIViewController {
             make.top.equalTo(passwordTextField.snp.bottom).offset(20)
         }
         
-        // 여기서 addTarget을 설정합니다.
+        autoLoginLabel.snp.makeConstraints { make in
+            make.top.equalTo(signInButton.snp.bottom).offset(20)
+            make.right.equalTo(autoLoginToggle.snp.left).offset(-10)
+        }
+        
+        autoLoginToggle.snp.makeConstraints { make in
+            make.centerY.equalTo(autoLoginLabel)
+            make.left.equalTo(autoLoginLabel.snp.right).offset(10)
+        }
+        
         signInButton.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
+        autoLoginToggle.addTarget(self, action: #selector(autoLoginToggled(_:)), for: .valueChanged)
     }
+
     
     @objc private func signInTapped() {
         guard let email = emailTextField.text, !email.isEmpty,
@@ -74,15 +99,24 @@ class SignInVC: UIViewController {
             do {
                 let user = try await AuthenticationManager.shared.signInUser(email: email, password: password)
                 print("Signed in user: \(user.uid)")
-                
-                // ViewController로 이동하는 코드 추가
-                let mainVC = ViewController() // ViewController를 실제 이름으로 변경하세요
-                mainVC.modalPresentationStyle = .fullScreen
-                self.present(mainVC, animated: true, completion: nil)
-                
+                if autoLoginToggle.isOn {
+                    UserDefaults.standard.isLoggedIn = true
+                }
+                UserDefaults.standard.isAutoLoginEnabled = autoLoginToggle.isOn
+                navigateToMainViewController()
             } catch {
                 print("Error signing in: \(error.localizedDescription)")
             }
         }
+    }
+    
+    @objc private func autoLoginToggled(_ sender: UISwitch) {
+        UserDefaults.standard.isAutoLoginEnabled = sender.isOn
+    }
+    
+    private func navigateToMainViewController() {
+        let mainVC = ViewController()
+        mainVC.modalPresentationStyle = .fullScreen
+        present(mainVC, animated: true, completion: nil)
     }
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A511B152BF5FCFB00CDA177 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A511B142BF5FCFB00CDA177 /* UserDefaults.swift */; };
+		2A511B182BF61A2D00CDA177 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A511B172BF61A2D00CDA177 /* GoogleService-Info.plist */; };
+		2A511B1A2BF625D400CDA177 /* SignInWithAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A511B192BF625D400CDA177 /* SignInWithAppleHelper.swift */; };
+		2A511B1E2BF668E400CDA177 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A511B1D2BF668E400CDA177 /* UIApplication.swift */; };
 		2A8447132BF3590300AE319A /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8447102BF3590300AE319A /* Formatter.swift */; };
 		2A8447142BF3590300AE319A /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8447112BF3590300AE319A /* Numeric.swift */; };
 		2A8447192BF3631100AE319A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2A8447182BF3631100AE319A /* FirebaseAnalytics */; };
@@ -28,7 +32,6 @@
 		2AA413D92BF3D17100C34FEB /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 2AA413D82BF3D17100C34FEB /* GoogleSignIn */; };
 		2AA413DB2BF3D17100C34FEB /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2AA413DA2BF3D17100C34FEB /* GoogleSignInSwift */; };
 		2AA413DD2BF3D1D400C34FEB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA413DC2BF3D1D400C34FEB /* Utilities.swift */; };
-		2AA413DF2BF3D5AA00C34FEB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AA413DE2BF3D5AA00C34FEB /* GoogleService-Info.plist */; };
 		F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB8F2BF329980075BA50 /* AppDelegate.swift */; };
 		F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB912BF329980075BA50 /* SceneDelegate.swift */; };
 		F410EB942BF329980075BA50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB932BF329980075BA50 /* ViewController.swift */; };
@@ -44,6 +47,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A511B142BF5FCFB00CDA177 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		2A511B162BF618B500CDA177 /* WordWideWeb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = WordWideWeb.entitlements; path = WordWideWeb/WordWideWeb.entitlements; sourceTree = "<group>"; };
+		2A511B172BF61A2D00CDA177 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2A511B192BF625D400CDA177 /* SignInWithAppleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleHelper.swift; sourceTree = "<group>"; };
+		2A511B1D2BF668E400CDA177 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		2A8447102BF3590300AE319A /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		2A8447112BF3590300AE319A /* Numeric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Numeric.swift; sourceTree = "<group>"; };
 		2A8447312BF36B3800AE319A /* AuthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVC.swift; sourceTree = "<group>"; };
@@ -52,7 +60,6 @@
 		2A8447372BF3850C00AE319A /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		2AA413D52BF3D14100C34FEB /* SignInGoogleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInGoogleHelper.swift; sourceTree = "<group>"; };
 		2AA413DC2BF3D1D400C34FEB /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		2AA413DE2BF3D5AA00C34FEB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F410EB8C2BF329980075BA50 /* WordWideWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordWideWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F410EB8F2BF329980075BA50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F410EB912BF329980075BA50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,10 +123,13 @@
 			isa = PBXGroup;
 			children = (
 				2A8447312BF36B3800AE319A /* AuthenticationVC.swift */,
+				2A511B192BF625D400CDA177 /* SignInWithAppleHelper.swift */,
 				2A8447332BF36B9400AE319A /* SignUpVC.swift */,
 				2A8447372BF3850C00AE319A /* SignInVC.swift */,
 				2A8447352BF36BD600AE319A /* AuthenticationManager.swift */,
 				2AA413D52BF3D14100C34FEB /* SignInGoogleHelper.swift */,
+				2A511B1D2BF668E400CDA177 /* UIApplication.swift */,
+				2A511B142BF5FCFB00CDA177 /* UserDefaults.swift */,
 				2AA413DC2BF3D1D400C34FEB /* Utilities.swift */,
 			);
 			path = Authentication;
@@ -128,6 +138,7 @@
 		F410EB832BF329980075BA50 = {
 			isa = PBXGroup;
 			children = (
+				2A511B162BF618B500CDA177 /* WordWideWeb.entitlements */,
 				F410EB8E2BF329980075BA50 /* WorldWordWeb */,
 				F410EB8D2BF329980075BA50 /* Products */,
 				2A84472E2BF3694000AE319A /* Frameworks */,
@@ -157,7 +168,7 @@
 				F410EB9A2BF3299A0075BA50 /* LaunchScreen.storyboard */,
 				F410EB982BF3299A0075BA50 /* Assets.xcassets */,
 				F410EB9D2BF3299A0075BA50 /* Info.plist */,
-				2AA413DE2BF3D5AA00C34FEB /* GoogleService-Info.plist */,
+				2A511B172BF61A2D00CDA177 /* GoogleService-Info.plist */,
 				F410EBA62BF329DD0075BA50 /* Extension */,
 				F410EBAC2BF33F3A0075BA50 /* Font */,
 			);
@@ -302,7 +313,7 @@
 				F410EB9C2BF3299A0075BA50 /* LaunchScreen.storyboard in Resources */,
 				F410EB992BF3299A0075BA50 /* Assets.xcassets in Resources */,
 				F410EB972BF329980075BA50 /* Main.storyboard in Resources */,
-				2AA413DF2BF3D5AA00C34FEB /* GoogleService-Info.plist in Resources */,
+				2A511B182BF61A2D00CDA177 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A511B1E2BF668E400CDA177 /* UIApplication.swift in Sources */,
 				2A8447132BF3590300AE319A /* Formatter.swift in Sources */,
 				2A8447342BF36B9400AE319A /* SignUpVC.swift in Sources */,
 				F410EBA92BF32BC20075BA50 /* NetworkManager.swift in Sources */,
@@ -321,10 +333,12 @@
 				2AA413D62BF3D14100C34FEB /* SignInGoogleHelper.swift in Sources */,
 				2A8447382BF3850C00AE319A /* SignInVC.swift in Sources */,
 				2A8447322BF36B3800AE319A /* AuthenticationVC.swift in Sources */,
+				2A511B1A2BF625D400CDA177 /* SignInWithAppleHelper.swift in Sources */,
 				F410EB942BF329980075BA50 /* ViewController.swift in Sources */,
 				F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */,
 				2A8447142BF3590300AE319A /* Numeric.swift in Sources */,
 				F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */,
+				2A511B152BF5FCFB00CDA177 /* UserDefaults.swift in Sources */,
 				F410EBB52BF343560075BA50 /* UIFont+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,7 +417,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -460,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -475,6 +489,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WordWideWeb/WordWideWeb.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3TK9KW93RC;
@@ -491,7 +506,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.WordWideWeb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mgynsz.WordWideWeb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -508,6 +523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WordWideWeb/WordWideWeb.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3TK9KW93RC;
@@ -524,7 +540,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.WordWideWeb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mgynsz.WordWideWeb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

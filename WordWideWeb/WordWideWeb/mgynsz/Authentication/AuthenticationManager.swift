@@ -21,6 +21,12 @@ struct AuthDataResultModel {
     }
 }
 
+enum AuthProviderOption: String {
+    case email = "password"
+    case google = "google.com"
+    case apple = "apple.com"
+}
+
 final class AuthenticationManager {
     
     static let shared = AuthenticationManager()
@@ -90,6 +96,19 @@ extension AuthenticationManager {
         let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
         return try await signIn(credential: credential)
     }
+        
+    func signInWithApple(tokens: SignInWithAppleResult) async throws -> AuthDataResultModel {
+        let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: tokens.token, rawNonce: tokens.nonce)
+        do {
+            let authDataResult = try await Auth.auth().signIn(with: credential)
+            print("Firebase sign-in with Apple successful: \(authDataResult.user.uid)")
+            return AuthDataResultModel(user: authDataResult.user)
+        } catch {
+            print("Firebase sign-in with Apple failed: \(error.localizedDescription)")
+            throw error
+        }
+    }
+
     
     func signIn(credential: AuthCredential) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(with: credential)
