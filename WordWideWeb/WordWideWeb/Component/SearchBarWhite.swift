@@ -11,12 +11,13 @@ import UIKit
 class SearchBarWhite: UISearchBar {
     
     private var placeholderTerm: String = "입력해주세요"
-    private var barColor: UIColor = .white
+    private let barColor: UIColor = .white
+    private var cornerRad: Int = 20
     
-    init(frame: CGRect, placeholder: String, barColor: UIColor) {
+    init(frame: CGRect, placeholder: String, cornerRadius: Int) {
         super.init(frame: frame)
         self.placeholderTerm = placeholder
-        self.barColor = barColor
+        self.cornerRad = cornerRadius
         setUI()
     }
     
@@ -29,7 +30,9 @@ class SearchBarWhite: UISearchBar {
         self.searchBarStyle = .minimal
         self.searchTextField.borderStyle = .none
         self.searchTextField.backgroundColor = barColor
-        
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.borderWidth = 1.0
+        self.layer.cornerRadius = CGFloat(cornerRad)
         if let textField = self.value(forKey: "searchField") as? UITextField {
             textField.textColor = .black
         }
