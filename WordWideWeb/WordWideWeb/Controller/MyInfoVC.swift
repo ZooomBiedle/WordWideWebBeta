@@ -1,13 +1,13 @@
 //
-//  SignUpViewController.swift
+//  MyInfoViewController.swift
 //  WordWideWeb
 //
-//  Created by 박준영 on 5/17/24.
+//  Created by 박준영 on 5/16/24.
 //
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class MyInfoVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

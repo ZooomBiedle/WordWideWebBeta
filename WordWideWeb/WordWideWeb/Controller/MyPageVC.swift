@@ -1,5 +1,5 @@
 //
-//  SignInViewController.swift
+//  MyPageVC.swift
 //  WordWideWeb
 //
 //  Created by 박준영 on 5/17/24.
@@ -7,9 +7,7 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
-    
-    
+class MyPageVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

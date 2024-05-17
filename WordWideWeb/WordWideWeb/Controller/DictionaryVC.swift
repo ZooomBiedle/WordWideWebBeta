@@ -1,18 +1,20 @@
 //
-//  MyInfoViewController.swift
+//  DictionaryViewController.swift
 //  WordWideWeb
 //
-//  Created by 박준영 on 5/16/24.
+//  Created by 박준영 on 5/17/24.
 //
 
 import UIKit
 
-class MyInfoViewController: UIViewController {
+class DictionaryVC: UIViewController {
+    
+    let networkManager = NetworkManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
 
