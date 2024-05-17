@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		2A8447132BF3590300AE319A /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8447102BF3590300AE319A /* Formatter.swift */; };
 		2A8447142BF3590300AE319A /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8447112BF3590300AE319A /* Numeric.swift */; };
+		9C1F0F8A2BF5E02E002D680D /* PlayingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F892BF5E02E002D680D /* PlayingListViewController.swift */; };
+		9C1F0F8C2BF5E0BC002D680D /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F8B2BF5E0BC002D680D /* MyInfoViewController.swift */; };
+		9C1F0F922BF6F193002D680D /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F912BF6F193002D680D /* AuthenticationViewController.swift */; };
+		9C1F0F942BF6F1A3002D680D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F932BF6F1A3002D680D /* SignInViewController.swift */; };
+		9C1F0F962BF6F1C5002D680D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F952BF6F1C5002D680D /* SignUpViewController.swift */; };
+		9C1F0F9A2BF6F3F5002D680D /* RemoteDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F992BF6F3F5002D680D /* RemoteDictionary.swift */; };
+		9C1F0F9C2BF6F4E8002D680D /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F9B2BF6F4E8002D680D /* DictionaryViewController.swift */; };
 		F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB8F2BF329980075BA50 /* AppDelegate.swift */; };
 		F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB912BF329980075BA50 /* SceneDelegate.swift */; };
 		F410EB942BF329980075BA50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB932BF329980075BA50 /* ViewController.swift */; };
@@ -27,6 +34,13 @@
 		2A8447102BF3590300AE319A /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		2A8447112BF3590300AE319A /* Numeric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Numeric.swift; sourceTree = "<group>"; };
 		9C1F0F882BF4A9E0002D680D /* APIKey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = APIKey.xcconfig; sourceTree = "<group>"; };
+		9C1F0F892BF5E02E002D680D /* PlayingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingListViewController.swift; sourceTree = "<group>"; };
+		9C1F0F8B2BF5E0BC002D680D /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
+		9C1F0F912BF6F193002D680D /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		9C1F0F932BF6F1A3002D680D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		9C1F0F952BF6F1C5002D680D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		9C1F0F992BF6F3F5002D680D /* RemoteDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDictionary.swift; sourceTree = "<group>"; };
+		9C1F0F9B2BF6F4E8002D680D /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		F410EB8C2BF329980075BA50 /* WordWideWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordWideWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F410EB8F2BF329980075BA50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F410EB912BF329980075BA50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +120,12 @@
 		F410EBA42BF329C80075BA50 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9C1F0F912BF6F193002D680D /* AuthenticationViewController.swift */,
+				9C1F0F932BF6F1A3002D680D /* SignInViewController.swift */,
+				9C1F0F952BF6F1C5002D680D /* SignUpViewController.swift */,
+				9C1F0F892BF5E02E002D680D /* PlayingListViewController.swift */,
+				9C1F0F9B2BF6F4E8002D680D /* DictionaryViewController.swift */,
+				9C1F0F8B2BF5E0BC002D680D /* MyInfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -114,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				F410EBA82BF32BC20075BA50 /* NetworkManager.swift */,
+				9C1F0F992BF6F3F5002D680D /* RemoteDictionary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -228,12 +249,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C1F0F9C2BF6F4E8002D680D /* DictionaryViewController.swift in Sources */,
+				9C1F0F942BF6F1A3002D680D /* SignInViewController.swift in Sources */,
 				2A8447132BF3590300AE319A /* Formatter.swift in Sources */,
+				9C1F0F8A2BF5E02E002D680D /* PlayingListViewController.swift in Sources */,
+				9C1F0F922BF6F193002D680D /* AuthenticationViewController.swift in Sources */,
 				F410EBA92BF32BC20075BA50 /* NetworkManager.swift in Sources */,
 				F410EB942BF329980075BA50 /* ViewController.swift in Sources */,
+				9C1F0F962BF6F1C5002D680D /* SignUpViewController.swift in Sources */,
 				F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */,
+				9C1F0F9A2BF6F3F5002D680D /* RemoteDictionary.swift in Sources */,
 				2A8447142BF3590300AE319A /* Numeric.swift in Sources */,
 				F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */,
+				9C1F0F8C2BF5E0BC002D680D /* MyInfoViewController.swift in Sources */,
 				F410EBB52BF343560075BA50 /* UIFont+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

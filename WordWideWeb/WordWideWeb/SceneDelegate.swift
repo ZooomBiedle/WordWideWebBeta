@@ -16,9 +16,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let tabBarController = ViewController()
+        let tabBar = UITabBarController()
+        
+        let tab1 = 
+        let tab2 = PlayingListViewController()
+        let tab3 = DictionaryViewController()
+        let tab4 =
+        let tab5 = MyInfoViewController()
 
-        window.rootViewController = tabBarController
+        // 탭바로 사용하기 위한 뷰 컨트롤러들 설정
+        tabBar.setViewControllers([vc1, vc2, vc3, vc4, vc5], animated: false)
+        tabBar.modalPresentationStyle = .fullScreen
+        tabBar.tabBar.backgroundColor = .white
+        
+        // 탭바 이미지 설정
+        guard let items = tabBar.tabBar.items else { return }
+        
+        items[0].image = UIImage(systemName: "square.and.arrow.up")
+        items[1].image = UIImage(systemName: "folder")
+        items[2].image = UIImage(systemName: "paperplane")
+        items[3].image = UIImage(systemName: "doc")
+        items[4].image = UIImage(systemName: "note")
+        
+        
+
+        window.rootViewController = tabBar
         self.window = window
         window.makeKeyAndVisible()
     }
