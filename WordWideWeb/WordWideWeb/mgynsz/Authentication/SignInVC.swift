@@ -48,7 +48,7 @@ class SignInVC: UIViewController {
     private let autoLoginToggle: UISwitch = {
         let toggle = UISwitch()
         toggle.isOn = UserDefaults.standard.isAutoLoginEnabled
-        toggle.onTintColor = UIColor(named: "ButtonColorMain")
+        toggle.onTintColor = UIColor(named: "mainBtn")
         return toggle
     }()
     
@@ -62,7 +62,7 @@ class SignInVC: UIViewController {
     private let signInButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign In", for: .normal)
-        button.backgroundColor = UIColor(named: "ButtonColorMain")
+        button.backgroundColor = UIColor(named: "mainBtn")
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
         button.titleLabel?.font = UIFont.pretendard(size: 14, weight: .bold)
@@ -71,7 +71,7 @@ class SignInVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = UIColor(named: "bgColor")
         setupNavigationBar()
         setupViews()
     }
@@ -81,13 +81,13 @@ class SignInVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         
         let titleAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(named: "ButtonColorMain") as Any,
+            .foregroundColor: UIColor(named: "pointGreen") as Any,
             .font: UIFont.pretendard(size: 18, weight: .regular)
         ]
         navigationController?.navigationBar.titleTextAttributes = titleAttributes
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: self, action: #selector(backButtonTapped))
-        navigationController?.navigationBar.tintColor = UIColor(named: "ButtonColorMain")
+        navigationController?.navigationBar.tintColor = UIColor(named: "pointGreen")
     }
     
     @objc private func backButtonTapped() {

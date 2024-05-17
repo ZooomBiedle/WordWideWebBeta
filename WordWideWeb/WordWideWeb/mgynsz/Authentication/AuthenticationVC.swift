@@ -36,7 +36,7 @@ class AuthenticationVC: UIViewController {
     private let signInButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign In", for: .normal)
-        button.backgroundColor = UIColor(named: "ButtonColorMain")
+        button.backgroundColor = UIColor(named: "mainBtn")
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
         button.titleLabel?.font = UIFont.pretendard(size: 14, weight: .bold)
@@ -92,7 +92,7 @@ class AuthenticationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = UIColor(named: "bgColor")
         setupViews()
         setupNotificationObservers()
 
