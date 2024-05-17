@@ -10,83 +10,143 @@ import SnapKit
 
 class SignInVC: UIViewController {
     
+    private let emailLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Email"
+        label.font = UIFont.pretendard(size: 18, weight: .regular)
+        return label
+    }()
+    
     private let emailTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Email"
-        textField.borderStyle = .roundedRect
+        textField.placeholder = "abc@google.com"
+        textField.layer.cornerRadius = 10
+        textField.backgroundColor = UIColor.white
+        textField.clearButtonMode = .whileEditing
+        textField.setLeftPaddingPoints(10)
         return textField
+    }()
+    
+    private let passwordLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Password"
+        label.font = UIFont.pretendard(size: 18, weight: .regular)
+        return label
     }()
     
     private let passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Password"
-        textField.borderStyle = .roundedRect
+        textField.placeholder = "password"
+        textField.borderStyle = .none
+        textField.layer.cornerRadius = 10
+        textField.backgroundColor = UIColor.white
         textField.isSecureTextEntry = true
+        textField.setLeftPaddingPoints(10)
         return textField
-    }()
-    
-    private let signInButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Sign In", for: .normal)
-        return button
     }()
     
     private let autoLoginToggle: UISwitch = {
         let toggle = UISwitch()
         toggle.isOn = UserDefaults.standard.isAutoLoginEnabled
+        toggle.onTintColor = UIColor(named: "ButtonColorMain")
         return toggle
     }()
     
     private let autoLoginLabel: UILabel = {
         let label = UILabel()
-        label.text = "자동 로그인"
+        label.text = "Automatic login"
+        label.font = UIFont.pretendard(size: 18, weight: .regular)
         return label
     }()
     
+    private let signInButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Sign In", for: .normal)
+        button.backgroundColor = UIColor(named: "ButtonColorMain")
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 10
+        button.titleLabel?.font = UIFont.pretendard(size: 14, weight: .bold)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "BackgroundColor")
+        setupNavigationBar()
         setupViews()
     }
     
+    private func setupNavigationBar() {
+        title = "Sign in"
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(named: "ButtonColorMain") as Any,
+            .font: UIFont.pretendard(size: 18, weight: .regular)
+        ]
+        navigationController?.navigationBar.titleTextAttributes = titleAttributes
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: self, action: #selector(backButtonTapped))
+        navigationController?.navigationBar.tintColor = UIColor(named: "ButtonColorMain")
+    }
+    
+    @objc private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     private func setupViews() {
+        view.addSubview(emailLabel)
         view.addSubview(emailTextField)
+        view.addSubview(passwordLabel)
         view.addSubview(passwordTextField)
-        view.addSubview(signInButton)
         view.addSubview(autoLoginLabel)
         view.addSubview(autoLoginToggle)
+        view.addSubview(signInButton)
+        
+        emailLabel.snp.makeConstraints { make in
+            make.left.equalTo(view).offset(24)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(32)
+        }
         
         emailTextField.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(50)
-            make.width.equalTo(view).multipliedBy(0.8)
+            make.top.equalTo(emailLabel.snp.bottom).offset(8)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(48)
+        }
+        
+        passwordLabel.snp.makeConstraints { make in
+            make.left.equalTo(view).offset(32)
+            make.top.equalTo(emailTextField.snp.bottom).offset(20)
         }
         
         passwordTextField.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(emailTextField.snp.bottom).offset(20)
-            make.width.equalTo(view).multipliedBy(0.8)
-        }
-        
-        signInButton.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(passwordTextField.snp.bottom).offset(20)
+            make.top.equalTo(passwordLabel.snp.bottom).offset(8)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(48)
         }
         
         autoLoginLabel.snp.makeConstraints { make in
-            make.top.equalTo(signInButton.snp.bottom).offset(20)
-            make.right.equalTo(autoLoginToggle.snp.left).offset(-10)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(20)
+            make.left.equalTo(view).offset(24)
         }
         
         autoLoginToggle.snp.makeConstraints { make in
-            make.centerY.equalTo(autoLoginLabel)
-            make.left.equalTo(autoLoginLabel.snp.right).offset(10)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(20)
+            make.right.equalTo(view).offset(-20)
+        }
+        
+        signInButton.snp.makeConstraints { make in
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(52)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
         }
         
         signInButton.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
         autoLoginToggle.addTarget(self, action: #selector(autoLoginToggled(_:)), for: .valueChanged)
     }
-
     
     @objc private func signInTapped() {
         guard let email = emailTextField.text, !email.isEmpty,
@@ -118,5 +178,13 @@ class SignInVC: UIViewController {
         let mainVC = ViewController()
         mainVC.modalPresentationStyle = .fullScreen
         present(mainVC, animated: true, completion: nil)
+    }
+}
+
+private extension UITextField {
+    func setLeftPaddingPoints(_ amount:CGFloat){
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
     }
 }

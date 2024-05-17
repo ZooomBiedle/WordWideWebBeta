@@ -11,41 +11,75 @@ import FirebaseAuth
 
 class SignUpVC: UIViewController {
     
+    private let emailLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Email"
+        label.font = UIFont.pretendard(size: 18, weight: .regular)
+        return label
+    }()
+    
     private let emailTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Email"
-        textField.borderStyle = .roundedRect
+        textField.placeholder = "abc@google.com"
+        textField.layer.cornerRadius = 10
+        textField.backgroundColor = UIColor.white
+        textField.clearButtonMode = .whileEditing
+        textField.setLeftPaddingPoints(10)
         return textField
     }()
     
     private let emailCheckButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Check Email", for: .normal)
-        button.isEnabled = false // 초기에는 비활성화
-        button.backgroundColor = .gray // 비활성화 색상
+        button.setTitle("Check Duplication", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.isEnabled = false
+        button.layer.cornerRadius = 10
         return button
+    }()
+    
+    private let passwordLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Password"
+        label.font = UIFont.pretendard(size: 18, weight: .regular)
+        return label
     }()
     
     private let passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Password"
-        textField.borderStyle = .roundedRect
+        textField.placeholder = "password"
+        textField.borderStyle = .none
+        textField.layer.cornerRadius = 10
+        textField.backgroundColor = UIColor.white
         textField.isSecureTextEntry = true
+        textField.setLeftPaddingPoints(10)
         return textField
+    }()
+
+    private let confirmPasswordLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Confirm Password"
+        label.font = UIFont.pretendard(size: 18, weight: .regular)
+        return label
     }()
     
     private let confirmPasswordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Confirm Password"
-        textField.borderStyle = .roundedRect
+        textField.placeholder = "confirm password"
+        textField.borderStyle = .none
+        textField.layer.cornerRadius = 10
+        textField.backgroundColor = UIColor.white
         textField.isSecureTextEntry = true
+        textField.setLeftPaddingPoints(10)
         return textField
     }()
     
     private let registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Register", for: .normal)
-        button.isEnabled = false
+        button.backgroundColor = UIColor(named: "ButtonColorMain")
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 10
+        button.titleLabel?.font = UIFont.pretendard(size: 14, weight: .bold)
         return button
     }()
     
@@ -53,7 +87,8 @@ class SignUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "BackgroundColor")
+        setupNavigationBar()
         setupViews()
         setupObservers()
     }
@@ -63,39 +98,82 @@ class SignUpVC: UIViewController {
         resetEmailCheckState()
     }
     
+    private func setupNavigationBar() {
+        title = "Sign Up"
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(named: "ButtonColorMain") as Any,
+            .font: UIFont.pretendard(size: 18, weight: .regular)
+        ]
+        navigationController?.navigationBar.titleTextAttributes = titleAttributes
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: self, action: #selector(backButtonTapped))
+        navigationController?.navigationBar.tintColor = UIColor(named: "ButtonColorMain")
+    }
+    
+    @objc private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     private func setupViews() {
+        view.addSubview(emailLabel)
         view.addSubview(emailTextField)
         view.addSubview(emailCheckButton)
+        view.addSubview(passwordLabel)
         view.addSubview(passwordTextField)
+        view.addSubview(confirmPasswordLabel)
         view.addSubview(confirmPasswordTextField)
         view.addSubview(registerButton)
         
+        emailLabel.snp.makeConstraints { make in
+            make.left.equalTo(view).offset(24)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(32)
+        }
+        
         emailTextField.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
-            make.width.equalTo(view).multipliedBy(0.8)
+            make.top.equalTo(emailLabel.snp.bottom).offset(8)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(48)
         }
         
         emailCheckButton.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(emailTextField.snp.bottom).offset(10)
+            make.top.equalTo(emailTextField.snp.bottom).offset(16)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(34)
+        }
+        
+        passwordLabel.snp.makeConstraints { make in
+            make.left.equalTo(view).offset(32)
+            make.top.equalTo(emailCheckButton.snp.bottom).offset(20)
         }
         
         passwordTextField.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(emailCheckButton.snp.bottom).offset(20)
-            make.width.equalTo(view).multipliedBy(0.8)
+            make.top.equalTo(passwordLabel.snp.bottom).offset(8)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(48)
+        }
+        
+        confirmPasswordLabel.snp.makeConstraints { make in
+            make.left.equalTo(view).offset(32)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(20)
         }
         
         confirmPasswordTextField.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(passwordTextField.snp.bottom).offset(20)
-            make.width.equalTo(view).multipliedBy(0.8)
+            make.top.equalTo(confirmPasswordLabel.snp.bottom).offset(8)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(48)
         }
         
         registerButton.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(confirmPasswordTextField.snp.bottom).offset(20)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(52)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
         }
         
         emailCheckButton.addTarget(self, action: #selector(checkEmailTapped), for: .touchUpInside)
@@ -116,11 +194,11 @@ class SignUpVC: UIViewController {
         if let email = emailTextField.text, isValidEmail(email) {
             if !emailChecked {
                 emailCheckButton.isEnabled = true
-                emailCheckButton.backgroundColor = .systemBlue // 활성화 색상
+                emailCheckButton.backgroundColor = UIColor(named: "ButtonColorSecond")
             }
         } else {
             emailCheckButton.isEnabled = false
-            emailCheckButton.backgroundColor = .gray // 비활성화 색상
+            emailCheckButton.backgroundColor = .lightGray
         }
     }
     
@@ -157,7 +235,7 @@ class SignUpVC: UIViewController {
                 showAlert(title: "Success", message: "입력한 이메일 주소로 가입이 가능합니다.")
                 emailCheckButton.isEnabled = false // 이메일 확인 후 비활성화
                 emailTextField.isEnabled = false // 이메일 필드를 비활성화
-                emailCheckButton.backgroundColor = .gray // 비활성화 색상
+                emailCheckButton.backgroundColor = .lightGray // 비활성화 색상
                 emailChecked = true // 이메일이 확인되었음을 표시
             }
         }
@@ -188,7 +266,7 @@ class SignUpVC: UIViewController {
 
         Task {
             do {
-                // 이메일이 이미 검증된 경우에만 등록을 진행합니다.
+                // 이메일이 이미 검증된 경우에만 등록.
                 if emailChecked {
                     let user = try await AuthenticationManager.shared.createUser(email: email, password: password)
                     print("Registered user: \(user.uid)")
@@ -212,11 +290,17 @@ class SignUpVC: UIViewController {
         }
     }
 
-
     private func navigateToMainViewController() {
-        let mainVC = ViewController() // 실제 ViewController 클래스명으로 교체 필요
+        let mainVC = ViewController()
         mainVC.modalPresentationStyle = .fullScreen
         self.present(mainVC, animated: true, completion: nil)
     }
+}
 
+private extension UITextField {
+    func setLeftPaddingPoints(_ amount:CGFloat){
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
 }

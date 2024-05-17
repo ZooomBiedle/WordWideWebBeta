@@ -14,46 +14,85 @@ import AuthenticationServices
 
 class AuthenticationVC: UIViewController {
     
+    // 이미지 추가해야함
+    
+    private let welcomeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Welcome!"
+        label.font = UIFont.pretendard(size: 18, weight: .regular)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let signInDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Enter your email to sign up for this app"
+        label.font = UIFont.pretendard(size: 14, weight: .regular)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
+    }()
+    
     private let signInButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign In", for: .normal)
+        button.backgroundColor = UIColor(named: "ButtonColorMain")
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 10
+        button.titleLabel?.font = UIFont.pretendard(size: 14, weight: .bold)
         return button
     }()
     
     private let signUpButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Sign Up with Email", for: .normal)
-        return button
-    }()
-    
-    private let googleSignInButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Sign in with Google", for: .normal)
-        button.backgroundColor = .white
-        button.setTitleColor(.black, for: .normal)
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.lightGray.cgColor
-        button.setImage(UIImage(named: "GoogleIcon"), for: .normal) // 구글 로고 이미지 추가 필요
-        button.imageView?.contentMode = .scaleAspectFit
-//        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
-        return button
-    }()
-    
-    private let appleSignInButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Sign in with Apple", for: .normal)
+        button.setTitle("Sign up with email", for: .normal)
         button.backgroundColor = .black
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.lightGray.cgColor
+        button.layer.cornerRadius = 10
+//        button.titleLabel?.font = UIFont.pretendard(size: 14, weight: .bold)
         return button
+    }()
+    
+    private let orContinueLabel: UILabel = {
+        let label = UILabel()
+        label.text = "or continue with"
+        label.font = UIFont.pretendard(size: 14, weight: .regular)
+        label.textAlignment = .center
+        label.textColor = .gray
+        return label
+    }()
+    
+    private let googleSignInButton: GIDSignInButton = {
+        let button = GIDSignInButton()
+        button.colorScheme = .light
+        button.style = .wide
+        return button
+    }()
+    
+    private let appleSignInButton: ASAuthorizationAppleIDButton = {
+        let button = ASAuthorizationAppleIDButton(type: .signIn, style: .white)
+        button.cornerRadius = 10
+        return button
+    }()
+    
+    private let termsLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .gray
+        let text = "By clicking continue, you agree to our Terms of Service and Privacy Policy"
+        let attributedText = NSMutableAttributedString(string: text)
+        attributedText.addAttribute(.foregroundColor, value: UIColor.black, range: (text as NSString).range(of: "Terms of Service"))
+        attributedText.addAttribute(.foregroundColor, value: UIColor.black, range: (text as NSString).range(of: "Privacy Policy"))
+        label.attributedText = attributedText
+        label.font = UIFont.pretendard(size: 12, weight: .regular)
+        
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "BackgroundColor")
         setupViews()
         setupNotificationObservers()
 
@@ -64,47 +103,70 @@ class AuthenticationVC: UIViewController {
         }
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        // 뷰가 다시 표시될 때 필요한 작업
-//        setupViews()
-//    }
-    
     private func setupViews() {
-//        view.subviews.forEach { $0.removeFromSuperview() }
-        
+        view.addSubview(welcomeLabel)
+        view.addSubview(signInDescriptionLabel)
         view.addSubview(signInButton)
         view.addSubview(signUpButton)
+        view.addSubview(orContinueLabel)
         view.addSubview(googleSignInButton)
         view.addSubview(appleSignInButton)
+        view.addSubview(termsLabel)
+        
+        welcomeLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(320)
+            make.centerX.equalTo(view)
+        }
+        
+        signInDescriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(welcomeLabel.snp.bottom).offset(8)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+        }
         
         signInButton.snp.makeConstraints { make in
-            make.center.equalTo(view).offset(-20)
+            make.top.equalTo(signInDescriptionLabel.snp.bottom).offset(20)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(44)
         }
         
         signUpButton.snp.makeConstraints { make in
-            make.center.equalTo(view).offset(20)
+            make.top.equalTo(signInButton.snp.bottom).offset(10)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(44)
+        }
+        
+        orContinueLabel.snp.makeConstraints { make in
+            make.top.equalTo(signUpButton.snp.bottom).offset(20)
+            make.centerX.equalTo(view)
         }
         
         googleSignInButton.snp.makeConstraints { make in
-            make.top.equalTo(signUpButton.snp.bottom).offset(32)
-            make.centerX.equalTo(view)
-            make.width.equalTo(240) // 버튼 너비 조정
-            make.height.equalTo(44) // 버튼 높이 조정
+            make.top.equalTo(orContinueLabel.snp.bottom).offset(20)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(44)
         }
         
         appleSignInButton.snp.makeConstraints { make in
-            make.top.equalTo(googleSignInButton.snp.bottom).offset(16)
-            make.centerX.equalTo(view)
-            make.width.equalTo(240)
+            make.top.equalTo(googleSignInButton.snp.bottom).offset(10)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
             make.height.equalTo(44)
+        }
+        
+        termsLabel.snp.makeConstraints { make in
+            make.top.equalTo(appleSignInButton.snp.bottom).offset(20)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
         }
         
         signInButton.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpTapped), for: .touchUpInside)
         googleSignInButton.addTarget(self, action: #selector(googleSignInTapped), for: .touchUpInside)
         appleSignInButton.addTarget(self, action: #selector(appleSignInTapped), for: .touchUpInside)
-
     }
     
     private func setupNotificationObservers() {
@@ -131,7 +193,6 @@ class AuthenticationVC: UIViewController {
                 navigateToMainViewController()
             } catch {
                 print("Google Sign-In failed: \(error.localizedDescription)")
-                // 여기서 로그인 실패 시의 동작을 추가합니다.
             }
         }
     }
@@ -158,7 +219,7 @@ class AuthenticationVC: UIViewController {
                 }
 
                 print("Apple Sign-In successful: \(result)")
-                _ = try await AuthenticationManager.shared.signInWithApple(tokens: result) // 결과를 사용하지 않음을 명시적으로 표시
+                _ = try await AuthenticationManager.shared.signInWithApple(tokens: result)
                 UserDefaults.standard.isLoggedIn = true // 로그인 상태 저장
                 UserDefaults.standard.appleIDToken = result.token
                 UserDefaults.standard.appleNonce = result.nonce
@@ -174,7 +235,6 @@ class AuthenticationVC: UIViewController {
         _ = try await Auth.auth().signIn(with: credential)
     }
 
-    
     func navigateToMainViewController() {
         let mainVC = ViewController()
         mainVC.modalPresentationStyle = .fullScreen
