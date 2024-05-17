@@ -11,11 +11,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
+
         let tabBar = UITabBarController()
         
         let tab1 = MyPageVC()
@@ -39,8 +39,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         items[4].image = UIImage(systemName: "note")
         
         window.rootViewController = tabBar
+
         self.window = window
+        setRootViewController()
         window.makeKeyAndVisible()
+    }
+    
+    func setRootViewController() {
+        let authenticationVC = AuthenticationVC()
+        let navigationController = UINavigationController(rootViewController: authenticationVC)
+        window?.rootViewController = navigationController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
