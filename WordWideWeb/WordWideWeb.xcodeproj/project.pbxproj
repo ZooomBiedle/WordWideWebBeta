@@ -44,6 +44,11 @@
 		F410EBBA2BF34F540075BA50 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F410EBB92BF34F540075BA50 /* SnapKit-Dynamic */; };
 		F410EBBD2BF34F790075BA50 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F410EBBC2BF34F790075BA50 /* SDWebImage */; };
 		F410EBBF2BF34F790075BA50 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F410EBBE2BF34F790075BA50 /* SDWebImageMapKit */; };
+		F410EBC32BF39C3E0075BA50 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EBC22BF39C3E0075BA50 /* ListViewCell.swift */; };
+		F410EBF22BF3C3D70075BA50 /* SearchBarWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EBF12BF3C3D70075BA50 /* SearchBarWhite.swift */; };
+		F410EBFC2BF5DDB80075BA50 /* BlockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EBFB2BF5DDB80075BA50 /* BlockCell.swift */; };
+		F410EBFE2BF6F2230075BA50 /* TestIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EBFD2BF6F2230075BA50 /* TestIntroView.swift */; };
+		F410EC002BF72F620075BA50 /* TestIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EBFF2BF72F620075BA50 /* TestIntroViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,11 +74,16 @@
 		F410EB9B2BF3299A0075BA50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F410EB9D2BF3299A0075BA50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F410EBA82BF32BC20075BA50 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		F410EBB02BF340250075BA50 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraLight.otf"; path = "../../../../Desktop/Pretendard-1.3.9 (2)/public/static/Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
-		F410EBB12BF3402B0075BA50 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Regular.otf"; path = "../../../../Desktop/Pretendard-1.3.9 (2)/public/static/Pretendard-Regular.otf"; sourceTree = "<group>"; };
-		F410EBB22BF340320075BA50 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-SemiBold.otf"; path = "../../../../Desktop/Pretendard-1.3.9 (2)/public/static/Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
-		F410EBB32BF3403A0075BA50 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraBold.otf"; path = "../../../../Desktop/Pretendard-1.3.9 (2)/public/static/Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		F410EBB02BF340250075BA50 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraLight.otf"; path = "../../../../Downloads/Pretendard-1.3.9 (1)/public/static/Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		F410EBB12BF3402B0075BA50 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Regular.otf"; path = "../../../../Downloads/Pretendard-1.3.9 (1)/public/static/Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		F410EBB22BF340320075BA50 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-SemiBold.otf"; path = "../../../../Downloads/Pretendard-1.3.9 (2)/public/static/Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		F410EBB32BF3403A0075BA50 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraBold.otf"; path = "../../../../Downloads/Pretendard-1.3.9 (2)/public/static/Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		F410EBB42BF343560075BA50 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		F410EBC22BF39C3E0075BA50 /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
+		F410EBF12BF3C3D70075BA50 /* SearchBarWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarWhite.swift; sourceTree = "<group>"; };
+		F410EBFB2BF5DDB80075BA50 /* BlockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCell.swift; sourceTree = "<group>"; };
+		F410EBFD2BF6F2230075BA50 /* TestIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIntroView.swift; sourceTree = "<group>"; };
+		F410EBFF2BF72F620075BA50 /* TestIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIntroViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +189,7 @@
 		F410EBA32BF329BE0075BA50 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F410EBFD2BF6F2230075BA50 /* TestIntroView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,6 +197,7 @@
 		F410EBA42BF329C80075BA50 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F410EBFF2BF72F620075BA50 /* TestIntroViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -211,6 +223,9 @@
 		F410EBA72BF32B800075BA50 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				F410EBC22BF39C3E0075BA50 /* ListViewCell.swift */,
+				F410EBF12BF3C3D70075BA50 /* SearchBarWhite.swift */,
+				F410EBFB2BF5DDB80075BA50 /* BlockCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -328,6 +343,8 @@
 				2A8447132BF3590300AE319A /* Formatter.swift in Sources */,
 				2A8447342BF36B9400AE319A /* SignUpVC.swift in Sources */,
 				F410EBA92BF32BC20075BA50 /* NetworkManager.swift in Sources */,
+				F410EBFE2BF6F2230075BA50 /* TestIntroView.swift in Sources */,
+				F410EBF22BF3C3D70075BA50 /* SearchBarWhite.swift in Sources */,
 				2A8447362BF36BD600AE319A /* AuthenticationManager.swift in Sources */,
 				2AA413DD2BF3D1D400C34FEB /* Utilities.swift in Sources */,
 				2AA413D62BF3D14100C34FEB /* SignInGoogleHelper.swift in Sources */,
@@ -336,10 +353,13 @@
 				2A511B1A2BF625D400CDA177 /* SignInWithAppleHelper.swift in Sources */,
 				F410EB942BF329980075BA50 /* ViewController.swift in Sources */,
 				F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */,
+				F410EBC32BF39C3E0075BA50 /* ListViewCell.swift in Sources */,
+				F410EC002BF72F620075BA50 /* TestIntroViewController.swift in Sources */,
 				2A8447142BF3590300AE319A /* Numeric.swift in Sources */,
 				F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */,
 				2A511B152BF5FCFB00CDA177 /* UserDefaults.swift in Sources */,
 				F410EBB52BF343560075BA50 /* UIFont+Ext.swift in Sources */,
+				F410EBFC2BF5DDB80075BA50 /* BlockCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
