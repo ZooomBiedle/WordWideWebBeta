@@ -24,6 +24,8 @@
 		F410EBC32BF39C3E0075BA50 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EBC22BF39C3E0075BA50 /* ListViewCell.swift */; };
 		F410EBF22BF3C3D70075BA50 /* SearchBarWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EBF12BF3C3D70075BA50 /* SearchBarWhite.swift */; };
 		F410EBFC2BF5DDB80075BA50 /* BlockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EBFB2BF5DDB80075BA50 /* BlockCell.swift */; };
+		F410EBFE2BF6F2230075BA50 /* TestIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EBFD2BF6F2230075BA50 /* TestIntroView.swift */; };
+		F410EC002BF72F620075BA50 /* TestIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EBFF2BF72F620075BA50 /* TestIntroViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		F410EBC22BF39C3E0075BA50 /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		F410EBF12BF3C3D70075BA50 /* SearchBarWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarWhite.swift; sourceTree = "<group>"; };
 		F410EBFB2BF5DDB80075BA50 /* BlockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCell.swift; sourceTree = "<group>"; };
+		F410EBFD2BF6F2230075BA50 /* TestIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIntroView.swift; sourceTree = "<group>"; };
+		F410EBFF2BF72F620075BA50 /* TestIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIntroViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		F410EBA32BF329BE0075BA50 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F410EBFD2BF6F2230075BA50 /* TestIntroView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,6 +115,7 @@
 		F410EBA42BF329C80075BA50 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F410EBFF2BF72F620075BA50 /* TestIntroViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -237,10 +243,12 @@
 			files = (
 				2A8447132BF3590300AE319A /* Formatter.swift in Sources */,
 				F410EBA92BF32BC20075BA50 /* NetworkManager.swift in Sources */,
+				F410EBFE2BF6F2230075BA50 /* TestIntroView.swift in Sources */,
 				F410EBF22BF3C3D70075BA50 /* SearchBarWhite.swift in Sources */,
 				F410EB942BF329980075BA50 /* ViewController.swift in Sources */,
 				F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */,
 				F410EBC32BF39C3E0075BA50 /* ListViewCell.swift in Sources */,
+				F410EC002BF72F620075BA50 /* TestIntroViewController.swift in Sources */,
 				2A8447142BF3590300AE319A /* Numeric.swift in Sources */,
 				F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */,
 				F410EBB52BF343560075BA50 /* UIFont+Ext.swift in Sources */,
