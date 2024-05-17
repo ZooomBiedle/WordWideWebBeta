@@ -11,6 +11,22 @@ import FirebaseAuth
 
 class SignUpVC: UIViewController {
     
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Name"
+        label.font = UIFont.pretendard(size: 18, weight: .regular)
+        return label
+    }()
+    
+    private let nameTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Enter your name"
+        textField.layer.cornerRadius = 10
+        textField.backgroundColor = UIColor.white
+        textField.setLeftPaddingPoints(10)
+        return textField
+    }()
+    
     private let emailLabel: UILabel = {
         let label = UILabel()
         label.text = "Email"
@@ -117,6 +133,8 @@ class SignUpVC: UIViewController {
     }
     
     private func setupViews() {
+        view.addSubview(nameLabel)
+        view.addSubview(nameTextField)
         view.addSubview(emailLabel)
         view.addSubview(emailTextField)
         view.addSubview(emailCheckButton)
@@ -126,9 +144,21 @@ class SignUpVC: UIViewController {
         view.addSubview(confirmPasswordTextField)
         view.addSubview(registerButton)
         
-        emailLabel.snp.makeConstraints { make in
+        nameLabel.snp.makeConstraints { make in
             make.left.equalTo(view).offset(24)
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(32)
+        }
+        
+        nameTextField.snp.makeConstraints { make in
+            make.top.equalTo(nameLabel.snp.bottom).offset(8)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(48)
+        }
+        
+        emailLabel.snp.makeConstraints { make in
+            make.left.equalTo(view).offset(24)
+            make.top.equalTo(nameTextField.snp.bottom).offset(16)
         }
         
         emailTextField.snp.makeConstraints { make in
@@ -205,7 +235,8 @@ class SignUpVC: UIViewController {
     private func isFormValid() -> Bool {
         guard let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty,
-              let confirmPassword = confirmPasswordTextField.text, !confirmPassword.isEmpty else {
+              let confirmPassword = confirmPasswordTextField.text, !confirmPassword.isEmpty,
+              let name = nameTextField.text, !name.isEmpty else {
             return false
         }
         
@@ -259,7 +290,8 @@ class SignUpVC: UIViewController {
     
     @objc private func registerTapped() {
         guard let email = emailTextField.text, !email.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty else {
+              let password = passwordTextField.text, !password.isEmpty,
+              let name = nameTextField.text, !name.isEmpty else {
             print("Invalid input")
             return
         }
@@ -268,7 +300,7 @@ class SignUpVC: UIViewController {
             do {
                 // 이메일이 이미 검증된 경우에만 등록.
                 if emailChecked {
-                    let user = try await AuthenticationManager.shared.createUser(email: email, password: password)
+                    let user = try await AuthenticationManager.shared.createUser(email: email, password: password, displayName: name)
                     print("Registered user: \(user.uid)")
                     
                     // 성공적으로 등록 후 ViewController로 이동

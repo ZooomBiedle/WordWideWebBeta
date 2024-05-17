@@ -7,6 +7,36 @@
 
 import Foundation
 
+struct User: Codable {
+    let uid: String
+    let email: String
+    let displayName: String?
+    var photoURL: String?
+}
+
+struct Wordbook: Codable {
+    let id: String
+    let ownerId: String
+    let title: String
+    let isPublic: Bool
+    let sharedWith: [String]?
+
+//    init(id: String, ownerId: String, title: String, isPublic: Bool, sharedWith: [String]? = nil) {
+//        self.id = id
+//        self.ownerId = ownerId
+//        self.title = title
+//        self.isPublic = isPublic
+//        self.sharedWith = sharedWith
+//    }
+}
+
+struct Word: Codable {
+    let id: String
+    let term: String
+    let definition: String
+}
+
+
 extension UserDefaults {
     private enum Keys {
         static let isLoggedIn = "isLoggedIn"
