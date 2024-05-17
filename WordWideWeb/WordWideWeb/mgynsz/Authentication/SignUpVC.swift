@@ -76,7 +76,7 @@ class SignUpVC: UIViewController {
     private let registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Register", for: .normal)
-        button.backgroundColor = UIColor(named: "ButtonColorMain")
+        button.backgroundColor = UIColor(named: "mainBtn")
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
         button.titleLabel?.font = UIFont.pretendard(size: 14, weight: .bold)
@@ -87,7 +87,7 @@ class SignUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = UIColor(named: "bgColor")
         setupNavigationBar()
         setupViews()
         setupObservers()
@@ -103,13 +103,13 @@ class SignUpVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         
         let titleAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(named: "ButtonColorMain") as Any,
+            .foregroundColor: UIColor(named: "pointGreen") as Any,
             .font: UIFont.pretendard(size: 18, weight: .regular)
         ]
         navigationController?.navigationBar.titleTextAttributes = titleAttributes
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: self, action: #selector(backButtonTapped))
-        navigationController?.navigationBar.tintColor = UIColor(named: "ButtonColorMain")
+        navigationController?.navigationBar.tintColor = UIColor(named: "pointGreen")
     }
     
     @objc private func backButtonTapped() {
@@ -194,7 +194,7 @@ class SignUpVC: UIViewController {
         if let email = emailTextField.text, isValidEmail(email) {
             if !emailChecked {
                 emailCheckButton.isEnabled = true
-                emailCheckButton.backgroundColor = UIColor(named: "ButtonColorSecond")
+                emailCheckButton.backgroundColor = UIColor(named: "lightBtn")
             }
         } else {
             emailCheckButton.isEnabled = false
