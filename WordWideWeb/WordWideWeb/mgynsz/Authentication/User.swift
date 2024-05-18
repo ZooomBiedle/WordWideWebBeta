@@ -20,6 +20,7 @@ struct Wordbook: Codable {
     let title: String
     let isPublic: Bool
     let sharedWith: [String]?
+    let dueDate: Date // 단어장 기한
 }
 
 struct Word: Codable {

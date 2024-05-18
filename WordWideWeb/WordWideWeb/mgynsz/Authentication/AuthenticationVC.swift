@@ -240,7 +240,7 @@ class AuthenticationVC: UIViewController {
     }
     
     func navigateToMainViewController() {
-        let mainVC = ViewController()
+        let mainVC = MyPageVC()
         mainVC.modalPresentationStyle = .fullScreen
         self.present(mainVC, animated: true, completion: nil)
     }

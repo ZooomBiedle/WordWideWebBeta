@@ -175,7 +175,7 @@ class SignInVC: UIViewController {
     }
     
     private func navigateToMainViewController() {
-        let mainVC = ViewController()
+        let mainVC = MyPageVC()
         mainVC.modalPresentationStyle = .fullScreen
         present(mainVC, animated: true, completion: nil)
     }

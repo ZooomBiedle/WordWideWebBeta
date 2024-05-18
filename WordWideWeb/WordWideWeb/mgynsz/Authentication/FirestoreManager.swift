@@ -7,6 +7,8 @@
 
 import Foundation
 import FirebaseFirestore
+import UserNotifications
+
 
 final class FirestoreManager {
     static let shared = FirestoreManager()
@@ -149,6 +151,28 @@ final class FirestoreManager {
             }
         }
     }
+    
+    // MARK: - 알림 예약
+//    private func scheduleNotification(for wordbook: Wordbook) {
+//        let content = UNMutableNotificationContent()
+//        content.title = "단어장 테스트 알림"
+//        content.body = "\(wordbook.title) 단어장 테스트 시간이 되었습니다."
+//        content.sound = UNNotificationSound.default
+//        
+//        let triggerDate = wordbook.dueDate // 이 날짜를 기준으로 트리거 생성 필요
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: triggerDate), repeats: false)
+//        
+//        let request = UNNotificationRequest(identifier: wordbook.id, content: content, trigger: trigger)
+//        
+//        UNUserNotificationCenter.current().add(request) { error in
+//            if let error = error {
+//                print("Failed to add notification: \(error.localizedDescription)")
+//            }
+//        }
+//    }
+    
+    // 알림 예약
+//    scheduleNotification(for: wordbook)
     
     // MARK: - Helper Methods
     
