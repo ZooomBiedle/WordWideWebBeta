@@ -82,8 +82,6 @@
 		2A8447372BF3850C00AE319A /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		2AA413D52BF3D14100C34FEB /* SignInGoogleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInGoogleHelper.swift; sourceTree = "<group>"; };
 		2AA413DC2BF3D1D400C34FEB /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-
-		9C1F0F882BF4A9E0002D680D /* APIKey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = APIKey.xcconfig; path = ../APIKey.xcconfig; sourceTree = "<group>"; };
 		9C1F0F892BF5E02E002D680D /* PlayingListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingListVC.swift; sourceTree = "<group>"; };
 		9C1F0F8B2BF5E0BC002D680D /* MyInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoVC.swift; sourceTree = "<group>"; };
 		9C1F0F992BF6F3F5002D680D /* RemoteDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDictionary.swift; sourceTree = "<group>"; };
@@ -101,10 +99,6 @@
 		F410EB9B2BF3299A0075BA50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F410EB9D2BF3299A0075BA50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F410EBA82BF32BC20075BA50 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		F410EBB02BF340250075BA50 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
-		F410EBB12BF3402B0075BA50 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
-		F410EBB22BF340320075BA50 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
-		F410EBB32BF3403A0075BA50 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		F410EBB42BF343560075BA50 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		F410EBC22BF39C3E0075BA50 /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		F410EBF12BF3C3D70075BA50 /* SearchBarWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarWhite.swift; sourceTree = "<group>"; };
@@ -553,6 +547,7 @@
 		};
 		F410EBA12BF3299A0075BA50 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A67F9012BF75BEB0075465D /* APIKey.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -587,6 +582,7 @@
 		};
 		F410EBA22BF3299A0075BA50 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A67F9012BF75BEB0075465D /* APIKey.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -14,7 +14,7 @@ class DictionaryTableViewCell: UITableViewCell {
     
     var wordLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.pretendard(size: 18, weight: .semibold)
+        label.font = UIFont.pretendard(size: 16, weight: .semibold)
         return label
     }()
     
@@ -32,7 +32,7 @@ class DictionaryTableViewCell: UITableViewCell {
         label.font = UIFont.pretendard(size: 18, weight: .regular)
         return label
     }()
-    // "\(senseOrder). \(pos)  \(transWord)"
+
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -53,21 +53,21 @@ class DictionaryTableViewCell: UITableViewCell {
         
         wordLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
-            make.leading.equalToSuperview().offset(10)
+            make.leading.equalToSuperview().inset(20)
             make.height.equalTo(20)
         }
         
         addButton.snp.makeConstraints { make in
             make.centerY.equalTo(wordLabel)
             make.verticalEdges.equalTo(wordLabel)
-            make.trailing.equalToSuperview().inset(10)
+            make.trailing.equalToSuperview().inset(20)
             make.width.equalTo(wordLabel.snp.height)
         }
         
         EngLabel.snp.makeConstraints { make in
             make.top.equalTo(wordLabel.snp.bottom).offset(10)
-            make.horizontalEdges.equalToSuperview().inset(10)
-            make.bottom.equalToSuperview().inset(10)
+            make.horizontalEdges.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().inset(20)
         }
     }
 
@@ -98,3 +98,5 @@ class DictionaryTableViewCell: UITableViewCell {
     
 
 }
+
+
