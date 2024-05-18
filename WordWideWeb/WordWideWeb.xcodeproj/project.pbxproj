@@ -13,12 +13,6 @@
 		2A511B1E2BF668E400CDA177 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A511B1D2BF668E400CDA177 /* UIApplication.swift */; };
 		2A8447132BF3590300AE319A /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8447102BF3590300AE319A /* Formatter.swift */; };
 		2A8447142BF3590300AE319A /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8447112BF3590300AE319A /* Numeric.swift */; };
-		9C1F0F8A2BF5E02E002D680D /* PlayingListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F892BF5E02E002D680D /* PlayingListVC.swift */; };
-		9C1F0F8C2BF5E0BC002D680D /* MyInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F8B2BF5E0BC002D680D /* MyInfoVC.swift */; };
-		9C1F0F9A2BF6F3F5002D680D /* RemoteDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F992BF6F3F5002D680D /* RemoteDictionary.swift */; };
-		9C1F0F9C2BF6F4E8002D680D /* DictionaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F9B2BF6F4E8002D680D /* DictionaryVC.swift */; };
-		9C1F0F9E2BF732EB002D680D /* InvitingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F9D2BF732EB002D680D /* InvitingVC.swift */; };
-		9C1F0FA02BF7332F002D680D /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F9F2BF7332F002D680D /* MyPageVC.swift */; };
 		2A8447192BF3631100AE319A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2A8447182BF3631100AE319A /* FirebaseAnalytics */; };
 		2A84471B2BF3631100AE319A /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2A84471A2BF3631100AE319A /* FirebaseAnalyticsSwift */; };
 		2A84471D2BF3631100AE319A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2A84471C2BF3631100AE319A /* FirebaseAuth */; };
@@ -38,6 +32,14 @@
 		2AA413D92BF3D17100C34FEB /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 2AA413D82BF3D17100C34FEB /* GoogleSignIn */; };
 		2AA413DB2BF3D17100C34FEB /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2AA413DA2BF3D17100C34FEB /* GoogleSignInSwift */; };
 		2AA413DD2BF3D1D400C34FEB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA413DC2BF3D1D400C34FEB /* Utilities.swift */; };
+		9C1F0F8A2BF5E02E002D680D /* PlayingListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F892BF5E02E002D680D /* PlayingListVC.swift */; };
+		9C1F0F8C2BF5E0BC002D680D /* MyInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F8B2BF5E0BC002D680D /* MyInfoVC.swift */; };
+		9C1F0F9A2BF6F3F5002D680D /* RemoteDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F992BF6F3F5002D680D /* RemoteDictionary.swift */; };
+		9C1F0F9C2BF6F4E8002D680D /* DictionaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F9B2BF6F4E8002D680D /* DictionaryVC.swift */; };
+		9C1F0F9E2BF732EB002D680D /* InvitingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F9D2BF732EB002D680D /* InvitingVC.swift */; };
+		9C1F0FA02BF7332F002D680D /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F9F2BF7332F002D680D /* MyPageVC.swift */; };
+		9C1F0FA22BF76BE1002D680D /* DictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FA12BF76BE1002D680D /* DictionaryTableViewCell.swift */; };
+		9C1F0FA42BF78C4A002D680D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FA32BF78C4A002D680D /* TabBarController.swift */; };
 		F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB8F2BF329980075BA50 /* AppDelegate.swift */; };
 		F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB912BF329980075BA50 /* SceneDelegate.swift */; };
 		F410EB942BF329980075BA50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB932BF329980075BA50 /* ViewController.swift */; };
@@ -65,19 +67,21 @@
 		2A511B1D2BF668E400CDA177 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		2A8447102BF3590300AE319A /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		2A8447112BF3590300AE319A /* Numeric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Numeric.swift; sourceTree = "<group>"; };
-		9C1F0F882BF4A9E0002D680D /* APIKey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = APIKey.xcconfig; sourceTree = "<group>"; };
-		9C1F0F892BF5E02E002D680D /* PlayingListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingListVC.swift; sourceTree = "<group>"; };
-		9C1F0F8B2BF5E0BC002D680D /* MyInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoVC.swift; sourceTree = "<group>"; };
-		9C1F0F992BF6F3F5002D680D /* RemoteDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDictionary.swift; sourceTree = "<group>"; };
-		9C1F0F9B2BF6F4E8002D680D /* DictionaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryVC.swift; sourceTree = "<group>"; };
-		9C1F0F9D2BF732EB002D680D /* InvitingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitingVC.swift; sourceTree = "<group>"; };
-		9C1F0F9F2BF7332F002D680D /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		2A8447312BF36B3800AE319A /* AuthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVC.swift; sourceTree = "<group>"; };
 		2A8447332BF36B9400AE319A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		2A8447352BF36BD600AE319A /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		2A8447372BF3850C00AE319A /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		2AA413D52BF3D14100C34FEB /* SignInGoogleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInGoogleHelper.swift; sourceTree = "<group>"; };
 		2AA413DC2BF3D1D400C34FEB /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		9C1F0F882BF4A9E0002D680D /* APIKey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = APIKey.xcconfig; path = ../APIKey.xcconfig; sourceTree = "<group>"; };
+		9C1F0F892BF5E02E002D680D /* PlayingListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingListVC.swift; sourceTree = "<group>"; };
+		9C1F0F8B2BF5E0BC002D680D /* MyInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoVC.swift; sourceTree = "<group>"; };
+		9C1F0F992BF6F3F5002D680D /* RemoteDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDictionary.swift; sourceTree = "<group>"; };
+		9C1F0F9B2BF6F4E8002D680D /* DictionaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryVC.swift; sourceTree = "<group>"; };
+		9C1F0F9D2BF732EB002D680D /* InvitingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitingVC.swift; sourceTree = "<group>"; };
+		9C1F0F9F2BF7332F002D680D /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
+		9C1F0FA12BF76BE1002D680D /* DictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTableViewCell.swift; sourceTree = "<group>"; };
+		9C1F0FA32BF78C4A002D680D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F410EB8C2BF329980075BA50 /* WordWideWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordWideWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F410EB8F2BF329980075BA50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F410EB912BF329980075BA50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,10 +91,10 @@
 		F410EB9B2BF3299A0075BA50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F410EB9D2BF3299A0075BA50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F410EBA82BF32BC20075BA50 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		F410EBB02BF340250075BA50 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraLight.otf"; path = "../../../../Downloads/Pretendard-1.3.9 (1)/public/static/Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
-		F410EBB12BF3402B0075BA50 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Regular.otf"; path = "../../../../Downloads/Pretendard-1.3.9 (1)/public/static/Pretendard-Regular.otf"; sourceTree = "<group>"; };
-		F410EBB22BF340320075BA50 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-SemiBold.otf"; path = "../../../../Downloads/Pretendard-1.3.9 (2)/public/static/Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
-		F410EBB32BF3403A0075BA50 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraBold.otf"; path = "../../../../Downloads/Pretendard-1.3.9 (2)/public/static/Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		F410EBB02BF340250075BA50 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		F410EBB12BF3402B0075BA50 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		F410EBB22BF340320075BA50 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		F410EBB32BF3403A0075BA50 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		F410EBB42BF343560075BA50 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		F410EBC22BF39C3E0075BA50 /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		F410EBF12BF3C3D70075BA50 /* SearchBarWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarWhite.swift; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				F410EBFD2BF6F2230075BA50 /* TestIntroView.swift */,
+				9C1F0FA12BF76BE1002D680D /* DictionaryTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 		F410EBA42BF329C80075BA50 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9C1F0FA32BF78C4A002D680D /* TabBarController.swift */,
 				9C1F0F9F2BF7332F002D680D /* MyPageVC.swift */,
 				9C1F0F892BF5E02E002D680D /* PlayingListVC.swift */,
 				9C1F0F9B2BF6F4E8002D680D /* DictionaryVC.swift */,
@@ -368,6 +374,7 @@
 				F410EBA92BF32BC20075BA50 /* NetworkManager.swift in Sources */,
 				F410EBFE2BF6F2230075BA50 /* TestIntroView.swift in Sources */,
 				F410EBF22BF3C3D70075BA50 /* SearchBarWhite.swift in Sources */,
+				9C1F0FA22BF76BE1002D680D /* DictionaryTableViewCell.swift in Sources */,
 				2A8447362BF36BD600AE319A /* AuthenticationManager.swift in Sources */,
 				2AA413DD2BF3D1D400C34FEB /* Utilities.swift in Sources */,
 				2AA413D62BF3D14100C34FEB /* SignInGoogleHelper.swift in Sources */,
@@ -381,6 +388,7 @@
 				F410EC002BF72F620075BA50 /* TestIntroViewController.swift in Sources */,
 				2A8447142BF3590300AE319A /* Numeric.swift in Sources */,
 				9C1F0F9E2BF732EB002D680D /* InvitingVC.swift in Sources */,
+				9C1F0FA42BF78C4A002D680D /* TabBarController.swift in Sources */,
 				F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */,
 				9C1F0F8C2BF5E0BC002D680D /* MyInfoVC.swift in Sources */,
 				2A511B152BF5FCFB00CDA177 /* UserDefaults.swift in Sources */,

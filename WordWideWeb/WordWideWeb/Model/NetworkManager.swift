@@ -9,6 +9,8 @@ import Foundation
 
 final class NetworkManager: NSObject, ObservableObject {
     
+    static let shared = NetworkManager()
+    
     var currentElement: String = ""
     var currentItem: Item?
     var currentSenseElement: SenseElement?
@@ -35,8 +37,8 @@ final class NetworkManager: NSObject, ObservableObject {
             print("Failed to create URL")
             return
         }
-        print(apiKey)
-        print(url)
+//        print(apiKey)
+//        print(url)
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
@@ -59,8 +61,12 @@ final class NetworkManager: NSObject, ObservableObject {
                 print("No data received")
                 return
             }
+            
             self.setXMLParser(data: data)
             
+            DispatchQueue.main.async {
+                completion(self.items)
+            }
         }.resume()
     }
     
@@ -104,7 +110,6 @@ extension NetworkManager: XMLParserDelegate {
             currentSenseElement?.definition += data
         case "sense_order":
             currentSenseElement?.senseOrder += Int(data) ?? 0
-            print(data)
         case "trans_word":
             currentSenseElement?.transWord += data
         case "trans_dfn":
