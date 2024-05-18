@@ -70,7 +70,7 @@ class SignUpVC: UIViewController {
         textField.setLeftPaddingPoints(10)
         return textField
     }()
-
+    
     private let confirmPasswordLabel: UILabel = {
         let label = UILabel()
         label.text = "Confirm Password"
@@ -254,7 +254,7 @@ class SignUpVC: UIViewController {
             print("Invalid email")
             return
         }
-
+        
         Task {
             let emailExists = await AuthenticationManager.shared.checkEmailExists(email: email)
             if emailExists {
@@ -271,7 +271,7 @@ class SignUpVC: UIViewController {
             }
         }
     }
-
+    
     private func clearOtherFields() {
         passwordTextField.text = ""
         confirmPasswordTextField.text = ""
@@ -295,7 +295,7 @@ class SignUpVC: UIViewController {
             print("Invalid input")
             return
         }
-
+        
         Task {
             do {
                 // 이메일이 이미 검증된 경우에만 등록.
@@ -321,7 +321,7 @@ class SignUpVC: UIViewController {
             }
         }
     }
-
+    
     private func navigateToMainViewController() {
         let mainVC = ViewController()
         mainVC.modalPresentationStyle = .fullScreen

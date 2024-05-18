@@ -68,7 +68,7 @@ class SignInVC: UIViewController {
         button.titleLabel?.font = UIFont.pretendard(size: 14, weight: .bold)
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "bgColor")

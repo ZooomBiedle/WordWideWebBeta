@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A511B152BF5FCFB00CDA177 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A511B142BF5FCFB00CDA177 /* UserDefaults.swift */; };
+		2A511B152BF5FCFB00CDA177 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A511B142BF5FCFB00CDA177 /* User.swift */; };
 		2A511B182BF61A2D00CDA177 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A511B172BF61A2D00CDA177 /* GoogleService-Info.plist */; };
 		2A511B1A2BF625D400CDA177 /* SignInWithAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A511B192BF625D400CDA177 /* SignInWithAppleHelper.swift */; };
-		2A511B1E2BF668E400CDA177 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A511B1D2BF668E400CDA177 /* UIApplication.swift */; };
 		2A67F9032BF7675D0075465D /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A67F9022BF7675D0075465D /* FirestoreManager.swift */; };
 		2A67F9052BF772B40075465D /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A67F9042BF772B40075465D /* FriendCell.swift */; };
 		2A67F9072BF772D80075465D /* SearchFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A67F9062BF772D80075465D /* SearchFriendsVC.swift */; };
@@ -61,11 +60,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2A511B142BF5FCFB00CDA177 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		2A511B142BF5FCFB00CDA177 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A511B162BF618B500CDA177 /* WordWideWeb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = WordWideWeb.entitlements; path = WordWideWeb/WordWideWeb.entitlements; sourceTree = "<group>"; };
 		2A511B172BF61A2D00CDA177 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2A511B192BF625D400CDA177 /* SignInWithAppleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleHelper.swift; sourceTree = "<group>"; };
-		2A511B1D2BF668E400CDA177 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		2A67F8F82BF755870075465D /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		2A67F8FB2BF755870075465D /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		2A67F8FD2BF755870075465D /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -158,8 +156,7 @@
 				2A8447352BF36BD600AE319A /* AuthenticationManager.swift */,
 				2A67F9022BF7675D0075465D /* FirestoreManager.swift */,
 				2AA413D52BF3D14100C34FEB /* SignInGoogleHelper.swift */,
-				2A511B1D2BF668E400CDA177 /* UIApplication.swift */,
-				2A511B142BF5FCFB00CDA177 /* UserDefaults.swift */,
+				2A511B142BF5FCFB00CDA177 /* User.swift */,
 				2A67F9042BF772B40075465D /* FriendCell.swift */,
 				2A67F9062BF772D80075465D /* SearchFriendsVC.swift */,
 				2AA413DC2BF3D1D400C34FEB /* Utilities.swift */,
@@ -267,8 +264,7 @@
 				2A67F8FF2BF755870075465D /* Pretendard-Regular.otf */,
 				2A67F8FD2BF755870075465D /* Pretendard-SemiBold.otf */,
 			);
-			name = Font;
-			path = "../../../Pretendard-1.3.9 (2)/public/static";
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,7 +367,6 @@
 				9C1F0F9C2BF6F4E8002D680D /* DictionaryVC.swift in Sources */,
 				9C1F0FA02BF7332F002D680D /* MyPageVC.swift in Sources */,
 				9C1F0F8A2BF5E02E002D680D /* PlayingListVC.swift in Sources */,
-				2A511B1E2BF668E400CDA177 /* UIApplication.swift in Sources */,
 				2A8447132BF3590300AE319A /* Formatter.swift in Sources */,
 				2A67F9052BF772B40075465D /* FriendCell.swift in Sources */,
 				2A8447342BF36B9400AE319A /* SignUpVC.swift in Sources */,
@@ -395,7 +390,7 @@
 				9C1F0F9E2BF732EB002D680D /* InvitingVC.swift in Sources */,
 				F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */,
 				9C1F0F8C2BF5E0BC002D680D /* MyInfoVC.swift in Sources */,
-				2A511B152BF5FCFB00CDA177 /* UserDefaults.swift in Sources */,
+				2A511B152BF5FCFB00CDA177 /* User.swift in Sources */,
 				F410EBB52BF343560075BA50 /* UIFont+Ext.swift in Sources */,
 				F410EBFC2BF5DDB80075BA50 /* BlockCell.swift in Sources */,
 			);

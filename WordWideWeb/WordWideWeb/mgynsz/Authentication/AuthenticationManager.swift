@@ -61,7 +61,7 @@ final class AuthenticationManager {
     func saveUserToFirestore(uid: String, email: String, displayName: String?, photoURL: String?) async throws {
         let user = User(uid: uid, email: email, displayName: displayName, photoURL: photoURL)
         print("Saving user to Firestore: \(user)")
-        try await FirestoreManager.shared.saveUser(user: user)
+        try await FirestoreManager.shared.saveOrUpdateUser(user: user)
     }
 
     @discardableResult
@@ -105,9 +105,7 @@ final class AuthenticationManager {
     }
 }
 
-
 // MARK: SIGN IN SSO
-
 extension AuthenticationManager {
     
     func signInWithGoogle(tokens: GoogleSignInResultModel) async throws -> AuthDataResultModel {
@@ -116,7 +114,7 @@ extension AuthenticationManager {
         
         let user = User(uid: authDataResult.uid, email: tokens.email ?? "", displayName: tokens.name, photoURL: tokens.photoURL)
         print("Google sign-in user: \(user)")
-        try await FirestoreManager.shared.saveUser(user: user)
+        try await FirestoreManager.shared.saveOrUpdateUser(user: user)
         
         return authDataResult
     }
@@ -125,9 +123,21 @@ extension AuthenticationManager {
         let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: tokens.token, rawNonce: tokens.nonce)
         let authDataResult = try await signIn(credential: credential)
         
-        let user = User(uid: authDataResult.uid, email: tokens.email ?? "", displayName: tokens.fullName, photoURL: nil)
+        var email = tokens.email
+        var displayName = tokens.fullName
+
+        // 처음 로그인할 때만 email과 displayName을 UserDefaults에 저장
+        if let appleEmail = UserDefaults.standard.appleEmail, let appleDisplayName = UserDefaults.standard.appleDisplayName {
+            email = email?.isEmpty == false ? email : appleEmail
+            displayName = displayName?.isEmpty == false ? displayName : appleDisplayName
+        } else {
+            UserDefaults.standard.appleEmail = email
+            UserDefaults.standard.appleDisplayName = displayName
+        }
+
+        let user = User(uid: authDataResult.uid, email: email ?? "", displayName: displayName, photoURL: nil)
         print("Apple sign-in user: \(user)")
-        try await FirestoreManager.shared.saveUser(user: user)
+        try await FirestoreManager.shared.saveOrUpdateUser(user: user)
         
         return authDataResult
     }
