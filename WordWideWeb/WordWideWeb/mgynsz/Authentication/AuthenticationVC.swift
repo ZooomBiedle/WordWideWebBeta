@@ -49,7 +49,7 @@ class AuthenticationVC: UIViewController {
         button.backgroundColor = .black
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
-//        button.titleLabel?.font = UIFont.pretendard(size: 14, weight: .bold)
+        //        button.titleLabel?.font = UIFont.pretendard(size: 14, weight: .bold)
         return button
     }()
     
@@ -95,7 +95,7 @@ class AuthenticationVC: UIViewController {
         view.backgroundColor = UIColor(named: "bgColor")
         setupViews()
         setupNotificationObservers()
-
+        
         
         // 앱 시작 시 로그인 상태 확인
         if UserDefaults.standard.isLoggedIn && UserDefaults.standard.isAutoLoginEnabled {
@@ -190,53 +190,57 @@ class AuthenticationVC: UIViewController {
                 print("Google Sign-In successful: \(signInResult)")
                 try await authenticateWithFirebase(using: signInResult)
                 UserDefaults.standard.isLoggedIn = true // 로그인 상태 저장
+                UserDefaults.standard.isAutoLoginEnabled = true // 자동 로그인 상태 저장
                 navigateToMainViewController()
             } catch {
                 print("Google Sign-In failed: \(error.localizedDescription)")
             }
         }
     }
-
+    
     private func authenticateWithFirebase(using googleSignInResult: GoogleSignInResultModel) async throws {
         let credential = GoogleAuthProvider.credential(withIDToken: googleSignInResult.idToken, accessToken: googleSignInResult.accessToken)
         _ = try await Auth.auth().signIn(with: credential)
+        
+        // Firestore에 사용자 정보 저장
+        if let user = Auth.auth().currentUser {
+            let userModel = User(uid: user.uid, email: googleSignInResult.email ?? "", displayName: googleSignInResult.name, photoURL: googleSignInResult.photoURL)
+            try await FirestoreManager.shared.saveOrUpdateUser(user: userModel)
+        }
     }
     
     @objc private func appleSignInTapped() {
         Task {
             do {
                 let helper = SignInWithAppleHelper()
-                var signInResult: SignInWithAppleResult?
-
-                for try await result in helper.startSignInWithAppleFlow(viewController: self) {
-                    signInResult = result
-                    break
-                }
+                let signInResult = try await helper.startSignInWithAppleFlow(viewController: self)
                 
-                guard let result = signInResult else {
-                    print("Apple Sign-In failed: No result")
-                    return
-                }
-
-                print("Apple Sign-In successful: \(result)")
-                _ = try await AuthenticationManager.shared.signInWithApple(tokens: result)
+                print("Apple Sign-In successful: \(signInResult)")
+                try await authenticateWithFirebase(using: signInResult)
                 UserDefaults.standard.isLoggedIn = true // 로그인 상태 저장
-                UserDefaults.standard.appleIDToken = result.token
-                UserDefaults.standard.appleNonce = result.nonce
+                UserDefaults.standard.isAutoLoginEnabled = true // 자동 로그인 상태 저장
+                UserDefaults.standard.appleIDToken = signInResult.token
+                UserDefaults.standard.appleNonce = signInResult.nonce
                 navigateToMainViewController()
             } catch {
                 print("Apple Sign-In failed: \(error.localizedDescription)")
             }
         }
     }
-
+    
     private func authenticateWithFirebase(using appleSignInResult: SignInWithAppleResult) async throws {
         let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: appleSignInResult.token, rawNonce: appleSignInResult.nonce)
         _ = try await Auth.auth().signIn(with: credential)
+        
+        // Firestore에 사용자 정보 저장
+        if let user = Auth.auth().currentUser {
+            let userModel = User(uid: user.uid, email: appleSignInResult.email ?? "", displayName: appleSignInResult.displayName, photoURL: nil)
+            try await FirestoreManager.shared.saveOrUpdateUser(user: userModel)
+        }
     }
-
+    
     func navigateToMainViewController() {
-        let mainVC = ViewController()
+        let mainVC = MyPageVC()
         mainVC.modalPresentationStyle = .fullScreen
         self.present(mainVC, animated: true, completion: nil)
     }

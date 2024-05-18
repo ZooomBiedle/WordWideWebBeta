@@ -12,7 +12,7 @@ final class Utilities {
     
     static let shared = Utilities()
     private init() {}
-
+    
     @MainActor
     func topViewController(controller: UIViewController? = nil) -> UIViewController? {
         let controller = controller ?? UIApplication.shared.activeKeyWindow?.rootViewController
@@ -42,4 +42,3 @@ extension UIApplication {
             .filter { $0.isKeyWindow }.first
     }
 }
-

@@ -9,15 +9,16 @@ import Foundation
 import FirebaseAuth
 
 struct AuthDataResultModel {
-    
     let uid: String
     let email: String?
-    let photoUrl: String?
+    let displayName: String?
+    let photoURL: String?
     
-    init(user: User) {
+    init(user: FirebaseAuth.User) {
         self.uid = user.uid
         self.email = user.email
-        self.photoUrl = user.photoURL?.absoluteString
+        self.displayName = user.displayName
+        self.photoURL = user.photoURL?.absoluteString
     }
 }
 
@@ -56,17 +57,33 @@ final class AuthenticationManager {
             }
         }
     }
+    
+    func saveUserToFirestore(uid: String, email: String, displayName: String?, photoURL: String?) async throws {
+        let user = User(uid: uid, email: email, displayName: displayName, photoURL: photoURL)
+        print("Saving user to Firestore: \(user)")
+        try await FirestoreManager.shared.saveOrUpdateUser(user: user)
+    }
 
     @discardableResult
-    func createUser(email: String, password: String) async throws -> AuthDataResultModel {
+    func createUser(email: String, password: String, displayName: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
-        return AuthDataResultModel(user: authDataResult.user)
+        let user = AuthDataResultModel(user: authDataResult.user)
+        
+        // 사용자 Display Name 업데이트
+        let changeRequest = authDataResult.user.createProfileChangeRequest()
+        changeRequest.displayName = displayName
+        try await changeRequest.commitChanges()
+        
+        try await saveUserToFirestore(uid: user.uid, email: user.email!, displayName: displayName, photoURL: user.photoURL)
+        return user
     }
-    
+
     @discardableResult
     func signInUser(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
-        return AuthDataResultModel(user: authDataResult.user)
+        let user = AuthDataResultModel(user: authDataResult.user)
+        try await saveUserToFirestore(uid: user.uid, email: user.email!, displayName: user.displayName, photoURL: user.photoURL)
+        return user
     }
     
     func resetPassword(email: String) async throws {
@@ -89,28 +106,43 @@ final class AuthenticationManager {
 }
 
 // MARK: SIGN IN SSO
-
 extension AuthenticationManager {
     
     func signInWithGoogle(tokens: GoogleSignInResultModel) async throws -> AuthDataResultModel {
         let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
-        return try await signIn(credential: credential)
+        let authDataResult = try await signIn(credential: credential)
+        
+        let user = User(uid: authDataResult.uid, email: tokens.email ?? "", displayName: tokens.name, photoURL: tokens.photoURL)
+        print("Google sign-in user: \(user)")
+        try await FirestoreManager.shared.saveOrUpdateUser(user: user)
+        
+        return authDataResult
     }
         
     func signInWithApple(tokens: SignInWithAppleResult) async throws -> AuthDataResultModel {
         let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: tokens.token, rawNonce: tokens.nonce)
-        do {
-            let authDataResult = try await Auth.auth().signIn(with: credential)
-            print("Firebase sign-in with Apple successful: \(authDataResult.user.uid)")
-            return AuthDataResultModel(user: authDataResult.user)
-        } catch {
-            print("Firebase sign-in with Apple failed: \(error.localizedDescription)")
-            throw error
+        let authDataResult = try await signIn(credential: credential)
+        
+        var email = tokens.email
+        var displayName = tokens.fullName
+
+        // 처음 로그인할 때만 email과 displayName을 UserDefaults에 저장
+        if let appleEmail = UserDefaults.standard.appleEmail, let appleDisplayName = UserDefaults.standard.appleDisplayName {
+            email = email?.isEmpty == false ? email : appleEmail
+            displayName = displayName?.isEmpty == false ? displayName : appleDisplayName
+        } else {
+            UserDefaults.standard.appleEmail = email
+            UserDefaults.standard.appleDisplayName = displayName
         }
+
+        let user = User(uid: authDataResult.uid, email: email ?? "", displayName: displayName, photoURL: nil)
+        print("Apple sign-in user: \(user)")
+        try await FirestoreManager.shared.saveOrUpdateUser(user: user)
+        
+        return authDataResult
     }
 
-    
-    func signIn(credential: AuthCredential) async throws -> AuthDataResultModel {
+    private func signIn(credential: AuthCredential) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(with: credential)
         return AuthDataResultModel(user: authDataResult.user)
     }

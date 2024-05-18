@@ -17,7 +17,7 @@ struct SignInWithAppleResult {
     let firstName: String?
     let lastName: String?
     let nickName: String?
-
+    
     var fullName: String? {
         if let firstName, let lastName {
             return firstName + " " + lastName
@@ -32,7 +32,7 @@ struct SignInWithAppleResult {
     var displayName: String? {
         fullName ?? nickName
     }
-
+    
     init?(authorization: ASAuthorization, nonce: String) {
         guard
             let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential,
@@ -42,7 +42,7 @@ struct SignInWithAppleResult {
             print("Failed to get Apple ID token")
             return nil
         }
-
+        
         self.token = token
         self.nonce = nonce
         self.email = appleIDCredential.email
@@ -53,45 +53,34 @@ struct SignInWithAppleResult {
 }
 
 final class SignInWithAppleHelper: NSObject {
-        
-    private var completionHandler: ((Result<SignInWithAppleResult, Error>) -> Void)? = nil
+    
     private var currentNonce: String? = nil
+    private var continuation: CheckedContinuation<SignInWithAppleResult, Error>?
     
     @MainActor
-    func startSignInWithAppleFlow(viewController: UIViewController? = nil) -> AsyncThrowingStream<SignInWithAppleResult, Error> {
-        AsyncThrowingStream { continuation in
-            startSignInWithAppleFlow { result in
-                switch result {
-                case .success(let signInWithAppleResult):
-                    continuation.yield(signInWithAppleResult)
-                    continuation.finish()
-                    return
-                case .failure(let error):
-                    continuation.finish(throwing: error)
-                    return
-                }
-            }
+    func startSignInWithAppleFlow(viewController: UIViewController? = nil) async throws -> SignInWithAppleResult {
+        return try await withCheckedThrowingContinuation { continuation in
+            self.continuation = continuation
+            self.startSignInWithAppleFlow(viewController: viewController)
         }
     }
     
     @MainActor
-    private func startSignInWithAppleFlow(viewController: UIViewController? = nil, completion: @escaping (Result<SignInWithAppleResult, Error>) -> Void) {
-        guard let topVC = viewController ?? UIApplication.topViewController() else {
-            completion(.failure(SignInWithAppleError.noViewController))
+    private func startSignInWithAppleFlow(viewController: UIViewController? = nil) {
+        guard let topVC = viewController ?? Utilities.shared.topViewController() else {
+            continuation?.resume(throwing: SignInWithAppleError.noViewController)
             return
         }
-
+        
         let nonce = randomNonceString()
         currentNonce = nonce
-        completionHandler = completion
         showOSPrompt(nonce: nonce, on: topVC)
     }
-    
 }
 
 // MARK: PRIVATE
 private extension SignInWithAppleHelper {
-        
+    
     private func randomNonceString(length: Int = 32) -> String {
         precondition(length > 0)
         let charset: [Character] = Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
@@ -143,7 +132,7 @@ private extension SignInWithAppleHelper {
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = viewController
-
+        
         authorizationController.performRequests()
     }
     
@@ -155,14 +144,14 @@ private extension SignInWithAppleHelper {
         
         var errorDescription: String? {
             switch self {
-            case .noViewController:
-                return "Could not find top view controller."
-            case .invalidCredential:
-                return "Invalid sign in credential."
-            case .badResponse:
-                return "Apple Sign In had a bad response."
-            case .unableToFindNonce:
-                return "Apple Sign In token expired."
+                case .noViewController:
+                    return "Could not find top view controller."
+                case .invalidCredential:
+                    return "Invalid sign in credential."
+                case .badResponse:
+                    return "Apple Sign In had a bad response."
+                case .unableToFindNonce:
+                    return "Apple Sign In token expired."
             }
         }
     }
@@ -180,18 +169,22 @@ extension SignInWithAppleHelper: ASAuthorizationControllerDelegate {
                 throw SignInWithAppleError.badResponse
             }
             
+            // 저장할 사용자 정보 UserDefaults에 저장
+            UserDefaults.standard.appleEmail = result.email
+            UserDefaults.standard.appleDisplayName = result.displayName
+            
             print("Apple sign-in successful: \(result)")
-            completionHandler?(.success(result))
+            continuation?.resume(returning: result)
         } catch {
             print("Apple sign-in failed with error: \(error)")
-            completionHandler?(.failure(error))
+            continuation?.resume(throwing: error)
             return
         }
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("Apple sign-in failed with error: \(error)")
-        completionHandler?(.failure(error))
+        continuation?.resume(throwing: error)
         return
     }
 }

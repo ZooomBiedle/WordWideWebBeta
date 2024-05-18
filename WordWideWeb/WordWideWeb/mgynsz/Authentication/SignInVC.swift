@@ -68,7 +68,7 @@ class SignInVC: UIViewController {
         button.titleLabel?.font = UIFont.pretendard(size: 14, weight: .bold)
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "bgColor")
@@ -175,7 +175,7 @@ class SignInVC: UIViewController {
     }
     
     private func navigateToMainViewController() {
-        let mainVC = ViewController()
+        let mainVC = MyPageVC()
         mainVC.modalPresentationStyle = .fullScreen
         present(mainVC, animated: true, completion: nil)
     }

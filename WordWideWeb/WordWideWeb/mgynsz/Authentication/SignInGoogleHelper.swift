@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 import GoogleSignIn
 import GoogleSignInSwift
 
@@ -14,6 +15,7 @@ struct GoogleSignInResultModel {
     let accessToken: String
     let name: String?
     let email: String?
+    let photoURL: String?
 }
 
 final class SignInGoogleHelper {
@@ -29,8 +31,9 @@ final class SignInGoogleHelper {
         let accessToken: String = gidSignInResult.user.accessToken.tokenString
         let name = gidSignInResult.user.profile?.name
         let email = gidSignInResult.user.profile?.email
+        let photoURL = gidSignInResult.user.profile?.imageURL(withDimension: 200)?.absoluteString // 추가
         
-        let tokens = GoogleSignInResultModel(idToken: idToken, accessToken: accessToken, name: name, email: email)
+        let tokens = GoogleSignInResultModel(idToken: idToken, accessToken: accessToken, name: name, email: email, photoURL: photoURL)
         return tokens
     }
 }
