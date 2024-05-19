@@ -12,6 +12,8 @@ struct User: Codable {
     let email: String
     let displayName: String?
     var photoURL: String?
+    var socialMediaLink: String?
+    let authProvider: AuthProviderOption
 }
 
 struct Wordbook: Codable {
@@ -37,8 +39,8 @@ extension UserDefaults {
         static let googleAccessToken = "googleAccessToken"
         static let appleIDToken = "appleIDToken"
         static let appleNonce = "appleNonce"
-        static let appleEmail = "appleEmail" // 추가
-        static let appleDisplayName = "appleDisplayName" // 추가
+        static let appleEmail = "appleEmail"
+        static let appleDisplayName = "appleDisplayName"
     }
     
     var isLoggedIn: Bool {

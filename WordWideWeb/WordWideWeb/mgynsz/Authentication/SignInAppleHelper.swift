@@ -52,7 +52,7 @@ struct SignInWithAppleResult {
     }
 }
 
-final class SignInWithAppleHelper: NSObject {
+final class SignInAppleHelper: NSObject {
     
     private var currentNonce: String? = nil
     private var continuation: CheckedContinuation<SignInWithAppleResult, Error>?
@@ -79,7 +79,7 @@ final class SignInWithAppleHelper: NSObject {
 }
 
 // MARK: PRIVATE
-private extension SignInWithAppleHelper {
+private extension SignInAppleHelper {
     
     private func randomNonceString(length: Int = 32) -> String {
         precondition(length > 0)
@@ -158,7 +158,7 @@ private extension SignInWithAppleHelper {
     
 }
 
-extension SignInWithAppleHelper: ASAuthorizationControllerDelegate {
+extension SignInAppleHelper: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         do {
             guard let currentNonce else {

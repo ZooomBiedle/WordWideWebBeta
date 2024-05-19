@@ -7,6 +7,9 @@
 
 import UIKit
 import FirebaseCore
+import FirebaseAuth
+import FirebaseStorage
+import FirebaseFirestore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        
+        if Auth.auth().currentUser != nil {
+            // 이미 로그인된 사용자가 있을 경우 Firestore에서 최신 사용자 정보 업데이트
+            Task {
+                do {
+                    try await AuthenticationManager.shared.updateUserProfileFromFirestore()
+                } catch {
+                    print("Failed to update user profile from Firestore: \(error)")
+                }
+            }
+        }
         
         return true
     }
