@@ -19,10 +19,13 @@ class DictionaryTableViewCell: UITableViewCell {
     }()
     
     let addButton: UIButton = {
-        let btn = UIButton()
-        btn.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
-        btn.setImage(UIImage(systemName: "minus.circle.fill"), for: .highlighted)
-        btn.tintColor = btn.isHighlighted ? .lightGray : .black
+        let image = UIImage(systemName: "plus.circle.fill")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        let highlightedImage = UIImage(systemName: "minus.circle.fill")?.withTintColor(UIColor(red: 244/255, green: 179/255, blue: 179/255, alpha: 1.0), renderingMode: .alwaysOriginal)
+        
+        let btn = UIButton(type: .custom)
+        btn.setImage(image, for: .normal)
+        btn.setImage(highlightedImage, for: .highlighted)
+        btn.clipsToBounds = true
         return btn
     }()
     
@@ -45,6 +48,13 @@ class DictionaryTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        addButton.layer.cornerRadius = addButton.frame.size.height / 2
+    }
+    
     func setConstraints() {
         [wordLabel, addButton, stackview].forEach {
             contentView.addSubview($0)
@@ -59,8 +69,8 @@ class DictionaryTableViewCell: UITableViewCell {
         addButton.snp.makeConstraints { make in
             make.centerY.equalTo(wordLabel)
             make.height.equalTo(wordLabel)
-            make.trailing.equalToSuperview().inset(20)
             make.width.equalTo(wordLabel.snp.height)
+            make.trailing.equalToSuperview().inset(20)
         }
         
         stackview.snp.makeConstraints { make in
@@ -107,8 +117,8 @@ class DictionaryTableViewCell: UITableViewCell {
                              children: books)
 
         self.addButton.showsMenuAsPrimaryAction = true
-        self.addButton.changesSelectionAsPrimaryAction = true
-                
+        self.addButton.changesSelectionAsPrimaryAction = true         
     }
-    
+   
 }
+

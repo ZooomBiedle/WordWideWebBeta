@@ -49,6 +49,7 @@
 		9C1F0FA02BF7332F002D680D /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F9F2BF7332F002D680D /* MyPageVC.swift */; };
 		9C1F0FA22BF76BE1002D680D /* DictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FA12BF76BE1002D680D /* DictionaryTableViewCell.swift */; };
 		9C1F0FA42BF78C4A002D680D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FA32BF78C4A002D680D /* TabBarController.swift */; };
+		9C1F0FAC2BFB4820002D680D /* InvitingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FAB2BFB4820002D680D /* InvitingTableViewCell.swift */; };
 		F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB8F2BF329980075BA50 /* AppDelegate.swift */; };
 		F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB912BF329980075BA50 /* SceneDelegate.swift */; };
 		F410EB942BF329980075BA50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB932BF329980075BA50 /* ViewController.swift */; };
@@ -104,6 +105,7 @@
 		9C1F0F9F2BF7332F002D680D /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		9C1F0FA12BF76BE1002D680D /* DictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTableViewCell.swift; sourceTree = "<group>"; };
 		9C1F0FA32BF78C4A002D680D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		9C1F0FAB2BFB4820002D680D /* InvitingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitingTableViewCell.swift; sourceTree = "<group>"; };
 		F410EB8C2BF329980075BA50 /* WordWideWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordWideWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F410EB8F2BF329980075BA50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F410EB912BF329980075BA50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			children = (
 				F410EBFD2BF6F2230075BA50 /* TestIntroView.swift */,
 				9C1F0FA12BF76BE1002D680D /* DictionaryTableViewCell.swift */,
+				9C1F0FAB2BFB4820002D680D /* InvitingTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C1F0F9C2BF6F4E8002D680D /* DictionaryVC.swift in Sources */,
+				9C1F0FAC2BFB4820002D680D /* InvitingTableViewCell.swift in Sources */,
 				9C1F0FA02BF7332F002D680D /* MyPageVC.swift in Sources */,
 				9C1F0F8A2BF5E02E002D680D /* PlayingListVC.swift in Sources */,
 				2A8447132BF3590300AE319A /* Formatter.swift in Sources */,
@@ -575,6 +579,7 @@
 		};
 		F410EBA12BF3299A0075BA50 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A67F9012BF75BEB0075465D /* APIKey.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -609,6 +614,7 @@
 		};
 		F410EBA22BF3299A0075BA50 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A67F9012BF75BEB0075465D /* APIKey.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
