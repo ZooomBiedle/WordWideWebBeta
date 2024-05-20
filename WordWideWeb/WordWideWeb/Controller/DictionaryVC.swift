@@ -16,7 +16,7 @@ class DictionaryVC: UIViewController {
         label.font = UIFont.pretendard(size: 20, weight: .semibold)
         return label
     }()
-    private var searchBar = SearchBarWhite(frame: .zero, placeholder: "찾는 단어를 입력하세요", cornerRadius: 10)
+    private var searchBar = SearchBarWhite(frame: .zero, placeholder: "추가할 단어를 입력하세요", cornerRadius: 10)
     private lazy var tableview = UITableView()
     
     private var receivedItem: [Item] = [] {
@@ -38,6 +38,10 @@ class DictionaryVC: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         self.searchBar.delegate = self
+        searchBar.backgroundColor = .white
+        searchBar.searchTextField.backgroundColor = .white
+        searchBar.layer.borderColor = UIColor.white.cgColor
+        
         self.tableview.dataSource = self
         tableview.register(DictionaryTableViewCell.self, forCellReuseIdentifier: DictionaryTableViewCell.identifier)
         self.tableview.backgroundColor = UIColor(named: "bgColor")
@@ -50,7 +54,7 @@ class DictionaryVC: UIViewController {
         
         logo.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
-            make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
             
         searchBar.snp.makeConstraints { make in

@@ -41,7 +41,7 @@ class TabBarController: UITabBarController {
         viewControllers = [
             createNavController(for: MyPageVC(), image: UIImage(systemName: "house.circle.fill")!),
             createNavController(for: PlayingListVC(), image: UIImage(systemName: "magnifyingglass.circle")!),
-            createNavController(for: SearchFriendsVC(), image: UIImage(systemName: "plus.circle")!),
+            createNavController(for: DictionaryVC(), image: UIImage(systemName: "plus.circle")!),
             createNavController(for: InvitingVC(), image: UIImage(systemName: "envelope.circle")!),
             createNavController(for: MyInfoVC(), image: UIImage(systemName: "person.crop.circle")!)
         ]
