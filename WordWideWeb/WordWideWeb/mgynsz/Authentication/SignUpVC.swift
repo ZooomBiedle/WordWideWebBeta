@@ -323,9 +323,9 @@ class SignUpVC: UIViewController {
     }
     
     private func navigateToMainViewController() {
-        let mainVC = MyPageVC()
-        mainVC.modalPresentationStyle = .fullScreen
-        self.present(mainVC, animated: true, completion: nil)
+        let tabBarController = TabBarController()
+        tabBarController.modalPresentationStyle = .fullScreen
+        present(tabBarController, animated: true, completion: nil)
     }
 }
 

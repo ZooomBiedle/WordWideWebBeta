@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1165FB2BFB1B67000F61B0 /* AddWordBookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1165FA2BFB1B67000F61B0 /* AddWordBookVC.swift */; };
+		2A1165FD2BFB20B9000F61B0 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1165FC2BFB20B9000F61B0 /* UIColor+Ext.swift */; };
+		2A1165FF2BFB2175000F61B0 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1165FE2BFB2175000F61B0 /* RadioButton.swift */; };
+		2A1166012BFB723D000F61B0 /* WordbookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1166002BFB723D000F61B0 /* WordbookCell.swift */; };
 		2A511B152BF5FCFB00CDA177 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A511B142BF5FCFB00CDA177 /* User.swift */; };
 		2A511B182BF61A2D00CDA177 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A511B172BF61A2D00CDA177 /* GoogleService-Info.plist */; };
-		2A511B1A2BF625D400CDA177 /* SignInWithAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A511B192BF625D400CDA177 /* SignInWithAppleHelper.swift */; };
+		2A511B1A2BF625D400CDA177 /* SignInAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A511B192BF625D400CDA177 /* SignInAppleHelper.swift */; };
 		2A67F9032BF7675D0075465D /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A67F9022BF7675D0075465D /* FirestoreManager.swift */; };
 		2A67F9052BF772B40075465D /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A67F9042BF772B40075465D /* FriendCell.swift */; };
 		2A67F9072BF772D80075465D /* SearchFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A67F9062BF772D80075465D /* SearchFriendsVC.swift */; };
+		2A6C0CED2BF911840035B405 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6C0CEC2BF911840035B405 /* ProfileVC.swift */; };
+		2A6C0CEF2BF9415D0035B405 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6C0CEE2BF9415D0035B405 /* NotificationExtensions.swift */; };
+		2A6C0CF12BF998670035B405 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6C0CF02BF998670035B405 /* ProfileViewModel.swift */; };
 		2A8447132BF3590300AE319A /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8447102BF3590300AE319A /* Formatter.swift */; };
 		2A8447142BF3590300AE319A /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8447112BF3590300AE319A /* Numeric.swift */; };
 		2A8447192BF3631100AE319A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2A8447182BF3631100AE319A /* FirebaseAnalytics */; };
@@ -63,10 +70,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A1165FA2BFB1B67000F61B0 /* AddWordBookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordBookVC.swift; sourceTree = "<group>"; };
+		2A1165FC2BFB20B9000F61B0 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		2A1165FE2BFB2175000F61B0 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		2A1166002BFB723D000F61B0 /* WordbookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookCell.swift; sourceTree = "<group>"; };
 		2A511B142BF5FCFB00CDA177 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A511B162BF618B500CDA177 /* WordWideWeb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = WordWideWeb.entitlements; path = WordWideWeb/WordWideWeb.entitlements; sourceTree = "<group>"; };
 		2A511B172BF61A2D00CDA177 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2A511B192BF625D400CDA177 /* SignInWithAppleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleHelper.swift; sourceTree = "<group>"; };
+		2A511B192BF625D400CDA177 /* SignInAppleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAppleHelper.swift; sourceTree = "<group>"; };
 		2A67F8F82BF755870075465D /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		2A67F8FB2BF755870075465D /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		2A67F8FD2BF755870075465D /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -75,6 +86,9 @@
 		2A67F9022BF7675D0075465D /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		2A67F9042BF772B40075465D /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		2A67F9062BF772D80075465D /* SearchFriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsVC.swift; sourceTree = "<group>"; };
+		2A6C0CEC2BF911840035B405 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		2A6C0CEE2BF9415D0035B405 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
+		2A6C0CF02BF998670035B405 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		2A8447102BF3590300AE319A /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		2A8447112BF3590300AE319A /* Numeric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Numeric.swift; sourceTree = "<group>"; };
 		2A8447312BF36B3800AE319A /* AuthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVC.swift; sourceTree = "<group>"; };
@@ -156,7 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				2A8447312BF36B3800AE319A /* AuthenticationVC.swift */,
-				2A511B192BF625D400CDA177 /* SignInWithAppleHelper.swift */,
+				2A511B192BF625D400CDA177 /* SignInAppleHelper.swift */,
 				2A8447332BF36B9400AE319A /* SignUpVC.swift */,
 				2A8447372BF3850C00AE319A /* SignInVC.swift */,
 				2A8447352BF36BD600AE319A /* AuthenticationManager.swift */,
@@ -231,6 +245,11 @@
 				9C1F0F9B2BF6F4E8002D680D /* DictionaryVC.swift */,
 				9C1F0F9D2BF732EB002D680D /* InvitingVC.swift */,
 				9C1F0F8B2BF5E0BC002D680D /* MyInfoVC.swift */,
+				2A1166002BFB723D000F61B0 /* WordbookCell.swift */,
+				2A1165FA2BFB1B67000F61B0 /* AddWordBookVC.swift */,
+				2A1165FE2BFB2175000F61B0 /* RadioButton.swift */,
+				2A6C0CEC2BF911840035B405 /* ProfileVC.swift */,
+				2A6C0CF02BF998670035B405 /* ProfileViewModel.swift */,
 				F410EBFF2BF72F620075BA50 /* TestIntroViewController.swift */,
 			);
 			path = Controller;
@@ -249,6 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				F410EBB42BF343560075BA50 /* UIFont+Ext.swift */,
+				2A1165FC2BFB20B9000F61B0 /* UIColor+Ext.swift */,
+				2A6C0CEE2BF9415D0035B405 /* NotificationExtensions.swift */,
 				2A8447102BF3590300AE319A /* Formatter.swift */,
 				2A8447112BF3590300AE319A /* Numeric.swift */,
 			);
@@ -381,8 +402,10 @@
 				2A67F9052BF772B40075465D /* FriendCell.swift in Sources */,
 				2A8447342BF36B9400AE319A /* SignUpVC.swift in Sources */,
 				F410EBA92BF32BC20075BA50 /* NetworkManager.swift in Sources */,
+				2A6C0CEF2BF9415D0035B405 /* NotificationExtensions.swift in Sources */,
 				F410EBFE2BF6F2230075BA50 /* TestIntroView.swift in Sources */,
 				F410EBF22BF3C3D70075BA50 /* SearchBarWhite.swift in Sources */,
+				2A6C0CED2BF911840035B405 /* ProfileVC.swift in Sources */,
 				9C1F0FA22BF76BE1002D680D /* DictionaryTableViewCell.swift in Sources */,
 				2A8447362BF36BD600AE319A /* AuthenticationManager.swift in Sources */,
 				2AA413DD2BF3D1D400C34FEB /* Utilities.swift in Sources */,
@@ -390,19 +413,24 @@
 				2AA413D62BF3D14100C34FEB /* SignInGoogleHelper.swift in Sources */,
 				2A8447382BF3850C00AE319A /* SignInVC.swift in Sources */,
 				2A8447322BF36B3800AE319A /* AuthenticationVC.swift in Sources */,
-				2A511B1A2BF625D400CDA177 /* SignInWithAppleHelper.swift in Sources */,
+				2A511B1A2BF625D400CDA177 /* SignInAppleHelper.swift in Sources */,
 				2A67F9032BF7675D0075465D /* FirestoreManager.swift in Sources */,
+				2A1165FB2BFB1B67000F61B0 /* AddWordBookVC.swift in Sources */,
 				F410EB942BF329980075BA50 /* ViewController.swift in Sources */,
 				F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */,
 				9C1F0F9A2BF6F3F5002D680D /* RemoteDictionary.swift in Sources */,
 				F410EBC32BF39C3E0075BA50 /* ListViewCell.swift in Sources */,
 				F410EC002BF72F620075BA50 /* TestIntroViewController.swift in Sources */,
+				2A1166012BFB723D000F61B0 /* WordbookCell.swift in Sources */,
 				2A8447142BF3590300AE319A /* Numeric.swift in Sources */,
 				9C1F0F9E2BF732EB002D680D /* InvitingVC.swift in Sources */,
 				9C1F0FA42BF78C4A002D680D /* TabBarController.swift in Sources */,
 				F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */,
 				9C1F0F8C2BF5E0BC002D680D /* MyInfoVC.swift in Sources */,
+				2A6C0CF12BF998670035B405 /* ProfileViewModel.swift in Sources */,
 				2A511B152BF5FCFB00CDA177 /* User.swift in Sources */,
+				2A1165FF2BFB2175000F61B0 /* RadioButton.swift in Sources */,
+				2A1165FD2BFB20B9000F61B0 /* UIColor+Ext.swift in Sources */,
 				F410EBB52BF343560075BA50 /* UIFont+Ext.swift in Sources */,
 				F410EBFC2BF5DDB80075BA50 /* BlockCell.swift in Sources */,
 			);

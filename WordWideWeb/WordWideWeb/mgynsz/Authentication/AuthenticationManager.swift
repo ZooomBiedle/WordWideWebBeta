@@ -7,22 +7,27 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
 
 struct AuthDataResultModel {
     let uid: String
     let email: String?
     let displayName: String?
     let photoURL: String?
+    var socialMediaLink: String?
+    let authProvider: AuthProviderOption
     
-    init(user: FirebaseAuth.User) {
+    init(user: FirebaseAuth.User, authProvider: AuthProviderOption) {
         self.uid = user.uid
         self.email = user.email
         self.displayName = user.displayName
         self.photoURL = user.photoURL?.absoluteString
+        self.socialMediaLink = nil
+        self.authProvider = authProvider
     }
 }
 
-enum AuthProviderOption: String {
+enum AuthProviderOption: String, Codable {
     case email = "password"
     case google = "google.com"
     case apple = "apple.com"
@@ -37,7 +42,16 @@ final class AuthenticationManager {
         guard let user = Auth.auth().currentUser else {
             throw URLError(.badServerResponse)
         }
-        return AuthDataResultModel(user: user)
+        // authProvider를 포함하여 초기화
+        let providerData = user.providerData
+        var authProvider: AuthProviderOption = .email // 기본값 설정
+        for provider in providerData {
+            if let providerType = AuthProviderOption(rawValue: provider.providerID) {
+                authProvider = providerType
+                break
+            }
+        }
+        return AuthDataResultModel(user: user, authProvider: authProvider)
     }
 
     // 변경된 이메일 중복 확인 메서드
@@ -58,31 +72,29 @@ final class AuthenticationManager {
         }
     }
     
-    func saveUserToFirestore(uid: String, email: String, displayName: String?, photoURL: String?) async throws {
-        let user = User(uid: uid, email: email, displayName: displayName, photoURL: photoURL)
-        print("Saving user to Firestore: \(user)")
+    func saveUserToFirestore(uid: String, email: String, displayName: String?, photoURL: String?, authProvider: AuthProviderOption) async throws {
+        let user = User(uid: uid, email: email, displayName: displayName, photoURL: photoURL, socialMediaLink: nil, authProvider: authProvider)
         try await FirestoreManager.shared.saveOrUpdateUser(user: user)
     }
 
     @discardableResult
     func createUser(email: String, password: String, displayName: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
-        let user = AuthDataResultModel(user: authDataResult.user)
+        let user = AuthDataResultModel(user: authDataResult.user, authProvider: .email)
         
-        // 사용자 Display Name 업데이트
         let changeRequest = authDataResult.user.createProfileChangeRequest()
         changeRequest.displayName = displayName
         try await changeRequest.commitChanges()
         
-        try await saveUserToFirestore(uid: user.uid, email: user.email!, displayName: displayName, photoURL: user.photoURL)
+        try await saveUserToFirestore(uid: user.uid, email: user.email!, displayName: displayName, photoURL: user.photoURL, authProvider: .email)
         return user
     }
 
     @discardableResult
     func signInUser(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
-        let user = AuthDataResultModel(user: authDataResult.user)
-        try await saveUserToFirestore(uid: user.uid, email: user.email!, displayName: user.displayName, photoURL: user.photoURL)
+        let user = AuthDataResultModel(user: authDataResult.user, authProvider: .email)
+        try await saveUserToFirestore(uid: user.uid, email: user.email!, displayName: user.displayName, photoURL: user.photoURL, authProvider: .email)
         return user
     }
     
@@ -112,9 +124,11 @@ extension AuthenticationManager {
         let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
         let authDataResult = try await signIn(credential: credential)
         
-        let user = User(uid: authDataResult.uid, email: tokens.email ?? "", displayName: tokens.name, photoURL: tokens.photoURL)
+        let user = User(uid: authDataResult.uid, email: tokens.email ?? "", displayName: tokens.name, photoURL: tokens.photoURL, authProvider: .google)
         print("Google sign-in user: \(user)")
         try await FirestoreManager.shared.saveOrUpdateUser(user: user)
+        
+        try await updateUserProfileFromFirestore()
         
         return authDataResult
     }
@@ -125,8 +139,7 @@ extension AuthenticationManager {
         
         var email = tokens.email
         var displayName = tokens.fullName
-
-        // 처음 로그인할 때만 email과 displayName을 UserDefaults에 저장
+        
         if let appleEmail = UserDefaults.standard.appleEmail, let appleDisplayName = UserDefaults.standard.appleDisplayName {
             email = email?.isEmpty == false ? email : appleEmail
             displayName = displayName?.isEmpty == false ? displayName : appleDisplayName
@@ -135,15 +148,39 @@ extension AuthenticationManager {
             UserDefaults.standard.appleDisplayName = displayName
         }
 
-        let user = User(uid: authDataResult.uid, email: email ?? "", displayName: displayName, photoURL: nil)
+        let user = User(uid: authDataResult.uid, email: email ?? "", displayName: displayName, photoURL: nil, authProvider: .apple)
         print("Apple sign-in user: \(user)")
         try await FirestoreManager.shared.saveOrUpdateUser(user: user)
+        
+        try await updateUserProfileFromFirestore()
         
         return authDataResult
     }
 
     private func signIn(credential: AuthCredential) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(with: credential)
-        return AuthDataResultModel(user: authDataResult.user)
+        let providerData = authDataResult.user.providerData
+        var authProvider: AuthProviderOption = .email // 기본값 설정
+        for provider in providerData {
+            if let providerType = AuthProviderOption(rawValue: provider.providerID) {
+                authProvider = providerType
+                break
+            }
+        }
+        return AuthDataResultModel(user: authDataResult.user, authProvider: authProvider)
+    }
+    
+    func updateUserProfileFromFirestore() async throws {
+        guard let user = Auth.auth().currentUser else { return }
+        let userRef = Firestore.firestore().collection("users").document(user.uid)
+        let document = try await userRef.getDocument()
+        guard let data = document.data() else { return }
+        let displayName = data["displayName"] as? String
+        let photoURL = data["photoURL"] as? String
+        
+        let changeRequest = user.createProfileChangeRequest()
+        changeRequest.displayName = displayName
+        changeRequest.photoURL = URL(string: photoURL ?? "")
+        try await changeRequest.commitChanges()
     }
 }

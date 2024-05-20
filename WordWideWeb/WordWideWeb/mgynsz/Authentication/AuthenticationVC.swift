@@ -202,9 +202,8 @@ class AuthenticationVC: UIViewController {
         let credential = GoogleAuthProvider.credential(withIDToken: googleSignInResult.idToken, accessToken: googleSignInResult.accessToken)
         _ = try await Auth.auth().signIn(with: credential)
         
-        // Firestore에 사용자 정보 저장
         if let user = Auth.auth().currentUser {
-            let userModel = User(uid: user.uid, email: googleSignInResult.email ?? "", displayName: googleSignInResult.name, photoURL: googleSignInResult.photoURL)
+            let userModel = User(uid: user.uid, email: googleSignInResult.email ?? "", displayName: googleSignInResult.name, photoURL: googleSignInResult.photoURL, authProvider: .google)
             try await FirestoreManager.shared.saveOrUpdateUser(user: userModel)
         }
     }
@@ -212,7 +211,7 @@ class AuthenticationVC: UIViewController {
     @objc private func appleSignInTapped() {
         Task {
             do {
-                let helper = SignInWithAppleHelper()
+                let helper = SignInAppleHelper()
                 let signInResult = try await helper.startSignInWithAppleFlow(viewController: self)
                 
                 print("Apple Sign-In successful: \(signInResult)")
@@ -232,17 +231,16 @@ class AuthenticationVC: UIViewController {
         let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: appleSignInResult.token, rawNonce: appleSignInResult.nonce)
         _ = try await Auth.auth().signIn(with: credential)
         
-        // Firestore에 사용자 정보 저장
         if let user = Auth.auth().currentUser {
-            let userModel = User(uid: user.uid, email: appleSignInResult.email ?? "", displayName: appleSignInResult.displayName, photoURL: nil)
+            let userModel = User(uid: user.uid, email: appleSignInResult.email ?? "", displayName: appleSignInResult.displayName, photoURL: nil, authProvider: .apple)
             try await FirestoreManager.shared.saveOrUpdateUser(user: userModel)
         }
     }
     
-    func navigateToMainViewController() {
-        let mainVC = TabBarController()
-        mainVC.modalPresentationStyle = .fullScreen
-        self.present(mainVC, animated: true, completion: nil)
+    private func navigateToMainViewController() {
+        let tabBarController = TabBarController()
+        tabBarController.modalPresentationStyle = .fullScreen
+        present(tabBarController, animated: true, completion: nil)
     }
     
     @objc private func handleUserLogout() {

@@ -117,7 +117,8 @@ class DictionaryTableViewCell: UITableViewCell {
                              children: books)
 
         self.addButton.showsMenuAsPrimaryAction = true
-        self.addButton.changesSelectionAsPrimaryAction = true
+        self.addButton.changesSelectionAsPrimaryAction = true         
     }
+   
 }
 
