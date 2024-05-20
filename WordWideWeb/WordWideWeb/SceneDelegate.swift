@@ -22,9 +22,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func setRootViewController() {
-        let authenticationVC = AuthenticationVC()
-        let navigationController = UINavigationController(rootViewController: authenticationVC)
-        window?.rootViewController = navigationController
+        if UserDefaults.standard.isLoggedIn {
+            // 로그인 상태면 TabBarController 설정
+            let tabBarController = TabBarController()
+            window?.rootViewController = tabBarController
+        } else {
+            // 로그인 상태가 아니면 AuthenticationVC 설정
+            let authenticationVC = AuthenticationVC()
+            let navigationController = UINavigationController(rootViewController: authenticationVC)
+            window?.rootViewController = navigationController
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

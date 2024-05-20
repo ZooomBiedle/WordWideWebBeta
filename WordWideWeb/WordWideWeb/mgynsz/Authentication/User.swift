@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct User: Codable {
     let uid: String
     let email: String
     let displayName: String?
     var photoURL: String?
+    var socialMediaLink: String?
+    let authProvider: AuthProviderOption
 }
 
 struct Wordbook: Codable {
@@ -19,8 +22,12 @@ struct Wordbook: Codable {
     let ownerId: String
     let title: String
     let isPublic: Bool
+    let dueDate: Timestamp?
+    let createdAt: Timestamp
+    let attendees: [String]
     let sharedWith: [String]?
-    let dueDate: Date // 단어장 기한
+    let colorCover: String
+    let wordCount: Int
 }
 
 struct Word: Codable {
@@ -37,8 +44,8 @@ extension UserDefaults {
         static let googleAccessToken = "googleAccessToken"
         static let appleIDToken = "appleIDToken"
         static let appleNonce = "appleNonce"
-        static let appleEmail = "appleEmail" // 추가
-        static let appleDisplayName = "appleDisplayName" // 추가
+        static let appleEmail = "appleEmail"
+        static let appleDisplayName = "appleDisplayName"
     }
     
     var isLoggedIn: Bool {
