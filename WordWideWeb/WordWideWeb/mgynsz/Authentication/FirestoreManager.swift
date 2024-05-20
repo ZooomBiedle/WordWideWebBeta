@@ -90,7 +90,7 @@ final class FirestoreManager {
         UserDefaults.standard.set(true, forKey: "uploadInProgress_\(userId)")
 
         return try await withCheckedThrowingContinuation { continuation in
-            let uploadTask = storageRef.putData(imageData, metadata: nil) { metadata, error in
+            _ = storageRef.putData(imageData, metadata: nil) { metadata, error in
                 // 업로드 완료 상태 저장
                 UserDefaults.standard.set(false, forKey: "uploadInProgress_\(userId)")
                 

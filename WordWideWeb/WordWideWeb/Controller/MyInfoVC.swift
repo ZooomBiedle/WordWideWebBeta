@@ -132,6 +132,29 @@ class MyInfoVC: UIViewController {
                 }
             }
             .store(in: &cancellables)
+        
+        viewModel.$socialMediaLink
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] socialMediaLink in
+                guard let self = self else { return }
+                if let socialMediaLink = socialMediaLink {
+                    self.instagramIcon.isHidden = socialMediaLink.isEmpty
+                    self.instagramIcon.removeTarget(self, action: #selector(self.instagramIconTapped), for: .touchUpInside)
+                    self.instagramIcon.addTarget(self, action: #selector(self.instagramIconTapped), for: .touchUpInside)
+                } else {
+                    self.instagramIcon.isHidden = true
+                }
+            }
+            .store(in: &cancellables)
+    }
+    
+    @objc private func instagramIconTapped() {
+        guard let urlString = viewModel.socialMediaLink?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+              let url = URL(string: urlString) else {
+            print("Invalid URL")
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
     private func setupViews() {
@@ -161,9 +184,10 @@ class MyInfoVC: UIViewController {
         }
         
         instagramIcon.snp.makeConstraints { make in
-            make.bottom.equalTo(logoutButton.snp.top).offset(-10)
+//            make.bottom.equalTo(logoutButton.snp.top).offset(-10)
+            make.centerY.equalTo(profileImageView.snp.centerY)
             make.trailing.equalTo(view).offset(-20)
-            make.width.height.equalTo(30)
+            make.width.height.equalTo(24)
         }
         
         profileButton.snp.makeConstraints { make in

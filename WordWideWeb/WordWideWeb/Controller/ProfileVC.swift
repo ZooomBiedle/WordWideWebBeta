@@ -115,7 +115,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     }()
     
     private let activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .large)
+        let indicator = UIActivityIndicatorView(style: .medium)
         indicator.color = .gray
         indicator.hidesWhenStopped = true
         return indicator
@@ -345,8 +345,14 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
-        present(imagePickerController, animated: true, completion: nil)
+        present(imagePickerController, animated: true) {
+            DispatchQueue.main.async {
+                self.profileImageView.layer.borderWidth = 2
+                self.profileImageView.layer.borderColor = UIColor.systemBlue.cgColor
+            }
+        }
     }
+
     
     @objc private func nicknameEditTapped() {
         nicknameTextField.isEnabled = true
@@ -360,9 +366,9 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     @objc private func deleteAccountTapped() {
         // 재인증 확인 대화 상자 표시
-        let alertController = UIAlertController(title: "Delete Account", message: "Are you sure you want to delete your account and sign out?", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alertController.addAction(UIAlertAction(title: "Confirm", style: .destructive, handler: { _ in
+        let alertController = UIAlertController(title: "Bye", message: "You have been logged out. \n See you next time!", preferredStyle: .alert)
+//        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { _ in
             self.activityIndicator.startAnimating()
             self.reauthenticateAndDeleteAccount()
         }))
