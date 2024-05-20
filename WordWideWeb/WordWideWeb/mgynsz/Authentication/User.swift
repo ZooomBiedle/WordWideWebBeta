@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct User: Codable {
     let uid: String
@@ -21,8 +22,12 @@ struct Wordbook: Codable {
     let ownerId: String
     let title: String
     let isPublic: Bool
+    let dueDate: Timestamp?
+    let createdAt: Timestamp
+    let attendees: [String]
     let sharedWith: [String]?
-    let dueDate: Date // 단어장 기한
+    let colorCover: String
+    let wordCount: Int
 }
 
 struct Word: Codable {

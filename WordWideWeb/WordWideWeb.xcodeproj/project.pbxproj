@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1165FB2BFB1B67000F61B0 /* AddWordBookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1165FA2BFB1B67000F61B0 /* AddWordBookVC.swift */; };
+		2A1165FD2BFB20B9000F61B0 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1165FC2BFB20B9000F61B0 /* UIColor+Ext.swift */; };
+		2A1165FF2BFB2175000F61B0 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1165FE2BFB2175000F61B0 /* RadioButton.swift */; };
+		2A1166012BFB723D000F61B0 /* WordbookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1166002BFB723D000F61B0 /* WordbookCell.swift */; };
 		2A511B152BF5FCFB00CDA177 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A511B142BF5FCFB00CDA177 /* User.swift */; };
 		2A511B182BF61A2D00CDA177 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A511B172BF61A2D00CDA177 /* GoogleService-Info.plist */; };
 		2A511B1A2BF625D400CDA177 /* SignInAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A511B192BF625D400CDA177 /* SignInAppleHelper.swift */; };
@@ -65,6 +69,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A1165FA2BFB1B67000F61B0 /* AddWordBookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordBookVC.swift; sourceTree = "<group>"; };
+		2A1165FC2BFB20B9000F61B0 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		2A1165FE2BFB2175000F61B0 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		2A1166002BFB723D000F61B0 /* WordbookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordbookCell.swift; sourceTree = "<group>"; };
 		2A511B142BF5FCFB00CDA177 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A511B162BF618B500CDA177 /* WordWideWeb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = WordWideWeb.entitlements; path = WordWideWeb/WordWideWeb.entitlements; sourceTree = "<group>"; };
 		2A511B172BF61A2D00CDA177 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -234,6 +242,9 @@
 				9C1F0F9B2BF6F4E8002D680D /* DictionaryVC.swift */,
 				9C1F0F9D2BF732EB002D680D /* InvitingVC.swift */,
 				9C1F0F8B2BF5E0BC002D680D /* MyInfoVC.swift */,
+				2A1166002BFB723D000F61B0 /* WordbookCell.swift */,
+				2A1165FA2BFB1B67000F61B0 /* AddWordBookVC.swift */,
+				2A1165FE2BFB2175000F61B0 /* RadioButton.swift */,
 				2A6C0CEC2BF911840035B405 /* ProfileVC.swift */,
 				2A6C0CF02BF998670035B405 /* ProfileViewModel.swift */,
 				F410EBFF2BF72F620075BA50 /* TestIntroViewController.swift */,
@@ -254,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				F410EBB42BF343560075BA50 /* UIFont+Ext.swift */,
+				2A1165FC2BFB20B9000F61B0 /* UIColor+Ext.swift */,
 				2A6C0CEE2BF9415D0035B405 /* NotificationExtensions.swift */,
 				2A8447102BF3590300AE319A /* Formatter.swift */,
 				2A8447112BF3590300AE319A /* Numeric.swift */,
@@ -399,11 +411,13 @@
 				2A8447322BF36B3800AE319A /* AuthenticationVC.swift in Sources */,
 				2A511B1A2BF625D400CDA177 /* SignInAppleHelper.swift in Sources */,
 				2A67F9032BF7675D0075465D /* FirestoreManager.swift in Sources */,
+				2A1165FB2BFB1B67000F61B0 /* AddWordBookVC.swift in Sources */,
 				F410EB942BF329980075BA50 /* ViewController.swift in Sources */,
 				F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */,
 				9C1F0F9A2BF6F3F5002D680D /* RemoteDictionary.swift in Sources */,
 				F410EBC32BF39C3E0075BA50 /* ListViewCell.swift in Sources */,
 				F410EC002BF72F620075BA50 /* TestIntroViewController.swift in Sources */,
+				2A1166012BFB723D000F61B0 /* WordbookCell.swift in Sources */,
 				2A8447142BF3590300AE319A /* Numeric.swift in Sources */,
 				9C1F0F9E2BF732EB002D680D /* InvitingVC.swift in Sources */,
 				9C1F0FA42BF78C4A002D680D /* TabBarController.swift in Sources */,
@@ -411,6 +425,8 @@
 				9C1F0F8C2BF5E0BC002D680D /* MyInfoVC.swift in Sources */,
 				2A6C0CF12BF998670035B405 /* ProfileViewModel.swift in Sources */,
 				2A511B152BF5FCFB00CDA177 /* User.swift in Sources */,
+				2A1165FF2BFB2175000F61B0 /* RadioButton.swift in Sources */,
+				2A1165FD2BFB20B9000F61B0 /* UIColor+Ext.swift in Sources */,
 				F410EBB52BF343560075BA50 /* UIFont+Ext.swift in Sources */,
 				F410EBFC2BF5DDB80075BA50 /* BlockCell.swift in Sources */,
 			);

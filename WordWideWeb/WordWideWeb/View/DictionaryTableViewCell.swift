@@ -14,25 +14,24 @@ class DictionaryTableViewCell: UITableViewCell {
     
     var wordLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.pretendard(size: 18, weight: .semibold)
+        label.font = UIFont.pretendard(size: 16, weight: .semibold)
         return label
     }()
     
     let addButton: UIButton = {
         let btn = UIButton()
-        btn.setImage(UIImage(named: "plus.circle.fill"), for: .normal)
-        btn.setTitleColor(UIColor.black, for: .normal)
-        btn.setImage(UIImage(named: "minus.circle.fill"), for: .selected)
-        btn.setTitleColor(UIColor.gray, for: .selected)
+        btn.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
+        btn.setImage(UIImage(systemName: "minus.circle.fill"), for: .highlighted)
+        btn.tintColor = btn.isHighlighted ? .lightGray : .black
         return btn
     }()
     
-    var EngLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.pretendard(size: 18, weight: .regular)
-        return label
+    let stackview: UIStackView = {
+        let stv = UIStackView()
+        stv.axis = .vertical
+        return stv
     }()
-    // "\(senseOrder). \(pos)  \(transWord)"
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -47,54 +46,69 @@ class DictionaryTableViewCell: UITableViewCell {
     }
     
     func setConstraints() {
-        [wordLabel, addButton, EngLabel].forEach {
+        [wordLabel, addButton, stackview].forEach {
             contentView.addSubview($0)
         }
         
         wordLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
-            make.leading.equalToSuperview().offset(10)
+            make.leading.equalToSuperview().inset(20)
             make.height.equalTo(20)
         }
         
         addButton.snp.makeConstraints { make in
             make.centerY.equalTo(wordLabel)
-            make.verticalEdges.equalTo(wordLabel)
-            make.trailing.equalToSuperview().inset(10)
+            make.height.equalTo(wordLabel)
+            make.trailing.equalToSuperview().inset(20)
             make.width.equalTo(wordLabel.snp.height)
         }
         
-        EngLabel.snp.makeConstraints { make in
+        stackview.snp.makeConstraints { make in
             make.top.equalTo(wordLabel.snp.bottom).offset(10)
-            make.horizontalEdges.equalToSuperview().inset(10)
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.bottom.equalToSuperview().inset(10)
         }
     }
-
-    // MARK: - addButton
-    func setAddButton(_ button: UIButton) {
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
         
-        let configuration = UIButton.Configuration.tinted()
-        button.configuration = configuration
-        button.setImage(UIImage(systemName: "plus.fill"), for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.setImage(UIImage(systemName: "minus.fill"), for: .normal)
-        button.tintColor = UIColor.red
-        button.titleLabel?.text = ""
-        
-        let seletedPriority = {(action: UIAction)  in
-            
+        wordLabel.text = nil
+        // StackView의 모든 하위 뷰 제거
+        for subview in stackview.arrangedSubviews {
+            stackview.removeArrangedSubview(subview)
+            subview.removeFromSuperview()
         }
-        
-        self.addButton.menu = UIMenu(children: [
-            UIAction(title: "호텔 필수 영단어", handler: seletedPriority),
-            UIAction(title: "개발자 필수 영단어", handler: seletedPriority),
-            UIAction(title: "Cancel", handler: seletedPriority)
-        ])
-        self.addButton.showsMenuAsPrimaryAction = true
-        self.addButton.changesSelectionAsPrimaryAction = true
-        
     }
     
+    // MARK: - translated word가 쌓이는 stacview 만들기
+    func setStackView(item: Item) {
+        item.sense.forEach { senseElement in
+            let label = UILabel()
+            label.numberOfLines = 0
+            label.text = "\(senseElement.senseOrder). \(item.pos)  \(senseElement.transWord)"
+            
+            stackview.addArrangedSubview(label)
+        }
+    }
+    
+    // MARK: - addButton
+    func setAddButton(_ button: UIButton) {
+        let books = [
+            UIAction(title: "호텔 필수 영단어", image: UIImage(systemName: "star"), state: .on, handler: { _ in print("호텔") }),
+            UIAction(title: "개발자 필수 영단어", image: UIImage(systemName: "star"), state: .on, handler: { _ in print("개발자") }),
+            UIAction(title: "Cancel", image: UIImage(systemName: "trash"), attributes: .destructive, handler: { _ in print("취소") })
+        ]
+                      
+        button.menu = UIMenu(title: "Add word book",
+                             image: UIImage(systemName: "plus"),
+                             identifier: nil,
+                             options: .displayInline,
+                             children: books)
 
+        self.addButton.showsMenuAsPrimaryAction = true
+        self.addButton.changesSelectionAsPrimaryAction = true
+                
+    }
+    
 }

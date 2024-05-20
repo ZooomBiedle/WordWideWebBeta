@@ -179,7 +179,12 @@ final class FirestoreManager {
     
     // 단어장 생성
     func createWordbook(wordbook: Wordbook) async throws {
-        let data = try Firestore.Encoder().encode(wordbook)
+        var data = try Firestore.Encoder().encode(wordbook)
+        data["createdDate"] = FieldValue.serverTimestamp()
+        data["hasDueDate"] = wordbook.dueDate != nil
+        data["attendees"] = wordbook.attendees
+        data["words"] = [] as [String]
+        data["wordCount"] = 0
         
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             db.collection("wordbooks").document(wordbook.id).setData(data) { error in
@@ -192,9 +197,12 @@ final class FirestoreManager {
         }
     }
     
-    // 단어장 목록 가져오기
+    // 단어장 가져오기
     func fetchWordbooks(for userId: String) async throws -> [Wordbook] {
-        let querySnapshot = try await fetchDocuments(collection: "wordbooks", field: "ownerId", value: userId)
+        let querySnapshot = try await db.collection("wordbooks")
+            .whereField("ownerId", isEqualTo: userId)
+            .getDocuments()
+        
         return try querySnapshot.documents.compactMap { try $0.data(as: Wordbook.self) }
     }
     
@@ -285,4 +293,3 @@ final class FirestoreManager {
         }
     }
 }
-

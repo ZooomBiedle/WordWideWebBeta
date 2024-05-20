@@ -90,6 +90,8 @@ class MyInfoVC: UIViewController {
     private var buttons: [UIButton] = []
     private var segmentIcons = ["person", "person.3"]
     private let indicatorView = UIView()
+    private var wordbooks: [Wordbook] = []
+    private var isPublicView: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -264,6 +266,7 @@ class MyInfoVC: UIViewController {
     
     @objc private func userDidUpdate() {
         viewModel.fetchUserInfo()
+        fetchWordbooks()
     }
     
     @objc private func profileButtonTapped() {
@@ -277,6 +280,8 @@ class MyInfoVC: UIViewController {
             button.isSelected = (button == sender)
         }
         
+        isPublicView = sender == buttons[1]
+        
         UIView.animate(withDuration: 0.3) {
             self.indicatorView.snp.remakeConstraints { make in
                 make.height.equalTo(2)
@@ -286,16 +291,32 @@ class MyInfoVC: UIViewController {
             }
             self.view.layoutIfNeeded()
         }
+        collectionView.reloadData()
+    }
+    
+    // 단어장 불러오기
+    private func fetchWordbooks() {
+        Task {
+            do {
+                let userId = Auth.auth().currentUser!.uid
+                self.wordbooks = try await FirestoreManager.shared.fetchWordbooks(for: userId)
+                self.collectionView.reloadData()
+            } catch {
+                print("Error fetching wordbooks: \(error.localizedDescription)")
+            }
+        }
     }
     
     @objc private func addWordBookButtonTapped() {
-        // + 버튼을 눌렀을 때 실행할 코드
-        print("add wordbook tapped")
+        let addWordBookVC = AddWordBookVC()
+        addWordBookVC.modalPresentationStyle = .formSheet
+        present(addWordBookVC, animated: true, completion: nil)
     }
     
     private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(WordbookCell.self, forCellWithReuseIdentifier: "WordbookCell")
     }
   
     @objc private func logoutTapped() {
@@ -316,14 +337,14 @@ class MyInfoVC: UIViewController {
 
 extension MyInfoVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return 2
+        return wordbooks.filter { $0.isPublic == isPublicView }.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .lightGray
-        cell.layer.cornerRadius = 10
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WordbookCell", for: indexPath) as! WordbookCell
+        let filteredWordbooks = wordbooks.filter { $0.isPublic == isPublicView }
+        let wordbook = filteredWordbooks[indexPath.item]
+        cell.configure(with: wordbook)
         return cell
     }
 }
