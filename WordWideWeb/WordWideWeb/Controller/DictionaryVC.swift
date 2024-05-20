@@ -16,7 +16,7 @@ class DictionaryVC: UIViewController {
         label.font = UIFont.pretendard(size: 20, weight: .semibold)
         return label
     }()
-    private var searchBar = SearchBarWhite(frame: .zero, placeholder: "찾는 단어를 입력하세요", cornerRadius: 10)
+    private var searchBar = SearchBarWhite(frame: .zero, placeholder: "추가할 단어를 입력하세요", cornerRadius: 10)
     private lazy var tableview = UITableView()
     
     private var receivedItem: [Item] = [] {

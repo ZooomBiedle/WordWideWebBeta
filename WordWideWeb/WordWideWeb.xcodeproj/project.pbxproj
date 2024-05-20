@@ -56,6 +56,18 @@
 		9C1F0FBE2BFB9479002D680D /* TestIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FBD2BFB9479002D680D /* TestIntroView.swift */; };
 		9C1F0FC02BFB94BA002D680D /* TestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FBF2BFB94BA002D680D /* TestResultViewController.swift */; };
 		9C1F0FC22BFB94EE002D680D /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FC12BFB94EE002D680D /* TestViewController.swift */; };
+		9C1F0FC42BFBA98C002D680D /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FC32BFBA98C002D680D /* MyPage.swift */; };
+		9C1F0FC62BFBA9E6002D680D /* CarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FC52BFBA9E6002D680D /* CarouselLayout.swift */; };
+		9C1F0FC82BFBAA1A002D680D /* MyPage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FC72BFBAA1A002D680D /* MyPage+Ext.swift */; };
+		9C1F0FCA2BFBAAB4002D680D /* CollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FC92BFBAAB4002D680D /* CollectionView+Ext.swift */; };
+		9C1F0FCC2BFBAB9B002D680D /* PageControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FCB2BFBAB9B002D680D /* PageControlViewController.swift */; };
+		9C1F0FCE2BFBABE5002D680D /* MyPageWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FCD2BFBABE5002D680D /* MyPageWordViewController.swift */; };
+		9C1F0FD02BFBAC25002D680D /* MyPageModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FCF2BFBAC25002D680D /* MyPageModalViewController.swift */; };
+		9C1F0FD22BFBAC5F002D680D /* MyPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FD12BFBAC5F002D680D /* MyPageCollectionViewCell.swift */; };
+		9C1F0FD42BFBAC93002D680D /* EmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FD32BFBAC93002D680D /* EmptyCollectionViewCell.swift */; };
+		9C1F0FD62BFBAD52002D680D /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FD52BFBAD52002D680D /* LabelFactory.swift */; };
+		9C1F0FD82BFBAD75002D680D /* ImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FD72BFBAD75002D680D /* ImageFactory.swift */; };
+		9C1F0FDA2BFBADA2002D680D /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FD92BFBADA2002D680D /* ButtonFactory.swift */; };
 		F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB8F2BF329980075BA50 /* AppDelegate.swift */; };
 		F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB912BF329980075BA50 /* SceneDelegate.swift */; };
 		F410EB942BF329980075BA50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB932BF329980075BA50 /* ViewController.swift */; };
@@ -117,6 +129,18 @@
 		9C1F0FBD2BFB9479002D680D /* TestIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIntroView.swift; sourceTree = "<group>"; };
 		9C1F0FBF2BFB94BA002D680D /* TestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultViewController.swift; sourceTree = "<group>"; };
 		9C1F0FC12BFB94EE002D680D /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		9C1F0FC32BFBA98C002D680D /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
+		9C1F0FC52BFBA9E6002D680D /* CarouselLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselLayout.swift; sourceTree = "<group>"; };
+		9C1F0FC72BFBAA1A002D680D /* MyPage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyPage+Ext.swift"; sourceTree = "<group>"; };
+		9C1F0FC92BFBAAB4002D680D /* CollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+Ext.swift"; sourceTree = "<group>"; };
+		9C1F0FCB2BFBAB9B002D680D /* PageControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlViewController.swift; sourceTree = "<group>"; };
+		9C1F0FCD2BFBABE5002D680D /* MyPageWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageWordViewController.swift; sourceTree = "<group>"; };
+		9C1F0FCF2BFBAC25002D680D /* MyPageModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModalViewController.swift; sourceTree = "<group>"; };
+		9C1F0FD12BFBAC5F002D680D /* MyPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCollectionViewCell.swift; sourceTree = "<group>"; };
+		9C1F0FD32BFBAC93002D680D /* EmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewCell.swift; sourceTree = "<group>"; };
+		9C1F0FD52BFBAD52002D680D /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
+		9C1F0FD72BFBAD75002D680D /* ImageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFactory.swift; sourceTree = "<group>"; };
+		9C1F0FD92BFBADA2002D680D /* ButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
 		F410EB8C2BF329980075BA50 /* WordWideWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordWideWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F410EB8F2BF329980075BA50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F410EB912BF329980075BA50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -245,6 +269,7 @@
 				9C1F0FB92BFB939E002D680D /* TestResultView.swift */,
 				9C1F0FBB2BFB93C5002D680D /* TestView.swift */,
 				9C1F0FBD2BFB9479002D680D /* TestIntroView.swift */,
+				9C1F0FC52BFBA9E6002D680D /* CarouselLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -266,6 +291,11 @@
 				F410EBFF2BF72F620075BA50 /* TestIntroViewController.swift */,
 				9C1F0FBF2BFB94BA002D680D /* TestResultViewController.swift */,
 				9C1F0FC12BFB94EE002D680D /* TestViewController.swift */,
+				9C1F0FCB2BFBAB9B002D680D /* PageControlViewController.swift */,
+				9C1F0FCD2BFBABE5002D680D /* MyPageWordViewController.swift */,
+				9C1F0FCF2BFBAC25002D680D /* MyPageModalViewController.swift */,
+				9C1F0FD12BFBAC5F002D680D /* MyPageCollectionViewCell.swift */,
+				9C1F0FD32BFBAC93002D680D /* EmptyCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,6 +305,7 @@
 			children = (
 				F410EBA82BF32BC20075BA50 /* NetworkManager.swift */,
 				9C1F0F992BF6F3F5002D680D /* RemoteDictionary.swift */,
+				9C1F0FC32BFBA98C002D680D /* MyPage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -287,6 +318,8 @@
 				2A6C0CEE2BF9415D0035B405 /* NotificationExtensions.swift */,
 				2A8447102BF3590300AE319A /* Formatter.swift */,
 				2A8447112BF3590300AE319A /* Numeric.swift */,
+				9C1F0FC72BFBAA1A002D680D /* MyPage+Ext.swift */,
+				9C1F0FC92BFBAAB4002D680D /* CollectionView+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -297,6 +330,9 @@
 				F410EBC22BF39C3E0075BA50 /* ListViewCell.swift */,
 				F410EBF12BF3C3D70075BA50 /* SearchBarWhite.swift */,
 				F410EBFB2BF5DDB80075BA50 /* BlockCell.swift */,
+				9C1F0FD52BFBAD52002D680D /* LabelFactory.swift */,
+				9C1F0FD72BFBAD75002D680D /* ImageFactory.swift */,
+				9C1F0FD92BFBADA2002D680D /* ButtonFactory.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -412,6 +448,9 @@
 				9C1F0F9C2BF6F4E8002D680D /* DictionaryVC.swift in Sources */,
 				9C1F0FAC2BFB4820002D680D /* InvitingTableViewCell.swift in Sources */,
 				9C1F0FA02BF7332F002D680D /* MyPageVC.swift in Sources */,
+				9C1F0FD62BFBAD52002D680D /* LabelFactory.swift in Sources */,
+				9C1F0FD02BFBAC25002D680D /* MyPageModalViewController.swift in Sources */,
+				9C1F0FD82BFBAD75002D680D /* ImageFactory.swift in Sources */,
 				9C1F0F8A2BF5E02E002D680D /* PlayingListVC.swift in Sources */,
 				9C1F0FBC2BFB93C5002D680D /* TestView.swift in Sources */,
 				9C1F0FC02BFB94BA002D680D /* TestResultViewController.swift in Sources */,
@@ -421,8 +460,10 @@
 				F410EBA92BF32BC20075BA50 /* NetworkManager.swift in Sources */,
 				2A6C0CEF2BF9415D0035B405 /* NotificationExtensions.swift in Sources */,
 				9C1F0FBE2BFB9479002D680D /* TestIntroView.swift in Sources */,
+				9C1F0FD42BFBAC93002D680D /* EmptyCollectionViewCell.swift in Sources */,
 				F410EBF22BF3C3D70075BA50 /* SearchBarWhite.swift in Sources */,
 				2A6C0CED2BF911840035B405 /* ProfileVC.swift in Sources */,
+				9C1F0FD22BFBAC5F002D680D /* MyPageCollectionViewCell.swift in Sources */,
 				9C1F0FB82BFB9332002D680D /* TestFriendViewCell.swift in Sources */,
 				9C1F0FA22BF76BE1002D680D /* DictionaryTableViewCell.swift in Sources */,
 				2A8447362BF36BD600AE319A /* AuthenticationManager.swift in Sources */,
@@ -431,6 +472,8 @@
 				2AA413D62BF3D14100C34FEB /* SignInGoogleHelper.swift in Sources */,
 				2A8447382BF3850C00AE319A /* SignInVC.swift in Sources */,
 				2A8447322BF36B3800AE319A /* AuthenticationVC.swift in Sources */,
+				9C1F0FCA2BFBAAB4002D680D /* CollectionView+Ext.swift in Sources */,
+				9C1F0FC82BFBAA1A002D680D /* MyPage+Ext.swift in Sources */,
 				2A511B1A2BF625D400CDA177 /* SignInAppleHelper.swift in Sources */,
 				2A67F9032BF7675D0075465D /* FirestoreManager.swift in Sources */,
 				9C1F0FC22BFB94EE002D680D /* TestViewController.swift in Sources */,
@@ -438,16 +481,21 @@
 				F410EB942BF329980075BA50 /* ViewController.swift in Sources */,
 				F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */,
 				9C1F0F9A2BF6F3F5002D680D /* RemoteDictionary.swift in Sources */,
+				9C1F0FCE2BFBABE5002D680D /* MyPageWordViewController.swift in Sources */,
+				9C1F0FCC2BFBAB9B002D680D /* PageControlViewController.swift in Sources */,
+				9C1F0FC62BFBA9E6002D680D /* CarouselLayout.swift in Sources */,
 				F410EBC32BF39C3E0075BA50 /* ListViewCell.swift in Sources */,
 				F410EC002BF72F620075BA50 /* TestIntroViewController.swift in Sources */,
 				2A1166012BFB723D000F61B0 /* WordbookCell.swift in Sources */,
 				2A8447142BF3590300AE319A /* Numeric.swift in Sources */,
 				9C1F0F9E2BF732EB002D680D /* InvitingVC.swift in Sources */,
 				9C1F0FA42BF78C4A002D680D /* TabBarController.swift in Sources */,
+				9C1F0FC42BFBA98C002D680D /* MyPage.swift in Sources */,
 				F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */,
 				9C1F0F8C2BF5E0BC002D680D /* MyInfoVC.swift in Sources */,
 				2A6C0CF12BF998670035B405 /* ProfileViewModel.swift in Sources */,
 				9C1F0FBA2BFB939E002D680D /* TestResultView.swift in Sources */,
+				9C1F0FDA2BFBADA2002D680D /* ButtonFactory.swift in Sources */,
 				2A511B152BF5FCFB00CDA177 /* User.swift in Sources */,
 				2A1165FF2BFB2175000F61B0 /* RadioButton.swift in Sources */,
 				2A1165FD2BFB20B9000F61B0 /* UIColor+Ext.swift in Sources */,
