@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import FirebaseFirestore
-import SnapKit
 import FirebaseAuth
+import SnapKit
 
 class SearchFriendsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -16,25 +15,13 @@ class SearchFriendsVC: UIViewController, UISearchBarDelegate, UITableViewDelegat
     private let tableView = UITableView()
     
     private var friends: [User] = []
+    private var searchTask: DispatchWorkItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupSearchBar()
         setupTableView()
-    }
-    
-    @objc private func logoutTapped() {
-        do {
-            try Auth.auth().signOut()
-            UserDefaults.standard.isLoggedIn = false
-            UserDefaults.standard.isAutoLoginEnabled = false
-            NotificationCenter.default.post(name: .userDidLogout, object: nil)
-            guard let sceneDelegate = view.window?.windowScene?.delegate as? SceneDelegate else { return }
-            sceneDelegate.setRootViewController()
-        } catch {
-            print("Error signing out: \(error.localizedDescription)")
-        }
     }
     
     private func setupSearchBar() {
@@ -64,36 +51,40 @@ class SearchFriendsVC: UIViewController, UISearchBarDelegate, UITableViewDelegat
         tableView.tableFooterView = UIView()
     }
     
-    private func searchFriends(with query: String) {
-        let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmedQuery.isEmpty else { return }
-        
-        Firestore.firestore().collection("users")
-            .whereField("displayName", isGreaterThanOrEqualTo: trimmedQuery)
-            .whereField("displayName", isLessThanOrEqualTo: trimmedQuery + "\u{f8ff}")
-            .getDocuments { snapshot, error in
-                if let error = error {
-                    print("Error fetching friends: \(error.localizedDescription)")
-                    return
-                }
-                guard let documents = snapshot?.documents else {
-                    print("No friends found")
-                    return
-                }
-                self.friends = documents.compactMap { try? $0.data(as: User.self) }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+    private func searchFriends(with query: String) async {
+        do {
+            let users: [User]
+            if query.contains("@") {
+                users = try await FirestoreManager.shared.searchUserByEmail(query: query)
+            } else {
+                users = try await FirestoreManager.shared.searchUserByName(query: query)
             }
+            self.friends = users
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        } catch {
+            print("Error searching friends: \(error.localizedDescription)")
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard !searchText.isEmpty else {
-            friends = []
-            tableView.reloadData()
-            return
+        searchTask?.cancel()
+        
+        let task = DispatchWorkItem { [weak self] in
+            guard let self = self else { return }
+            guard !searchText.isEmpty else {
+                self.friends = []
+                self.tableView.reloadData()
+                return
+            }
+            Task {
+                await self.searchFriends(with: searchText)
+            }
         }
-        searchFriends(with: searchText)
+        
+        searchTask = task
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: task)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -107,4 +98,3 @@ class SearchFriendsVC: UIViewController, UISearchBarDelegate, UITableViewDelegat
         return cell
     }
 }
-

@@ -152,15 +152,29 @@ final class FirestoreManager {
     }
     
     // 이메일로 사용자 검색
-    func searchUserByEmail(email: String) async throws -> [User] {
-        let querySnapshot = try await fetchDocuments(collection: "users", field: "email", value: email)
-        return try querySnapshot.documents.compactMap { try $0.data(as: User.self) }
+    func searchUserByEmail(query: String) async throws -> [User] {
+        let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedQuery.isEmpty else { return [] }
+        
+        let snapshot = try await db.collection("users")
+            .whereField("email", isGreaterThanOrEqualTo: trimmedQuery)
+            .whereField("email", isLessThanOrEqualTo: trimmedQuery + "\u{f8ff}")
+            .getDocuments()
+        
+        return snapshot.documents.compactMap { try? $0.data(as: User.self) }
     }
     
     // 이름으로 사용자 검색
-    func searchUserByName(name: String) async throws -> [User] {
-        let querySnapshot = try await fetchDocuments(collection: "users", field: "displayName", value: name)
-        return try querySnapshot.documents.compactMap { try $0.data(as: User.self) }
+    func searchUserByName(query: String) async throws -> [User] {
+        let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedQuery.isEmpty else { return [] }
+        
+        let snapshot = try await db.collection("users")
+            .whereField("displayName", isGreaterThanOrEqualTo: trimmedQuery)
+            .whereField("displayName", isLessThanOrEqualTo: trimmedQuery + "\u{f8ff}")
+            .getDocuments()
+        
+        return snapshot.documents.compactMap { try? $0.data(as: User.self) }
     }
     
     // 단어장 생성
