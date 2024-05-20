@@ -77,7 +77,7 @@ class TestIntroView: UIView {
     private let timeNumLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.pretendard(size: 20, weight: .heavy)
-        label.text = "30:00"
+        label.text = "00:30:00"
         label.textColor = .black
         label.numberOfLines = 1
         return label
@@ -100,7 +100,7 @@ class TestIntroView: UIView {
     
     let startBtn: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = .mainBtn
         button.clipsToBounds = true
         button.layer.cornerRadius = 10
         button.tintColor = .white
@@ -119,7 +119,7 @@ class TestIntroView: UIView {
     }
     
     private func setUI(){
-        self.backgroundColor = .lightGray //.bgColor
+        self.backgroundColor = .bg
         
         self.addSubview(bodyView)
         bodyView.snp.makeConstraints { make in
@@ -131,7 +131,7 @@ class TestIntroView: UIView {
         self.bodyView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(50)
+            make.top.equalToSuperview().offset(70)
             make.width.equalTo(240)
             make.height.equalTo(100)
         }
@@ -139,9 +139,37 @@ class TestIntroView: UIView {
         self.bodyView.addSubview(testInfoStackView)
         testInfoStackView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(titleLabel.snp.bottom).offset(60)
+            make.top.equalTo(titleLabel.snp.bottom).offset(80)
             make.width.equalTo(240)
             make.height.equalTo(100)
+        }
+        
+        self.addSubview(startBtn)
+        startBtn.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-30)
+            make.width.equalTo(343)
+            make.height.equalTo(53)
+        }
+    }
+    
+    func bind(title: String, blockCount: Int) {
+        self.titleLabel.text = title
+        self.quizNumLabel.text = String(blockCount)
+        
+        //1문제당 1분
+        var dateComponents = DateComponents()
+        dateComponents.minute = blockCount
+        dateComponents.second = 0
+        
+        let userCalendar = Calendar.current
+        if let specificDate = userCalendar.date(from: dateComponents) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "mm:ss"
+            let timeString = dateFormatter.string(from: specificDate)
+            self.timeNumLabel.text = timeString
+        } else {
+            print("날짜를 생성할 수 없습니다.")
         }
     }
 }
