@@ -14,15 +14,5 @@ struct Item {
 
 struct SenseElement {
     var senseOrder: Int
-    var transWord: String
+    var definition, transWord, transDfn: String
 }
-
-//struct Item {
-//    var word, pos: String
-//    var sense: [SenseElement]
-//}
-//
-//struct SenseElement {
-//    var senseOrder: Int
-//    var definition, transWord, transDfn: String
-//}

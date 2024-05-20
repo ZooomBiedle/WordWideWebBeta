@@ -19,7 +19,7 @@ class DictionaryVC: UIViewController {
     private var searchBar = SearchBarWhite(frame: .zero, placeholder: "추가할 단어를 입력하세요", barColor: .white)
     private lazy var tableview = UITableView()
     
-    private var receivedItems: [Item] = [] {
+    private var receivedItem: [Item] = [] {
         didSet {
             tableview.reloadData()
         }
@@ -69,13 +69,17 @@ class DictionaryVC: UIViewController {
 
 
 extension DictionaryVC: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         guard let keyword = searchBar.text else { return }
         print("Search query: \(keyword)")
-        NetworkManager.shared.fetchAPI(query: keyword) { [weak self] item in
-            print("Items received: \(item.count)")
-            self?.receivedItems = item
-            print(self?.receivedItems)
+        NetworkManager.shared.fetchAPI(query: keyword) { [weak self] items in
+            guard let self else { return }
+            print("Items received: \(items.count)")
+            self.receivedItem = items
         }
     }
 }
@@ -83,17 +87,16 @@ extension DictionaryVC: UISearchBarDelegate {
 
 extension DictionaryVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return receivedItems.count
+        return receivedItem.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DictionaryTableViewCell.identifier, for: indexPath) as! DictionaryTableViewCell
         
-        let items = self.receivedItems[indexPath.row]
-        let senceElements = items.sense[0]   // 튜터님에게 여쭤보기
-        cell.wordLabel.text = items.word
-        cell.EngLabel.text = "\(senceElements.senseOrder)." + " \(items.pos)" + "  \(senceElements.transWord)"
-        
+        let index = receivedItem[indexPath.row]
+        cell.wordLabel.text = index.word
+        cell.setStackView(item: index)
+
         return cell
     }
     

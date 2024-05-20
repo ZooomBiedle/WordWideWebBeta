@@ -8,22 +8,53 @@
 import UIKit
 
 class InvitingVC: UIViewController {
+    
+    private let logo: UILabel = {
+       let label = UILabel()
+        label.text = "Notify"
+        label.font = UIFont.pretendard(size: 20, weight: .semibold)
+        return label
+    }()
+    private let tableview = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configureUI() {
+        self.view.backgroundColor = UIColor(named: "bgColor")
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        self.tableview.dataSource = self
+        tableview.register(DictionaryTableViewCell.self, forCellReuseIdentifier: DictionaryTableViewCell.identifier)
+        self.tableview.backgroundColor = UIColor(named: "bgColor")
     }
-    */
+    
+    func setConstraints() {
+        logo.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
+        
+        tableview.snp.makeConstraints { make in
+            make.top.equalTo(logo).offset(10)
+            make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
 
+}
+
+
+extension InvitingVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    
 }

@@ -94,8 +94,7 @@ extension NetworkManager: XMLParserDelegate {
         if elementName == "item" {
             currentItem = Item(word: "", pos: "", sense: [])
         } else if elementName == "sense" {
-            currentSenseElement = SenseElement(senseOrder: 0, transWord: "")
-            //currentSenseElement = SenseElement(senseOrder: 0, definition: "", transWord: "", transDfn: "")
+            currentSenseElement = SenseElement(senseOrder: 0, definition: "", transWord: "", transDfn: "")
         }
     }
     
@@ -107,14 +106,14 @@ extension NetworkManager: XMLParserDelegate {
             currentItem?.word += data
         case "pos":
             currentItem?.pos += data
-//        case "definition":
-//            currentSenseElement?.definition += data
+        case "definition":
+            currentSenseElement?.definition += data
         case "sense_order":
             currentSenseElement?.senseOrder += Int(data) ?? 0
         case "trans_word":
             currentSenseElement?.transWord += data
-//        case "trans_dfn":
-//            currentSenseElement?.transDfn += data
+        case "trans_dfn":
+            currentSenseElement?.transDfn += data
         default:
             break
         }
@@ -155,6 +154,7 @@ extension NetworkManager: XMLParserDelegate {
 
 
 //[WordWideWeb.Item(word: "안녕", pos: "감탄사", sense: [WordWideWeb.SenseElement(senseOrder: 1, transWord: "hello; hi; good-bye; bye")]),
+// 
 // WordWideWeb.Item(word: "안녕", pos: "명사", sense: [WordWideWeb.SenseElement(senseOrder: 1, transWord: "peace; good health")]),
 // 
 // WordWideWeb.Item(word: "안녕히", pos: "부사", sense: [WordWideWeb.SenseElement(senseOrder: 1, transWord: "in peace")]),
