@@ -139,19 +139,15 @@ class TestViewController: UIViewController {
     
     @objc func checkAnswer(){
         guard let userInput = testView.answerLabel.text else {
-            print("No answer entered")
             return
         }
         if answer == userInput {
             status[currentIndex] = .right
-            print("right!")
             reloadQView()
         } else {
             status[currentIndex] = .wrong
-            print("wrong")
             reloadQView()
         }
-        print(status)
         if !status.contains(.none){
             moveToResultView()
         }
