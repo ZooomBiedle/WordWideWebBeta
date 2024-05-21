@@ -67,6 +67,7 @@ class TabBarController: UITabBarController {
         
         let testIntroViewController = TestIntroViewController()
         testIntroViewController.modalPresentationStyle = .fullScreen
+        //testIntroViewController.wordbook = wordbook as? Wordbook
         self.present(testIntroViewController, animated: true)
 
     }

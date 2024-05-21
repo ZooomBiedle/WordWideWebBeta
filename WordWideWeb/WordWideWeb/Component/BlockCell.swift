@@ -9,7 +9,7 @@ import SnapKit
 
 class BlockCell: UICollectionViewCell {
     
-    private let term: UILabel = {
+    let term: UILabel = {
         let term = UILabel()
         term.textColor = .black
         term.font = UIFont.pretendard(size: 16, weight: .semibold)
