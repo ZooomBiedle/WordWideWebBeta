@@ -12,16 +12,15 @@ import SnapKit
 class MyPageWordViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
     lazy var backButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("back", for: .normal)
-        button.backgroundColor = .black
-        button.setTitleColor(.yellow, for: .normal)
-        button.layer.cornerRadius = 10
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "arrow.backward"), for: .normal)
+        button.tintColor = .black
         button.addTarget(self, action: #selector(returnMain), for: .touchUpInside)
         return button
     }()
     @objc func returnMain() {
-        self.dismiss(animated: true)
+//        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     lazy var wordButton: UIButton = {
@@ -30,34 +29,37 @@ class MyPageWordViewController: UIViewController, UIViewControllerTransitioningD
         button.backgroundColor = .white
         button.layer.cornerRadius = 10
         button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(returnMain), for: .touchUpInside)
+        button.layer.shadowOpacity = 0.3
+        button.layer.shadowOffset = CGSize(width: 4, height: 4)
+        button.addTarget(self, action: #selector(modalPageTapped), for: .touchUpInside)
         return button
     }()
     
+    @objc func modalPageTapped() {
+        let myPageModalVC = MyPageModalViewController()
+        self.present(myPageModalVC, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "bgColor")
         layout()
-        // Do any additional setup after loading the view.
     }
  
     private func layout() {
         view.addSubview(backButton)
         backButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(70)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-270)
-            make.bottom.equalToSuperview().offset(-730)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(24)
+            make.left.equalTo(view).offset(16)
         }
         
         view.addSubview(wordButton)
         wordButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(300)
+            make.top.equalToSuperview().offset(120)
             make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-270)
-            make.bottom.equalToSuperview().offset(-500)
+            make.width.equalTo(55)
+//            make.trailing.equalToSuperview().offset(-270)
+//            make.bottom.equalToSuperview().offset(-700)
         }
     }
 }
-

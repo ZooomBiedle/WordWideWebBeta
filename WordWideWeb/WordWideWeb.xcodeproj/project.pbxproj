@@ -67,8 +67,8 @@
 		9C1F0FD42BFBAC93002D680D /* EmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FD32BFBAC93002D680D /* EmptyCollectionViewCell.swift */; };
 		9C1F0FD62BFBAD52002D680D /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FD52BFBAD52002D680D /* LabelFactory.swift */; };
 		9C1F0FD82BFBAD75002D680D /* ImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FD72BFBAD75002D680D /* ImageFactory.swift */; };
-		9C1F0FDA2BFBADA2002D680D /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FD92BFBADA2002D680D /* ButtonFactory.swift */; };
 		B9F7CEA62BFC27DC00DEF732 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B9F7CEA52BFC27DC00DEF732 /* SnapKit */; };
+		B9F7CEA92BFCBD8A00DEF732 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = B9F7CEA82BFCBD8A00DEF732 /* PanModal */; };
 		F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB8F2BF329980075BA50 /* AppDelegate.swift */; };
 		F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB912BF329980075BA50 /* SceneDelegate.swift */; };
 		F410EB942BF329980075BA50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB932BF329980075BA50 /* ViewController.swift */; };
@@ -139,7 +139,6 @@
 		9C1F0FD32BFBAC93002D680D /* EmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C1F0FD52BFBAD52002D680D /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
 		9C1F0FD72BFBAD75002D680D /* ImageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFactory.swift; sourceTree = "<group>"; };
-		9C1F0FD92BFBADA2002D680D /* ButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
 		F410EB8C2BF329980075BA50 /* WordWideWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordWideWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F410EB8F2BF329980075BA50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F410EB912BF329980075BA50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F7CEA92BFCBD8A00DEF732 /* PanModal in Frameworks */,
 				2A8447232BF3631100AE319A /* FirebaseDatabaseSwift in Frameworks */,
 				B9F7CEA62BFC27DC00DEF732 /* SnapKit in Frameworks */,
 				2AA413D92BF3D17100C34FEB /* GoogleSignIn in Frameworks */,
@@ -277,6 +277,10 @@
 			children = (
 				9C1F0FA32BF78C4A002D680D /* TabBarController.swift */,
 				9C1F0F9F2BF7332F002D680D /* MyPageVC.swift */,
+				9C1F0FD12BFBAC5F002D680D /* MyPageCollectionViewCell.swift */,
+				9C1F0FCD2BFBABE5002D680D /* MyPageWordViewController.swift */,
+				9C1F0FCF2BFBAC25002D680D /* MyPageModalViewController.swift */,
+				9C1F0FCB2BFBAB9B002D680D /* PageControlViewController.swift */,
 				9C1F0F892BF5E02E002D680D /* PlayingListVC.swift */,
 				9C1F0F9B2BF6F4E8002D680D /* DictionaryVC.swift */,
 				9C1F0F9D2BF732EB002D680D /* InvitingVC.swift */,
@@ -289,10 +293,6 @@
 				F410EBFF2BF72F620075BA50 /* TestIntroViewController.swift */,
 				9C1F0FBF2BFB94BA002D680D /* TestResultViewController.swift */,
 				9C1F0FC12BFB94EE002D680D /* TestViewController.swift */,
-				9C1F0FCB2BFBAB9B002D680D /* PageControlViewController.swift */,
-				9C1F0FCD2BFBABE5002D680D /* MyPageWordViewController.swift */,
-				9C1F0FCF2BFBAC25002D680D /* MyPageModalViewController.swift */,
-				9C1F0FD12BFBAC5F002D680D /* MyPageCollectionViewCell.swift */,
 				9C1F0FD32BFBAC93002D680D /* EmptyCollectionViewCell.swift */,
 			);
 			path = Controller;
@@ -330,7 +330,6 @@
 				F410EBFB2BF5DDB80075BA50 /* BlockCell.swift */,
 				9C1F0FD52BFBAD52002D680D /* LabelFactory.swift */,
 				9C1F0FD72BFBAD75002D680D /* ImageFactory.swift */,
-				9C1F0FD92BFBADA2002D680D /* ButtonFactory.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -379,6 +378,7 @@
 				2AA413D82BF3D17100C34FEB /* GoogleSignIn */,
 				2AA413DA2BF3D17100C34FEB /* GoogleSignInSwift */,
 				B9F7CEA52BFC27DC00DEF732 /* SnapKit */,
+				B9F7CEA82BFCBD8A00DEF732 /* PanModal */,
 			);
 			productName = WorldWordWeb;
 			productReference = F410EB8C2BF329980075BA50 /* WordWideWeb.app */;
@@ -413,6 +413,7 @@
 				2A8447172BF3631100AE319A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				2AA413D72BF3D17100C34FEB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				B9F7CEA42BFC27DC00DEF732 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				B9F7CEA72BFCBD8A00DEF732 /* XCRemoteSwiftPackageReference "PanModal" */,
 			);
 			productRefGroup = F410EB8D2BF329980075BA50 /* Products */;
 			projectDirPath = "";
@@ -492,7 +493,6 @@
 				9C1F0F8C2BF5E0BC002D680D /* MyInfoVC.swift in Sources */,
 				2A6C0CF12BF998670035B405 /* ProfileViewModel.swift in Sources */,
 				9C1F0FBA2BFB939E002D680D /* TestResultView.swift in Sources */,
-				9C1F0FDA2BFBADA2002D680D /* ButtonFactory.swift in Sources */,
 				2A511B152BF5FCFB00CDA177 /* User.swift in Sources */,
 				2A1165FF2BFB2175000F61B0 /* RadioButton.swift in Sources */,
 				2A1165FD2BFB20B9000F61B0 /* UIColor+Ext.swift in Sources */,
@@ -760,6 +760,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		B9F7CEA72BFCBD8A00DEF732 /* XCRemoteSwiftPackageReference "PanModal" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/slackhq/PanModal.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.7;
+			};
+		};
 		F410EBBB2BF34F790075BA50 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
@@ -840,6 +848,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B9F7CEA42BFC27DC00DEF732 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		B9F7CEA82BFCBD8A00DEF732 /* PanModal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9F7CEA72BFCBD8A00DEF732 /* XCRemoteSwiftPackageReference "PanModal" */;
+			productName = PanModal;
 		};
 		F410EBBC2BF34F790075BA50 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
