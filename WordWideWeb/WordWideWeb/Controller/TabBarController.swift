@@ -11,13 +11,15 @@ import FirebaseFirestore
 //import SDWebImage
 
 class TabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTabBar()
         setDefaultTabBarImages()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showPage(_:)), name: NSNotification.Name("showPage"), object: nil)
     }
-
+    
     func setTabBar() {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -54,6 +56,27 @@ class TabBarController: UITabBarController {
         navController.tabBarItem.image = image.withRenderingMode(.alwaysOriginal) // 이미지 크기 유지
         navController.interactivePopGestureRecognizer?.delegate = nil // 스와이프 제스처 enable true
         return navController
+    }
+    
+    @objc func showPage(_ notification:Notification) {
+        print("showPage")
+        
+        guard let userInfo = notification.userInfo, let wordbook = userInfo["wordbook"] else { return }
+        
+        print("received wordbook \(wordbook)")
+        
+        let testIntroViewController = TestIntroViewController()
+        testIntroViewController.modalPresentationStyle = .fullScreen
+        self.present(testIntroViewController, animated: true)
+
+    }
+    
+    private func configureInvitationViewController(_ viewController: TestViewController, wordbook: Wordbook) {
+        
+        //viewController.taskname = "new"
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.hidesBottomBarWhenPushed = true
+        viewController.view.isOpaque = false
     }
 }
 

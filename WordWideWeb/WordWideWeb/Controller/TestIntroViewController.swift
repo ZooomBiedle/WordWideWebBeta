@@ -44,7 +44,6 @@ class TestIntroViewController: UIViewController {
     }
     
     @objc private func didTappedStartBtn() {
-        self.dismiss(animated: true)
         let testViewController = TestViewController()
         testViewController.modalPresentationStyle = .fullScreen
         present(testViewController, animated: true)

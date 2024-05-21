@@ -44,6 +44,7 @@ class TestViewController: UIViewController {
         super.viewDidLoad()
         view = self.testView
         setData()
+        print("TestViewController")
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -69,7 +70,7 @@ class TestViewController: UIViewController {
     }
     
     func setTimer(){
-        secondLeft = 10
+        //secondLeft = 
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (t) in
             //남은 시간(초)에서 1초 빼기
             self.secondLeft -= 1

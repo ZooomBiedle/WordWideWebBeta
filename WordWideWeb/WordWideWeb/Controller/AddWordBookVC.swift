@@ -43,6 +43,8 @@ class AddWordBookVC: UIViewController, UITextFieldDelegate {
     private let closeButton = UIButton(type: .system)
     private let activityIndicator = UIActivityIndicatorView(style: .medium)
     
+    private let pushNotificationHelper = PushNotificationHelper.shared
+    
     // State variables
     private var isUploading = false
     private var selectedColorButton: UIButton?
@@ -341,8 +343,9 @@ class AddWordBookVC: UIViewController, UITextFieldDelegate {
         let isPublic = publicButton.isSelected
         let dueDate: Timestamp? = timePeriodYesButton.isSelected ? Timestamp(date: deadlineDatePicker.date) : nil
         let attendees: [String] = [Auth.auth().currentUser!.uid] // 기본적으로 생성자의 ID 포함
+        let id = UUID().uuidString
         
-        let wordbook = Wordbook(id: UUID().uuidString,
+        let wordbook = Wordbook(id: id,
                                 ownerId: Auth.auth().currentUser!.uid,
                                 title: title,
                                 isPublic: isPublic,
@@ -352,6 +355,9 @@ class AddWordBookVC: UIViewController, UITextFieldDelegate {
                                 sharedWith: isPublic ? [] : nil, // 공개일 경우 빈 배열, 비공개일 경우 nil
                                 colorCover: coverColor,
                                 wordCount: 0)
+        
+        guard let dueDateComponents = convertToDateComponents(from: dueDate) else { return  }
+        pushNotificationHelper.pushNotification(test: title, time: dueDateComponents, identifier: "\(id)")
         
         activityIndicator.startAnimating()
         
@@ -369,6 +375,16 @@ class AddWordBookVC: UIViewController, UITextFieldDelegate {
                 activityIndicator.stopAnimating()
             }
         }
+    }
+    
+    func convertToDateComponents(from timestamp: Timestamp?) -> DateComponents? {
+        guard let timestamp = timestamp else { return nil }
+        
+        let date = Date(timeIntervalSince1970: TimeInterval(timestamp.seconds))
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        
+        return components
     }
 }
 

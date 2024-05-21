@@ -72,6 +72,7 @@
 		F410EBF22BF3C3D70075BA50 /* SearchBarWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EBF12BF3C3D70075BA50 /* SearchBarWhite.swift */; };
 		F410EBFC2BF5DDB80075BA50 /* BlockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EBFB2BF5DDB80075BA50 /* BlockCell.swift */; };
 		F410EC002BF72F620075BA50 /* TestIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EBFF2BF72F620075BA50 /* TestIntroViewController.swift */; };
+		F4ECA7542BFC408A00CD24E6 /* PushNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ECA7532BFC408A00CD24E6 /* PushNotificationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,7 @@
 		F410EBF12BF3C3D70075BA50 /* SearchBarWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarWhite.swift; sourceTree = "<group>"; };
 		F410EBFB2BF5DDB80075BA50 /* BlockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCell.swift; sourceTree = "<group>"; };
 		F410EBFF2BF72F620075BA50 /* TestIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIntroViewController.swift; sourceTree = "<group>"; };
+		F4ECA7532BFC408A00CD24E6 /* PushNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +268,7 @@
 				F410EBFF2BF72F620075BA50 /* TestIntroViewController.swift */,
 				9C1F0FBF2BFB94BA002D680D /* TestResultViewController.swift */,
 				9C1F0FC12BFB94EE002D680D /* TestViewController.swift */,
+				F4ECA7532BFC408A00CD24E6 /* PushNotificationHelper.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				2A67F9032BF7675D0075465D /* FirestoreManager.swift in Sources */,
 				9C1F0FC22BFB94EE002D680D /* TestViewController.swift in Sources */,
 				2A1165FB2BFB1B67000F61B0 /* AddWordBookVC.swift in Sources */,
+				F4ECA7542BFC408A00CD24E6 /* PushNotificationHelper.swift in Sources */,
 				F410EB942BF329980075BA50 /* ViewController.swift in Sources */,
 				F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */,
 				9C1F0F9A2BF6F3F5002D680D /* RemoteDictionary.swift in Sources */,
