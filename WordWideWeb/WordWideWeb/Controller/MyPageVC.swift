@@ -21,14 +21,14 @@ class MyPageVC: UIViewController {
     var collection: UICollectionView = {
         let layout = CarouselLayout()
         
-        layout.itemSize = CGSize(width: 297, height: 475)
+        layout.itemSize = CGSize(width: 297, height: 450)
         layout.sideItemScale = 175/251
-        layout.spacing = -120
+        layout.spacing = -175
         layout.isPagingEnabled = true
         layout.sideItemAlpha = 0.5
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
-        view.showsHorizontalScrollIndicator = false  // 자동으로 horizontal인것을 꺼주기
+     //  view.showsHorizontalScrollIndicator = false  // 자동으로 horizontal인것을 꺼주기
         
         view.backgroundColor = UIColor(named: "bgColor")
         view.register(MyPageCollectionViewCell.self, forCellWithReuseIdentifier: "MyPageCollectionViewCell")
@@ -41,11 +41,13 @@ class MyPageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "bgColor")
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
         setupViews()
         collecctionSetup()
         
         //더미 데이터 생성
-        makeDummy(count: 7)
+        makeDummy(count: 2)
         
 //        let dummy = MyPage(word: ["let"], title: "개발자 필수 영단어", name: "jiyeon", image: "cross")
 //        let dummy1 = MyPage(word: ["let"], title: "개발자 필수 영단어", name: "jiyeon", image: "cross")
@@ -72,7 +74,6 @@ class MyPageVC: UIViewController {
         view.addSubview(circleBtn)
         view.addSubview(collection)
   
-        
         topLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(100)
             make.leading.equalToSuperview().offset(63)

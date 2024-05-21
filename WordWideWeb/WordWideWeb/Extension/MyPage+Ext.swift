@@ -49,4 +49,13 @@ extension MyPageVC: UICollectionViewDelegate, UICollectionViewDataSource
         // 셀 반환
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let myPageWordVC = MyPageWordViewController()
+        myPageWordVC.modalPresentationStyle = .fullScreen
+        self.present(myPageWordVC, animated: true)
+    }
+    
 }
+
+
+
