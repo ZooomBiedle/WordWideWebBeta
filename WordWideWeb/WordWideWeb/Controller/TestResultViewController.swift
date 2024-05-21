@@ -49,7 +49,6 @@ class TestResultViewController: UIViewController {
         view = self.testView
         setData()
         makeWrongWordsList()
-        print("TestResultViewController")
     }
     
     override func viewDidAppear(_ animated: Bool) {

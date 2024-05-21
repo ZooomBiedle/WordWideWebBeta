@@ -17,7 +17,7 @@ class TestViewController: UIViewController {
     
     // MARK: - properties
     private let testView = TestView()
-    private var secondLeft: Int = 180
+    private var secondLeft: Int = 10
     
     var taskname: String = "개발자를 위한 영단어 10"
     var taskmem: [String] = ["지연", "나연", "준영", "진영"]
@@ -44,7 +44,6 @@ class TestViewController: UIViewController {
         super.viewDidLoad()
         view = self.testView
         setData()
-        print("TestViewController")
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

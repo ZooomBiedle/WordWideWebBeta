@@ -12,6 +12,22 @@ import UIKit
 class TestIntroView: UIView {
     
     // MARK: - properties
+    private let topImageLabel: UIImageView = {
+        let label = UIImageView()
+        label.image = UIImage.smileFace
+        return label
+    }()
+    
+    private let topLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.pretendard(size: 20, weight: .semibold)
+        label.text = "Test"
+        label.textAlignment = .left
+        label.textColor = .black
+        label.numberOfLines = 1
+        return label
+    }()
+    
     private let bodyView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -120,6 +136,21 @@ class TestIntroView: UIView {
     
     private func setUI(){
         self.backgroundColor = .bg
+        
+        self.addSubview(topImageLabel)
+        topImageLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+            make.leading.equalToSuperview().offset(20)
+            make.height.width.equalTo(28)
+        }
+        
+        self.addSubview(topLabel)
+        topLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+            make.leading.equalTo(topImageLabel.snp.trailing).offset(3)
+            make.height.equalTo(28)
+            make.width.equalTo(100)
+        }
         
         self.addSubview(bodyView)
         bodyView.snp.makeConstraints { make in

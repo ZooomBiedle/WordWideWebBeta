@@ -19,15 +19,31 @@ class TestView: UIView {
         return view
     }()
     
+    private let topImageLabel: UIImageView = {
+        let label = UIImageView()
+        label.image = UIImage.smileFace
+        return label
+    }()
+    
+    private let topLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.pretendard(size: 20, weight: .semibold)
+        label.text = "Test"
+        label.textAlignment = .left
+        label.textColor = .black
+        label.numberOfLines = 1
+        return label
+    }()
+    
     lazy var friendView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayoutForFriend())
         view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
         view.showsHorizontalScrollIndicator = false
-        view.showsVerticalScrollIndicator = false
         view.contentInset = .zero
         view.clipsToBounds = true
+        view.alwaysBounceHorizontal = false
         view.alwaysBounceVertical = false
-        view.alwaysBounceHorizontal = true
         return view
     }()
     
@@ -190,7 +206,22 @@ class TestView: UIView {
         self.addSubview(topView)
         topView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(110)
+            make.height.equalTo(90)
+        }
+        
+        self.topView.addSubview(topImageLabel)
+        topImageLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+            make.leading.equalToSuperview().offset(20)
+            make.height.width.equalTo(28)
+        }
+        
+        self.addSubview(topLabel)
+        topLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+            make.leading.equalTo(topImageLabel.snp.trailing).offset(3)
+            make.height.equalTo(28)
+            make.width.equalTo(100)
         }
         
         self.addSubview(friendView)
