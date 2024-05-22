@@ -59,7 +59,6 @@
 		9C1F0FC62BFBA9E6002D680D /* CarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FC52BFBA9E6002D680D /* CarouselLayout.swift */; };
 		9C1F0FC82BFBAA1A002D680D /* MyPage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FC72BFBAA1A002D680D /* MyPage+Ext.swift */; };
 		9C1F0FCA2BFBAAB4002D680D /* CollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FC92BFBAAB4002D680D /* CollectionView+Ext.swift */; };
-		9C1F0FCC2BFBAB9B002D680D /* PageControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FCB2BFBAB9B002D680D /* PageControlViewController.swift */; };
 		9C1F0FCE2BFBABE5002D680D /* MyPageWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FCD2BFBABE5002D680D /* MyPageWordViewController.swift */; };
 		9C1F0FD02BFBAC25002D680D /* MyPageModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FCF2BFBAC25002D680D /* MyPageModalViewController.swift */; };
 		9C1F0FD22BFBAC5F002D680D /* MyPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FD12BFBAC5F002D680D /* MyPageCollectionViewCell.swift */; };
@@ -236,6 +235,7 @@
 				F410EB8E2BF329980075BA50 /* WorldWordWeb */,
 				F410EB8D2BF329980075BA50 /* Products */,
 				2A84472E2BF3694000AE319A /* Frameworks */,
+				F4ECA75E2BFDCC5D00CD24E6 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -305,7 +305,7 @@
 				9C1F0FBF2BFB94BA002D680D /* TestResultViewController.swift */,
 				9C1F0FC12BFB94EE002D680D /* TestViewController.swift */,
 				F4ECA7532BFC408A00CD24E6 /* PushNotificationHelper.swift */,
-                9C1F0FCD2BFBABE5002D680D /* MyPageWordViewController.swift */,
+				9C1F0FCD2BFBABE5002D680D /* MyPageWordViewController.swift */,
 				9C1F0FCF2BFBAC25002D680D /* MyPageModalViewController.swift */,
 				9C1F0FD12BFBAC5F002D680D /* MyPageCollectionViewCell.swift */,
 				9C1F0FD32BFBAC93002D680D /* EmptyCollectionViewCell.swift */,
@@ -314,7 +314,7 @@
 			sourceTree = "<group>";
 		};
 		F410EBA52BF329D60075BA50 /* Model */ = {
-            isa = PBXGroup;
+			isa = PBXGroup;
 			children = (
 				F410EBA82BF32BC20075BA50 /* NetworkManager.swift */,
 				9C1F0F992BF6F3F5002D680D /* RemoteDictionary.swift */,
@@ -360,6 +360,14 @@
 				2A67F8FD2BF755870075465D /* Pretendard-SemiBold.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		F4ECA75E2BFDCC5D00CD24E6 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F0FCB2BFBAB9B002D680D /* PageControlViewController.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,10 +503,9 @@
 				2A1165FB2BFB1B67000F61B0 /* AddWordBookVC.swift in Sources */,
 				F4ECA7542BFC408A00CD24E6 /* PushNotificationHelper.swift in Sources */,
 				F410EB942BF329980075BA50 /* ViewController.swift in Sources */,
-                F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */,
+				F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */,
 				9C1F0F9A2BF6F3F5002D680D /* RemoteDictionary.swift in Sources */,
 				9C1F0FCE2BFBABE5002D680D /* MyPageWordViewController.swift in Sources */,
-                9C1F0FCC2BFBAB9B002D680D /* PageControlViewController.swift in Sources */,
 				9C1F0FC62BFBA9E6002D680D /* CarouselLayout.swift in Sources */,
 				F410EBC32BF39C3E0075BA50 /* ListViewCell.swift in Sources */,
 				F410EC002BF72F620075BA50 /* TestIntroViewController.swift in Sources */,
