@@ -12,21 +12,22 @@ import SnapKit
 
 class ListViewCell: UIView {
     
-    private let imageLabel: UIImageView = {
+    let imageLabel: UIImageView = {
         let image = UIImageView()
         return image
     }()
     
-    private let titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.pretendard(size: 16, weight: .heavy)
         return label
     }()
     
-    private let dateLabel: UILabel = {
+    let dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .darkGray
+        label.numberOfLines = 2
         label.font = UIFont.pretendard(size: 14, weight: .regular)
         return label
     }()
@@ -49,19 +50,22 @@ class ListViewCell: UIView {
         imageLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.height.width.equalTo(50)
+            make.leading.equalToSuperview().offset(20)
         }
         
         self.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.centerY.equalTo(imageLabel.snp.centerY)
-            make.leading.equalTo(imageLabel.snp.trailing).offset(20)
+            make.width.equalTo(175)
+            make.leading.equalTo(imageLabel.snp.trailing).offset(15)
         }
         
         self.addSubview(dateLabel)
         dateLabel.snp.makeConstraints { make in
             make.centerY.equalTo(imageLabel.snp.centerY)
             make.trailing.equalToSuperview().offset(-30)
-            make.leading.equalTo(titleLabel.snp.trailing).offset(20)
+            make.leading.equalTo(titleLabel.snp.trailing).offset(15)
+            make.width.equalTo(80)
         }
     }
     
