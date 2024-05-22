@@ -69,6 +69,7 @@
 		9C1F0FDC2BFC66D1002D680D /* InvitationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FDB2BFC66D1002D680D /* InvitationData.swift */; };
 		9C1F0FDE2BFCB33F002D680D /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FDD2BFCB33F002D680D /* DefaultTableViewCell.swift */; };
 		9C1F0FE02BFCB351002D680D /* ExpandableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FDF2BFCB351002D680D /* ExpandableTableViewCell.swift */; };
+		9C1F0FE22BFDCEC4002D680D /* InvitedFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FE12BFDCEC4002D680D /* InvitedFriendCell.swift */; };
 		F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB8F2BF329980075BA50 /* AppDelegate.swift */; };
 		F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB912BF329980075BA50 /* SceneDelegate.swift */; };
 		F410EB942BF329980075BA50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB932BF329980075BA50 /* ViewController.swift */; };
@@ -143,6 +144,7 @@
 		9C1F0FDB2BFC66D1002D680D /* InvitationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationData.swift; sourceTree = "<group>"; };
 		9C1F0FDD2BFCB33F002D680D /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
 		9C1F0FDF2BFCB351002D680D /* ExpandableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableTableViewCell.swift; sourceTree = "<group>"; };
+		9C1F0FE12BFDCEC4002D680D /* InvitedFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitedFriendCell.swift; sourceTree = "<group>"; };
 		F410EB8C2BF329980075BA50 /* WordWideWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordWideWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F410EB8F2BF329980075BA50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F410EB912BF329980075BA50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				9C1F0FC52BFBA9E6002D680D /* CarouselLayout.swift */,
 				9C1F0FDD2BFCB33F002D680D /* DefaultTableViewCell.swift */,
 				9C1F0FDF2BFCB351002D680D /* ExpandableTableViewCell.swift */,
+				9C1F0FE12BFDCEC4002D680D /* InvitedFriendCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				F410EC002BF72F620075BA50 /* TestIntroViewController.swift in Sources */,
 				2A1166012BFB723D000F61B0 /* WordbookCell.swift in Sources */,
 				2A8447142BF3590300AE319A /* Numeric.swift in Sources */,
+				9C1F0FE22BFDCEC4002D680D /* InvitedFriendCell.swift in Sources */,
 				9C1F0F9E2BF732EB002D680D /* InvitingVC.swift in Sources */,
 				9C1F0FA42BF78C4A002D680D /* TabBarController.swift in Sources */,
 				9C1F0FC42BFBA98C002D680D /* MyPage.swift in Sources */,
