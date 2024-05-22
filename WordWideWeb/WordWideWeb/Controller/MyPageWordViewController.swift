@@ -37,6 +37,11 @@ class MyPageWordViewController: UIViewController, UIViewControllerTransitioningD
     
     @objc func modalPageTapped() {
         let myPageModalVC = MyPageModalViewController()
+        myPageModalVC.modalPresentationStyle = .formSheet
+        if let sheet = myPageModalVC.sheetPresentationController {
+            sheet.detents = [.medium()]
+        }
+        
         self.present(myPageModalVC, animated: true)
     }
     

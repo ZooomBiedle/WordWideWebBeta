@@ -60,7 +60,7 @@ class MyPageVC: UIViewController {
         collecctionSetup()
         
         //더미 데이터 생성
-        makeDummy(count: 2)
+        makeDummy(count: 5)
         
         addWordBookButton.addTarget(self, action: #selector(addWordBookButtonTapped), for: .touchUpInside)
         

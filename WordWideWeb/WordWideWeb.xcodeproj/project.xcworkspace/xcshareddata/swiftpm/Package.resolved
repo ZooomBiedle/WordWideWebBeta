@@ -1,5 +1,5 @@
 {
-  "originHash" : "41a90d067a795155d9b8ad3e638d8626fd74be275eab91e04aea535d762b1145",
+  "originHash" : "beb9e01c3689716c1a0c23f43ffe027e356e837f3f2b966b0d11428c71598a60",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -125,15 +125,6 @@
       "state" : {
         "revision" : "b7e1104502eca3a213b46303391ca4d3bc8ddec1",
         "version" : "2.30910.0"
-      }
-    },
-    {
-      "identity" : "panmodal",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/slackhq/PanModal.git",
-      "state" : {
-        "revision" : "b012aecb6b67a8e46369227f893c12544846613f",
-        "version" : "1.2.7"
       }
     },
     {
