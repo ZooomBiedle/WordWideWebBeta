@@ -8,8 +8,7 @@
 import UIKit
 
 class ImageFactory {
-    func makeImage(
-    ) -> UIImageView {
+    func makeImage() -> UIImageView {
         let logo = UIImageView()
         logo.image = UIImage(named: "fakeLogo")
         return logo

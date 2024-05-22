@@ -64,7 +64,6 @@ final class NetworkManager: NSObject, ObservableObject {
             self.setXMLParser(data: data)
             
             DispatchQueue.main.async {
-                print("Parsed items: \(self.items)")
                 completion(self.items)
             }
         }.resume()
@@ -140,23 +139,3 @@ extension NetworkManager: XMLParserDelegate {
         print("Error parsing XML: \(parseError.localizedDescription)")
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-//[WordWideWeb.Item(word: "안녕", pos: "감탄사", sense: [WordWideWeb.SenseElement(senseOrder: 1, transWord: "hello; hi; good-bye; bye")]),
-// 
-// WordWideWeb.Item(word: "안녕", pos: "명사", sense: [WordWideWeb.SenseElement(senseOrder: 1, transWord: "peace; good health")]),
-// 
-// WordWideWeb.Item(word: "안녕히", pos: "부사", sense: [WordWideWeb.SenseElement(senseOrder: 1, transWord: "in peace")]),
-// 
-// WordWideWeb.Item(word: "안녕하다", pos: "형용사", sense: [WordWideWeb.SenseElement(senseOrder: 1, transWord: "peaceful; calm"), WordWideWeb.SenseElement(senseOrder: 2, transWord: "healthy")])]
