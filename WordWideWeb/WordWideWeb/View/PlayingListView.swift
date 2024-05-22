@@ -23,7 +23,7 @@ class PlayingListView: UIView{
         return label
     }()
     
-    private let searchBar = SearchBarWhite(frame: CGRect(x: 0, y: 0, width: 290, height: 50), placeholder: "Search", cornerRadius: 10)
+    let searchBar = SearchBarWhite(frame: CGRect(x: 0, y: 0, width: 290, height: 50), placeholder: "Search", cornerRadius: 10)
     
     let filterBtn: UIButton = {
         let btn = UIButton()
