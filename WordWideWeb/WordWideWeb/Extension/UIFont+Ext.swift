@@ -41,7 +41,3 @@ extension UITextField {
             self.leftViewMode = .always
         }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> dev

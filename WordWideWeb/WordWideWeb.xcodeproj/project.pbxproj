@@ -275,12 +275,9 @@
 				9C1F0FB92BFB939E002D680D /* TestResultView.swift */,
 				9C1F0FBB2BFB93C5002D680D /* TestView.swift */,
 				9C1F0FBD2BFB9479002D680D /* TestIntroView.swift */,
-<<<<<<< HEAD
 				F4ECA7552BFCAE5100CD24E6 /* PlayingListView.swift */,
 				F4ECA7592BFCE2B800CD24E6 /* PlayingListViewCell.swift */,
-=======
 				9C1F0FC52BFBA9E6002D680D /* CarouselLayout.swift */,
->>>>>>> dev
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,21 +299,17 @@
 				F410EBFF2BF72F620075BA50 /* TestIntroViewController.swift */,
 				9C1F0FBF2BFB94BA002D680D /* TestResultViewController.swift */,
 				9C1F0FC12BFB94EE002D680D /* TestViewController.swift */,
-<<<<<<< HEAD
 				F4ECA7532BFC408A00CD24E6 /* PushNotificationHelper.swift */,
-=======
-				9C1F0FCB2BFBAB9B002D680D /* PageControlViewController.swift */,
-				9C1F0FCD2BFBABE5002D680D /* MyPageWordViewController.swift */,
+                9C1F0FCD2BFBABE5002D680D /* MyPageWordViewController.swift */,
 				9C1F0FCF2BFBAC25002D680D /* MyPageModalViewController.swift */,
 				9C1F0FD12BFBAC5F002D680D /* MyPageCollectionViewCell.swift */,
 				9C1F0FD32BFBAC93002D680D /* EmptyCollectionViewCell.swift */,
->>>>>>> dev
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
 		F410EBA52BF329D60075BA50 /* Model */ = {
-			isa = PBXGroup;
+            isa = PBXGroup;
 			children = (
 				F410EBA82BF32BC20075BA50 /* NetworkManager.swift */,
 				9C1F0F992BF6F3F5002D680D /* RemoteDictionary.swift */,
@@ -496,10 +489,10 @@
 				2A1165FB2BFB1B67000F61B0 /* AddWordBookVC.swift in Sources */,
 				F4ECA7542BFC408A00CD24E6 /* PushNotificationHelper.swift in Sources */,
 				F410EB942BF329980075BA50 /* ViewController.swift in Sources */,
-				F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */,
+                F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */,
 				9C1F0F9A2BF6F3F5002D680D /* RemoteDictionary.swift in Sources */,
 				9C1F0FCE2BFBABE5002D680D /* MyPageWordViewController.swift in Sources */,
-				9C1F0FCC2BFBAB9B002D680D /* PageControlViewController.swift in Sources */,
+                9C1F0FCC2BFBAB9B002D680D /* PageControlViewController.swift in Sources */,
 				9C1F0FC62BFBA9E6002D680D /* CarouselLayout.swift in Sources */,
 				F410EBC32BF39C3E0075BA50 /* ListViewCell.swift in Sources */,
 				F410EC002BF72F620075BA50 /* TestIntroViewController.swift in Sources */,
