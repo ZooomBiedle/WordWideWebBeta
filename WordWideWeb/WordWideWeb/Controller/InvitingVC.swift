@@ -17,12 +17,12 @@ class InvitingVC: UIViewController {
     }()
     private let tableview = UITableView()
     
-    private var invitationList: [InvitationData] = [
-        InvitationData(id: "1", ownerId: "jiyeon", photoURL: nil, title: "영어단어장100", dueDate: "2024.05.24", createdAt: "2024.05.20", words: ["world", "tree", "apple"]),
-        InvitationData(id: "2", ownerId: "nayeon", photoURL: nil, title: "개발자필수단어장", dueDate: "2024.05.23", createdAt: "2024.05.20", words: ["api", "computer", "keyboard", "macbook", "framework"]),
-        InvitationData(id: "3", ownerId: "jinyeong", photoURL: nil, title: "호텔필수단어장", dueDate: "2024.05.23", createdAt: "2024.05.18", words: ["kindness", "frontdesk", "owner", "amenity", "buffet"]),
+    private var invitationList: [[InvitationData]] = [
+        [InvitationData(id: "1", ownerId: "jiyeon", photoURL: nil, title: "영어단어장100", dueDate: "2024.05.24", createdAt: 20240520, words: ["world", "tree", "apple"]),
+        InvitationData(id: "2", ownerId: "nayeon", photoURL: nil, title: "개발자필수단어장", dueDate: "2024.05.23", createdAt: 20240520, words: ["api", "computer", "keyboard", "macbook", "framework"])],
+        [InvitationData(id: "3", ownerId: "jinyeong", photoURL: nil, title: "호텔필수단어장", dueDate: "2024.05.23", createdAt: 20240518, words: ["kindness", "frontdesk", "owner", "amenity", "buffet"])]
     ]
-    //private lazy var createdAtList: [String] = ["Today", "2024.05.20", "2024.05.18"]
+    
     var openedIndex: IndexPath?
 
     
@@ -98,15 +98,23 @@ extension InvitingVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "today"
+        // 각 섹션의 첫 번째 InvitationData의 createdAt 값을 헤더로 사용
+        let firstInvitationInSection = invitationList[section].first
+        let createdAtString = String(firstInvitationInSection?.createdAt ?? 0)
+
+        return createdAtString
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if invitationList[section].open == true {
-            return 1 + 1
-        } else {
-            return 1
+        var rowCount = invitationList[section].count
+        
+        // 섹션 내 모든 InvitationData의 open 상태를 확인
+        for invitation in invitationList[section] {
+            if invitation.open {
+                rowCount += 1 // open 상태인 InvitationData가 있다면 확장된 셀을 추가
+            }
         }
+        return rowCount
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -118,43 +126,48 @@ extension InvitingVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        let index = invitationList[indexPath.section][indexPath.row]
+        
+        if index.open {
             let cell = tableview.dequeueReusableCell(withIdentifier: DefaultTableViewCell.identifier, for: indexPath) as! DefaultTableViewCell
             
-            let index = invitationList[indexPath.section]
-            cell.defaultView.bind(imageData: nil, title: index.title, date: index.dueDate)
+            cell.defaultView.bind(imageData: Data(), title: index.title, date: index.dueDate)
             
             return cell
         } else {
             let cell = tableview.dequeueReusableCell(withIdentifier: ExpandableTableViewCell.identfier, for: indexPath) as! ExpandableTableViewCell
             
-            let index = invitationList[indexPath.section]
+
             cell.bindExpandedView(words: index.words)
+            cell.rejectButtonAction = { [weak self] in
+                self?.invitationList.remove(at: indexPath.row)
+                self?.tableview.deleteRows(at: [indexPath], with: .automatic)
+            }
+            cell.acceptButtonAction = { [weak self] in
+                print("단어장 초대 수락")
+            }
             
             return cell
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableview.cellForRow(at: indexPath) as? DefaultTableViewCell else {return}
         guard let index = tableview.indexPath(for: cell) else { return }
-        
+       
         if index.row == indexPath.row {
             if index.row == 0 {
-                if invitationList[indexPath.section].open == true {
-                    invitationList[indexPath.section].open = false
+                if invitationList[indexPath.section][indexPath.row].open {
+                    invitationList[indexPath.section][index.row].open.toggle()
                     let section = IndexSet.init(integer: indexPath.section)
                     tableView.reloadSections(section, with: .fade)
-                    
-                }else {
-                    invitationList[indexPath.section].open = true
+                } else {
+                    invitationList[indexPath.section][index.row].open.toggle()
                     let section = IndexSet.init(integer: indexPath.section)
                     tableView.reloadSections(section, with: .fade)
                 }
             }
         }
-        
     }
     
 }

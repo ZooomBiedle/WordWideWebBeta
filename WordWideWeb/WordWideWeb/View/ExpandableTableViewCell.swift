@@ -38,6 +38,9 @@ class ExpandableTableViewCell: UITableViewCell {
         return btn
     }()
     
+    var rejectButtonAction: (() -> Void) = {}
+    var acceptButtonAction: (() -> Void) = {}
+    
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -45,6 +48,8 @@ class ExpandableTableViewCell: UITableViewCell {
         contentView.backgroundColor = UIColor(named: "bgColor")
         setupLabels()
         setConstraints()
+        rejectButton.addTarget(self, action: #selector(rejectButtonTapped), for: .touchUpInside)
+        acceptButton.addTarget(self, action: #selector(acceptButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -59,6 +64,12 @@ class ExpandableTableViewCell: UITableViewCell {
             label.font = .pretendard(size: 12, weight: .regular)
             wordLabels.append(label)
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        rejectButtonAction = {}
+        acceptButtonAction = {}
     }
     
     func setConstraints() {
@@ -102,5 +113,12 @@ class ExpandableTableViewCell: UITableViewCell {
             label.text = word
         }
     }
-
+    
+    @objc func rejectButtonTapped() {
+        rejectButtonAction()
+    }
+    
+    @objc func acceptButtonTapped() {
+        acceptButtonAction()
+    }
 }
