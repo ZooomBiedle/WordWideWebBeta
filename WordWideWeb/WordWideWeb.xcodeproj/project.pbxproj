@@ -49,7 +49,6 @@
 		9C1F0FA02BF7332F002D680D /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0F9F2BF7332F002D680D /* MyPageVC.swift */; };
 		9C1F0FA22BF76BE1002D680D /* DictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FA12BF76BE1002D680D /* DictionaryTableViewCell.swift */; };
 		9C1F0FA42BF78C4A002D680D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FA32BF78C4A002D680D /* TabBarController.swift */; };
-		9C1F0FAC2BFB4820002D680D /* InvitingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FAB2BFB4820002D680D /* InvitingTableViewCell.swift */; };
 		9C1F0FB82BFB9332002D680D /* TestFriendViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FB72BFB9332002D680D /* TestFriendViewCell.swift */; };
 		9C1F0FBA2BFB939E002D680D /* TestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FB92BFB939E002D680D /* TestResultView.swift */; };
 		9C1F0FBC2BFB93C5002D680D /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FBB2BFB93C5002D680D /* TestView.swift */; };
@@ -68,6 +67,9 @@
 		9C1F0FD62BFBAD52002D680D /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FD52BFBAD52002D680D /* LabelFactory.swift */; };
 		9C1F0FD82BFBAD75002D680D /* ImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FD72BFBAD75002D680D /* ImageFactory.swift */; };
 		9C1F0FDA2BFBADA2002D680D /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FD92BFBADA2002D680D /* ButtonFactory.swift */; };
+		9C1F0FDC2BFC66D1002D680D /* InvitationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FDB2BFC66D1002D680D /* InvitationData.swift */; };
+		9C1F0FDE2BFCB33F002D680D /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FDD2BFCB33F002D680D /* DefaultTableViewCell.swift */; };
+		9C1F0FE02BFCB351002D680D /* ExpandableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F0FDF2BFCB351002D680D /* ExpandableTableViewCell.swift */; };
 		F410EB902BF329980075BA50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB8F2BF329980075BA50 /* AppDelegate.swift */; };
 		F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB912BF329980075BA50 /* SceneDelegate.swift */; };
 		F410EB942BF329980075BA50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410EB932BF329980075BA50 /* ViewController.swift */; };
@@ -125,7 +127,6 @@
 		9C1F0F9F2BF7332F002D680D /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		9C1F0FA12BF76BE1002D680D /* DictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTableViewCell.swift; sourceTree = "<group>"; };
 		9C1F0FA32BF78C4A002D680D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		9C1F0FAB2BFB4820002D680D /* InvitingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitingTableViewCell.swift; sourceTree = "<group>"; };
 		9C1F0FB72BFB9332002D680D /* TestFriendViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFriendViewCell.swift; sourceTree = "<group>"; };
 		9C1F0FB92BFB939E002D680D /* TestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultView.swift; sourceTree = "<group>"; };
 		9C1F0FBB2BFB93C5002D680D /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -144,6 +145,9 @@
 		9C1F0FD52BFBAD52002D680D /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
 		9C1F0FD72BFBAD75002D680D /* ImageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFactory.swift; sourceTree = "<group>"; };
 		9C1F0FD92BFBADA2002D680D /* ButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
+		9C1F0FDB2BFC66D1002D680D /* InvitationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationData.swift; sourceTree = "<group>"; };
+		9C1F0FDD2BFCB33F002D680D /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
+		9C1F0FDF2BFCB351002D680D /* ExpandableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableTableViewCell.swift; sourceTree = "<group>"; };
 		F410EB8C2BF329980075BA50 /* WordWideWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordWideWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F410EB8F2BF329980075BA50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F410EB912BF329980075BA50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -270,7 +274,6 @@
 			isa = PBXGroup;
 			children = (
 				9C1F0FA12BF76BE1002D680D /* DictionaryTableViewCell.swift */,
-				9C1F0FAB2BFB4820002D680D /* InvitingTableViewCell.swift */,
 				9C1F0FB72BFB9332002D680D /* TestFriendViewCell.swift */,
 				9C1F0FB92BFB939E002D680D /* TestResultView.swift */,
 				9C1F0FBB2BFB93C5002D680D /* TestView.swift */,
@@ -278,6 +281,8 @@
 				F4ECA7552BFCAE5100CD24E6 /* PlayingListView.swift */,
 				F4ECA7592BFCE2B800CD24E6 /* PlayingListViewCell.swift */,
 				9C1F0FC52BFBA9E6002D680D /* CarouselLayout.swift */,
+				9C1F0FDD2BFCB33F002D680D /* DefaultTableViewCell.swift */,
+				9C1F0FDF2BFCB351002D680D /* ExpandableTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				F410EBA82BF32BC20075BA50 /* NetworkManager.swift */,
 				9C1F0F992BF6F3F5002D680D /* RemoteDictionary.swift */,
 				9C1F0FC32BFBA98C002D680D /* MyPage.swift */,
+				9C1F0FDB2BFC66D1002D680D /* InvitationData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -454,7 +460,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C1F0F9C2BF6F4E8002D680D /* DictionaryVC.swift in Sources */,
-				9C1F0FAC2BFB4820002D680D /* InvitingTableViewCell.swift in Sources */,
 				9C1F0FA02BF7332F002D680D /* MyPageVC.swift in Sources */,
 				9C1F0FD62BFBAD52002D680D /* LabelFactory.swift in Sources */,
 				9C1F0FD02BFBAC25002D680D /* MyPageModalViewController.swift in Sources */,
@@ -470,6 +475,7 @@
 				9C1F0FBE2BFB9479002D680D /* TestIntroView.swift in Sources */,
 				9C1F0FD42BFBAC93002D680D /* EmptyCollectionViewCell.swift in Sources */,
 				F410EBF22BF3C3D70075BA50 /* SearchBarWhite.swift in Sources */,
+				9C1F0FDC2BFC66D1002D680D /* InvitationData.swift in Sources */,
 				2A6C0CED2BF911840035B405 /* ProfileVC.swift in Sources */,
 				9C1F0FD22BFBAC5F002D680D /* MyPageCollectionViewCell.swift in Sources */,
 				9C1F0FB82BFB9332002D680D /* TestFriendViewCell.swift in Sources */,
@@ -501,11 +507,13 @@
 				9C1F0F9E2BF732EB002D680D /* InvitingVC.swift in Sources */,
 				9C1F0FA42BF78C4A002D680D /* TabBarController.swift in Sources */,
 				9C1F0FC42BFBA98C002D680D /* MyPage.swift in Sources */,
+				9C1F0FDE2BFCB33F002D680D /* DefaultTableViewCell.swift in Sources */,
 				F410EB922BF329980075BA50 /* SceneDelegate.swift in Sources */,
 				F4ECA7562BFCAE5100CD24E6 /* PlayingListView.swift in Sources */,
 				9C1F0F8C2BF5E0BC002D680D /* MyInfoVC.swift in Sources */,
 				2A6C0CF12BF998670035B405 /* ProfileViewModel.swift in Sources */,
 				9C1F0FBA2BFB939E002D680D /* TestResultView.swift in Sources */,
+				9C1F0FE02BFCB351002D680D /* ExpandableTableViewCell.swift in Sources */,
 				9C1F0FDA2BFBADA2002D680D /* ButtonFactory.swift in Sources */,
 				2A511B152BF5FCFB00CDA177 /* User.swift in Sources */,
 				2A1165FF2BFB2175000F61B0 /* RadioButton.swift in Sources */,
